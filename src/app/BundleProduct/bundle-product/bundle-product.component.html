@@ -1,0 +1,62 @@
+<div class="d-flex">
+    <app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+
+<div class="bundle-product-list">
+    <h2>Bundle Product List</h2>
+    <p>Manage Your Bundle Products</p>
+  
+    <div class="filters">
+      <div class="search-container">
+        <input type="text" placeholder="Search" class="search-bar" />
+        <button type="submit">Search</button>
+      </div>      
+      <button class="create-button" routerLink="/bundleAdd">+ Create Bundle Product</button>
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Bundle Name</th>
+          <th>Barcode</th>
+          <th>Vat</th>
+          <th>Branch</th>
+          <th>Stocks</th>
+          <th>Quantity</th>
+          <th>Cost Price</th>
+          <th>Sell Price</th>
+          <th>Expired Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of bundleList">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.barcode }}</td>
+          <td>{{ product.vat }}</td>
+          <td>{{ product.branch }}</td>
+          <td>{{ product.stockStatus }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.costPrice }}</td>
+          <td>{{ product.sellPrice }}</td>
+          <td>{{ product.expiredDate}}</td>
+          <td>
+          <a [routerLink]="['/productEdit/', product.id]">
+            <button class="btn1">
+              <img src="assets/pen.png" alt="Edit" class="icon">
+            </button>
+          </a>
+          |
+          <button class="btn1" (click)="deletebundle(product.id)">
+            <img src="/assets/bin.png" alt="Delete" class="icon">
+          </button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+    </div>
+</div>

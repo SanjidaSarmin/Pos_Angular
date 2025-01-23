@@ -1,0 +1,102 @@
+.main-content {
+  padding: 20px;
+  background-color: #f9f9f9; 
+  min-height: calc(100vh - 70px); 
+  box-sizing: border-box; 
+}
+.dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+  }
+  
+  h4 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 28px;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    gap: 20px;
+    
+  }
+  
+  .product-table {
+    width: 70%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+  }
+  
+  .product-table th, .product-table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 18px;
+  }
+  
+  .product-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .product-table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .stats-cards {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .card p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Slightly lift the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  }
+  
+  .product-table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+  }
+  
+  .product-table tbody tr:nth-child(even) {
+    background-color: #f7f7f7; /* Light gray for even rows */
+  }
+  
+  .product-table tbody tr:hover {
+    background-color: #e0f7fa; /* Highlighted color on hover */
+  }
+  
+  .product-table th {
+    background-color: #f4f4f4; /* Header background */
+    font-weight: bold;
+  }
+    

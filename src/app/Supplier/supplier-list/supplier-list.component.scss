@@ -1,0 +1,166 @@
+.main-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 20px;
+    margin-left: 50px;
+}
+
+.add-supplier {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-right: 50px;
+}
+
+.btn-add {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #175177;
+    background-color: #ffffff;
+    border: 1px solid #175177;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #175177;
+    color: white;
+}
+
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.date-input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    width: 200px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.date-input:focus {
+    border-color: #234e8f;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    color: #234e8f;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 50px;
+}
+
+.search-box {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.search-box:focus {
+    border-color: #234e8f;
+}
+
+.btn-search {
+    padding: 8px 14px;
+    background-color: #234e8f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-search:hover {
+    background-color: #103163;
+}
+
+
+
+.table {
+    width: 95%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: center;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    // text-align: left;
+    border: 1px solid #ddd;
+}
+
+
+.btn {
+    padding: 8px 12px;
+    font-size: 15px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+
+.btn-orange {
+    color: #4b92a3;
+    background-color: #ffffff;
+    border: 1px solid #4b92a3;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #4b92a3;
+    color: #ffffff;
+}
+
+.btn-purple {
+    color: #a142f4;
+    background-color: #ffffff;
+    border: 1px solid #a142f4;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-purple:hover {
+    background-color: #a142f4;
+    color: #ffffff;
+}
+
+.btn-green {
+    color: #47c266;
+    background-color: #ffffff;
+    border: 1px solid #47c266;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-green:hover {
+    background-color: #47c266;
+    color: #ffffff;
+}

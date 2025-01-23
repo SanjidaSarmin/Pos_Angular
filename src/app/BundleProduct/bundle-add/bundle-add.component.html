@@ -1,0 +1,73 @@
+<div class="d-flex">
+    <app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+      <form [formGroup]="bundleForm" (ngSubmit)="onSubmit()" class="product-form">
+        <h2>Add Product</h2>
+  
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" formControlName="name" />
+        </div>
+  
+        <div class="form-group">
+          <label for="barcode">Barcode</label>
+          <input type="text" formControlName="barcode" />
+        </div>
+  
+        <div class="form-group">
+          <label for="vat">VAT</label>
+          <input type="text" formControlName="vat" />
+        </div>
+  
+        <div class="form-group">
+          <label for="branch">Branch</label>
+          <select formControlName="branch">
+            <option value="" disabled selected>Select branch</option>
+            <option value="dhaka">Dhaka</option>
+            <option value="chittagong">Chittagong</option>
+            <option value="rajshahi">Rajshahi</option>
+            <option value="khulna">Khulna</option>
+            <option value="sylhet">Sylhet</option>
+            <option value="barisal">Barisal</option>
+            <option value="rangpur">Rangpur</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="stockStatus">Stock Status</label>
+          <select formControlName="stockStatus">
+            <option value="" disabled selected>Select stock status</option>
+            <option value="In Stock">In Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+            <option value="Pre-order">Pre-order</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" formControlName="quantity" />
+        </div>
+  
+        <div class="form-group">
+          <label for="costPrice">Cost Price</label>
+          <input type="number" formControlName="costPrice" />
+        </div>
+  
+        <div class="form-group">
+          <label for="sellPrice">Sell Price</label>
+          <input type="number" formControlName="sellPrice" />
+        </div>
+  
+        <div class="form-group">
+          <label for="expiredDate">Expired Date</label>
+          <input type="date" formControlName="expiredDate" />
+        </div>
+  
+        <div class="form-actions">
+          <button type="submit" class="submit-button">Submit</button>
+          <button type="reset" class="reset-button">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

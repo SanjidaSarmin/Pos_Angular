@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "image": "image_url_1",
+      "barcode": "123456789012",
+      "name": "Product A",
+      "category": "Category 1",
+      "vat": 18,
+      "branch": "Branch 1",
+      "stock": 100,
+      "costPrice": 50,
+      "sellPrice": 75,
+      "expiredDate": "2025-12-31",
+      "supplier": "Supplier A"
+    },
+    {
+      "id": "2",
+      "image": null,
+      "barcode": "123123",
+      "name": "KitKat Chocolate",
+      "category": "grocery",
+      "vat": 2,
+      "branch": "dhaka",
+      "stock": 100,
+      "costPrice": "35",
+      "sellPrice": "40",
+      "expiredDate": "20/10/2025",
+      "supplier": null
+    }
+  ],
+  "damagedProducts": [
+    {
+      "id": "11",
+      "date": "2025-01-18",
+      "branch": "Dhaka Branch",
+      "productName": "Laptop",
+      "damagedStock": 5,
+      "reason": "Water damage"
+    },
+    {
+      "id": "12",
+      "date": "2025-01-17",
+      "branch": "Chittagong Branch",
+      "productName": "Mobile Phone",
+      "damagedStock": 3,
+      "reason": "Screen cracked during shipping"
+    },
+    {
+      "id": "42",
+      "date": "2025-01-20",
+      "branch": null,
+      "productName": "ABC",
+      "damagedStock": 1,
+      "reason": "----"
+    }
+  ],
+  "promotions": [
+    {
+      "id": "1",
+      "name": "Winter Sale",
+      "code": "WINTER2025",
+      "status": "Active",
+      "minimumPurchase": 500,
+      "discount": 20,
+      "maximumDiscount": 100,
+      "appliedFor": "All Products",
+      "startDate": "2025-01-01",
+      "endDate": "2025-02-28"
+    },
+    {
+      "id": null,
+      "name": "Summer Sale",
+      "code": "54157",
+      "status": "Active",
+      "minimumPurchase": 200,
+      "discount": 10,
+      "maximumDiscount": 20,
+      "appliedFor": "All Products",
+      "startDate": "2025-01-21",
+      "endDate": "2025-01-28"
+    }
+  ]
+}

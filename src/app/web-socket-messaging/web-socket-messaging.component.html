@@ -1,0 +1,24 @@
+<div class="task-list">
+  <h2>Task List <b style="color: red;">{{tasks.length}}</b></h2>
+
+  <!-- Button to send a new task -->
+  <div class="send-task">
+    <input type="text" [(ngModel)]="newTaskName" placeholder="Task Name" />
+    <input type="number" [(ngModel)]="newTaskDays" placeholder="Days" />
+    <button (click)="sendTask()">Add Task</button>
+  </div>
+
+  <!-- Display list of tasks -->
+  <div *ngIf="tasks && tasks.length > 0; else noTasks">
+    <ul>
+      <li *ngFor="let task of tasks">
+        <strong>{{ task.name }}</strong> - {{ task.days }} days
+      </li>
+    </ul>
+  </div>
+
+  <!-- No tasks message -->
+  <ng-template #noTasks>
+    <p>No tasks to display</p>
+  </ng-template>
+</div>

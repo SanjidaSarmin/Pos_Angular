@@ -1,0 +1,46 @@
+<div class="d-flex">
+  <app-side-navbar></app-side-navbar>
+  <div class="main-content w-100">
+    <div class="container">
+      <h3 class="mb-4">Print Barcode</h3>
+
+      <!-- Product Name Selection -->
+      <div class="form-group">
+        <label for="productName">Product Name <span class="required">*</span></label>
+        <input type="text" class="form-control" id="productName" [formControl]="productNameControl"
+          (input)="filterProducts()" placeholder="Type product name" />
+        <ul *ngIf="filteredProducts.length > 0" class="autocomplete-list">
+          <li *ngFor="let product of filteredProducts" (click)="selectProduct(product)" class="autocomplete-item">
+            {{ product.name }}
+          </li>
+        </ul>
+      </div>
+
+      
+  <!-- Print Options -->
+  <div class="form-group mb-3">
+    <label class="form-label">Print:</label>
+    <div class="form-check form-check-inline" *ngFor="let option of printOptions">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        [(ngModel)]="option.selected"
+        [id]="option.name"
+      />
+      <label [for]="option.name" class="form-check-label">{{ option.label }}</label>
+    </div>
+  </div>
+
+  <!-- Paper Size Dropdown -->
+  <div class="form-group mb-4">
+    <label for="paperSize" class="form-label">
+      Paper Size <span class="required">*</span>
+    </label>
+    <select class="form-control" id="paperSize" [(ngModel)]="selectedPaperSize">
+      <option *ngFor="let size of paperSizes" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+
+  <!-- Submit Button -->
+  <button class="btn btn-primary">Submit</button>
+</div>
