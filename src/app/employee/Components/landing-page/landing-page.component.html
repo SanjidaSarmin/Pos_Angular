@@ -1,0 +1,236 @@
+<!-- sidenav.component.html -->
+<div class="sidenav" [class.closed]="isSidebarClosed">
+  <div class="sidenav-header">
+    <h2>Clover</h2>
+    <span class="menu-icon" (click)="toggleSidebar()">
+      <i class="fas" [class.fa-bars]="isSidebarClosed" [class.fa-times]="!isSidebarClosed"></i>
+    </span>
+  </div>
+  <ul class="sidebar-menu">
+    <li>
+      <a routerLink="/employee/main">
+        <i class="fa fa-shopping-cart"></i> Sell
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <div class="dropdown-header" (click)="toggleDropdown('submenu3')">
+        <a href="">
+          <i class="fa fa-box menu-icon"></i>Product
+        </a>
+        <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+      </div>
+      <ul [class.show]="activeDropdown === 'submenu3'" class="submenu" id="submenu3">
+        <li><a routerLink="/employee/productlist"><i class="fa fa-list menu-icon"></i> View All Products</a></li>
+        <li><a routerLink="/employee/productAdd"><i class="fa fa-plus menu-icon"></i> Add New Product</a></li>
+        <li><a routerLink="/employee/catagory"><i class="fa fa-th menu-icon"></i> Product Categories</a></li>
+        <li><a routerLink="/employee/damageList"><i class="fa fa-trash menu-icon"></i> Damage Products</a></li>
+        <li><a href="/employee/return"><i class="fa fa-credit-card menu-icon"></i> Return Product</a></li>
+        <li><a href="/employee"><i class="fa fa-balance-scale"></i> Product Unit Types</a></li>
+        <li><a href="/employee/barcode"><i class="fa fa-print"></i> Barcode Level Printers</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item">
+      <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
+        <a href="">
+          <i class="fa fa-users menu-icon"></i>Customer
+        </a>
+        <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+      </div>
+      <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
+        <li><a routerLink="/employee/suppliarList"><i class="fa fa-users menu-icon"></i>Customer List</a></li>
+        <li><a routerLink="/employee/Addsupplier"><i class="fa fa-user-plus menu-icon"></i> Add New Customer</a></li>
+        <li><a href="#"><i class="fa fa-gift menu-icon"></i> Loyality Points</a></li>
+      </ul>
+    </li>
+    
+
+    <li class="nav-item">
+      <div class="dropdown-header" (click)="toggleDropdown('submenu4')">
+        <a href="">
+          <i class="fa fa-truck menu-icon"></i>Supplier
+        </a>
+        <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+      </div>
+      <ul [class.show]="activeDropdown === 'submenu4'" class="submenu" id="submenu4">
+        <li><a routerLink="/employee/suppliarList"><i class="fa fa-list menu-icon"></i> All Suppliers</a></li>
+        <li><a routerLink="/employee/Addsupplier"><i class="fa fa-plus menu-icon"></i> Add New Supplier</a></li>
+        <li><a href="/employee"><i class="fa fa-tags menu-icon"></i> Purchases List</a></li>
+        <li><a href="/employee"><i class="fa fa-th menu-icon"></i> Add New Purchase</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item">
+      <div class="dropdown-header" (click)="toggleDropdown('submenu5')">
+        <a href="/">
+          <i class="fa fa-gift menu-icon"></i>Products Offers
+        </a>
+        <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+      </div>
+      <ul [class.show]="activeDropdown === 'submenu5'" class="submenu" id="submenu5">
+        <li><a routerLink="/employee/offer"><i class="fa fa-tags menu-icon"></i>Promotion Product</a></li>
+        <li><a routerLink="/employee/bundleProduct"><i class="fa fa-boxes menu-icon"></i>Bundle Product</a></li>
+      </ul>
+    </li>
+    
+
+    <li><a href="/employee"><i class="fa fa-database menu-icon"></i> Product Stocks</a></li>
+    <li><a href="/employee"><i class="fa fa-envelope menu-icon"></i> SMS Panel</a></li>
+    <li><a href="/employee"><i class="fa fa-cogs menu-icon"></i> Shop Setting & Others</a></li>
+  </ul>
+
+  <hr>
+  
+      <!-- Profile Section -->
+      <div class="profile">
+        <img src="/assets/admin.png" alt="Admin Profile">
+        <div class="info">
+          <p>Admin</p>
+          <a href="#">Logout</a>
+        </div>
+      </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content" [class.full-width]="isSidebarClosed">
+  
+  <div class="navbar">
+    <div class="navbar-content">
+      <span class="menu-icon" *ngIf="isSidebarClosed" (click)="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </span>
+        <!-- Left Section: Branch and Date -->
+        <div class="left-section">
+            <div class="branch-info">Mirpur Branch</div>
+            <div class="date">Wednesday 15 March 2023</div>
+        </div>
+
+        <!-- Center Section: Navigation Tabs -->
+
+        <div class="center-section">
+            <button class="tab walking">Walking</button>
+            <button class="tab customer">Customer</button>
+            <button class="tab add-customer">+ Customer</button>
+        </div>
+
+
+        <!-- Right Section: Placeholder for Design or Info -->
+        <div class="right-section">
+          <div class="header-support1">
+              <div class="notification-icon">
+                <i class="fa fa-bell"></i>
+              </div>
+
+              <div class="user-dropdown">
+                <i class="fa fa-user"></i>
+                <div class="dropdown-menu">
+                  <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
+                  <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                </div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-container">
+  <div class="row">
+    <!-- Left Section: Product Grid -->
+    <div class="section product-panel">
+        <div class="search-bar-container">
+            <div class="dropdown category-dropdown">
+                <select class="dropdown-select">
+                    <option value="">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="home-appliances">Home Appliances</option>
+                </select>
+            </div>
+
+            <div class="dropdown brand-dropdown">
+                <select class="dropdown-select">
+                    <option value="">Select Brand</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="nike">Nike</option>
+                    <option value="lg">LG</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Search Bar Below Dropdowns -->
+        <div class="search-bar-container">
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Search Products" class="search-bar" />
+            <button class="search-button" (click)="searchProducts()">Search</button>
+        </div>
+
+        <!-- Product Grid with Select Button -->
+        <div class="product-grid">
+            <div *ngFor="let product of filteredProducts" class="product-card">
+                <img src="placeholder.jpg" alt="{{ product.name }}" class="product-image" />
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-price">${{ product.price }}</p>
+                <button class="select-product-btn" (click)="addToCart(product)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Section: Cart Table -->
+    <div class="section cart-panel">
+        <div class="cart-header">Selected Products</div>
+        <div class="cart-table-container">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Product Info</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cartItems">
+                        <td>{{ item.product.name }}</td>
+                        <td><input type="number" [(ngModel)]="item.quantity" (input)="updateTotal()" min="1"></td>
+                        <td>{{ item.total }}</td>
+                        <td><button (click)="removeFromCart(item)">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Second Row: Billing Section -->
+<div class="row">
+    <div class="section billing-panel">
+        <div class="cart-header">Customer Info</div>
+        <div class="customer-info">Walking Customer | 20221605WALKING | 111111111 | None</div>
+
+        <div class="summary-panel">
+            <div>Total Gross: <span>{{ totalGross }}</span></div>
+            <div>Discount: <span>{{ discount }}</span></div>
+            <div>Subtotal: <span>{{ subtotal }}</span></div>
+            <div>Pre Due: <span>{{ preDue }}</span></div>
+            <div>Wallet Balance: <span>{{ walletBalance }}</span></div>
+            <div>Total Payable: <span>{{ totalPayable }}</span></div>
+        </div>
+
+        <div class="payment-buttons">
+            <button class="btn btn-primary">Cash</button><br>
+            <button class="btn btn-secondary">MFS or Card</button><br>
+            <button class="btn btn-warning">Multiple Pay</button><br>
+        </div>
+    </div>
+</div>
+</div>
+<!-- </div>
+</div> -->
+
+<script>
+  function toggleDropdown(menuId) {
+    const submenu = document.getElementById(menuId);
+    submenu.classList.toggle('show');
+  }
+</script>

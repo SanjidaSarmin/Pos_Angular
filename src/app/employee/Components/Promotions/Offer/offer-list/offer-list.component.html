@@ -1,0 +1,66 @@
+<div class="d-flex">
+    <app-navbar></app-navbar>
+    <div class="main-content w-100">
+      <div class="product-list-container">
+        <div class="header">
+          <h2>Promotion List</h2>
+          <p>Manage Your Promotions</p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/employee/offerAdd" class="btn add-product">+ Add Promotion</button>
+            <input type="date" placeholder="Date Range" class="date-range-input" />
+          </div>
+          <div class="toolbar-right">
+            <input type="text" placeholder="Search" class="search-input" />
+            <button class="btn">Search</button>
+          </div>
+        </div>
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Name</th>
+              <th>Code</th>
+              <th>Status</th>
+              <th>Minimum Purchase</th>
+              <th>Discount</th>
+              <th>Maximum Discount</th>
+              <th>Applied For</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let coupon of offerList">
+              <td>{{ coupon.id }}</td>
+              <td>{{ coupon.name }}</td>
+              <td>{{ coupon.code }}</td>
+              <td>{{ coupon.status }}</td>
+              <td>{{ coupon.minimumPurchase }}</td>
+              <td>{{ coupon.discount }}</td>
+              <td>{{ coupon.maximumDiscount }}</td>
+              <td>{{ coupon.appliedFor }}</td>
+              <td>{{ coupon.startDate }}</td>
+              <td>{{ coupon.endDate }}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/employee/offerEdit/', coupon.id]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon" />
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deleteOffer(coupon.id)">
+                  <img src="assets/bin.png" alt="Delete" class="icon" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

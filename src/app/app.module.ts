@@ -27,6 +27,7 @@ import { ReturnAddComponent } from './return/return-add/return-add.component';
 import { BundleProductComponent } from './BundleProduct/bundle-product/bundle-product.component';
 import { BundleAddComponent } from './BundleProduct/bundle-add/bundle-add.component';
 import { BundleEditComponent } from './BundleProduct/bundle-edit/bundle-edit.component';
+import { Event, NavigationEnd, Router } from '@angular/router';
 
 
 
@@ -72,4 +73,12 @@ import { BundleEditComponent } from './BundleProduct/bundle-edit/bundle-edit.com
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+    constructor(router: Router) {
+  router.events.subscribe((event: Event) => {
+    if (event instanceof NavigationEnd) {
+      console.log('NavigationEnd:', event.urlAfterRedirects);
+    }
+  });
+}
+}

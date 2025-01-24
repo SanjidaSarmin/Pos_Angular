@@ -1,0 +1,36 @@
+<div class="d-flex"><app-navbar></app-navbar>
+  <div class="main-content w-100">
+    <div class="container">
+      <h3>Product Category Lists</h3>
+      <p>Manage Your Product Categories</p>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" [(ngModel)]="searchTerm" />
+        <button (click)="search()">Search</button>
+      </div>
+      <div class="table-container">
+        <button class="add-btn">+ Add Product Category</button>
+        <table>
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Category Name</th>
+              <th>Code</th>
+              <th>Details</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of filteredCategories; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ category.name }}</td>
+              <td>{{ category.code || '-' }}</td>
+              <td>{{ category.details || '-' }}</td>
+              <td><button class="action-btn">...</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+</div>
