@@ -1,0 +1,86 @@
+<div class="d-flex">
+  <app-navbar></app-navbar>
+  <div class="main-content w-100">
+    <div class="container">
+      <h3 class="mb-4">Print Barcode</h3>
+
+      <!-- Branch Dropdown -->
+      <div class="form-group mb-4">
+        <label for="branchSelect" class="form-label">
+          Select Branch <span class="required">*</span>
+        </label>
+        <select class="form-control" id="branchSelect" [(ngModel)]="selectedBranch">
+          <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.name }}</option>
+        </select>
+      </div>
+      <!-- </div> -->
+
+      <!-- Product Name Selection -->
+      <div class="form-group">
+        <label for="productName">Product Name <span class="required">*</span></label>
+        <div class="d-flex align-items-center">
+          <input type="text" class="form-control me-2" id="productName" [formControl]="productNameControl"
+            (input)="filterProducts()" placeholder="Type product name" />
+          <!-- Search Button -->
+          <button class="btn btn-primary ms-2" (click)="searchProduct()">Search</button>
+        </div>
+        <ul *ngIf="filteredProducts.length > 0" class="autocomplete-list">
+          <li *ngFor="let product of filteredProducts" (click)="selectProduct(product)" class="autocomplete-item">
+            {{ product.name }}
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Product Table -->
+      <div *ngIf="selectedProducts.length > 0" class="mt-4">
+        <h4>Selected Products</h4>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Code</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of selectedProducts">
+              <td>{{ product.name }}</td>
+              <td>{{ product.code }}</td>
+              <td>
+                <input type="number" class="form-control" [(ngModel)]="product.quantity" min="1" />
+              </td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="removeProduct(product)">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Print Options -->
+      <div class="form-group mb-3">
+        <label class="form-label">Print:</label>
+        <div class="form-check form-check-inline" *ngFor="let option of printOptions">
+          <input type="checkbox" class="form-check-input" [(ngModel)]="option.selected" [id]="option.name" />
+          <label [for]="option.name" class="form-check-label">{{ option.label }}</label>
+        </div>
+      </div>
+
+      <!-- Paper Size Dropdown -->
+      <div class="form-group mb-4">
+        <label for="paperSize" class="form-label">
+          Paper Size <span class="required">*</span>
+        </label>
+        <select class="form-control" id="paperSize" [(ngModel)]="selectedPaperSize">
+          <option *ngFor="let size of paperSizes" [value]="size">{{ size }}</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button class="btn btn-primary" routerLink="/employee/Print">Print</button>
+    </div>
+  </div>

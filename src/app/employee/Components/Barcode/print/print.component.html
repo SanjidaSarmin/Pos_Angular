@@ -1,0 +1,23 @@
+<div class="d-flex">
+    <app-navbar></app-navbar>
+    <div class="main-content w-100">
+        <div class="barcode-dialog">
+    <h3>Print Barcode</h3>
+    <hr />
+    <div class="barcode-list">
+      <div class="barcode-item" *ngFor="let item of barcodeItems">
+        <p>{{ item.name }}</p>
+        <img [src]="item.barcodeImage" alt="Barcode" />
+        <p>{{ item.code }}</p>
+        <p>MRP: {{ item.mrp }}</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button (click)="cancel()">Cancel</button>
+      <button (click)="print()">Print</button>
+    </div>
+  </div>
+
+    </div>
+</div>
+  

@@ -1,18 +1,17 @@
 .main-content {
   padding: 20px;
-  background-color: #f9f9f9; 
-  min-height: calc(100vh - 70px); 
-  box-sizing: border-box; 
+  background-color: #f9f9f9;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
 }
+
 /* General Layout */
 .container {
-  max-width: 700px;
-  margin-top: 100px;
+  // margin-top: 100px;
   font-family: 'Arial', sans-serif;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
@@ -29,18 +28,45 @@ h3 {
   color: red;
 }
 
+.form-group select {
+  max-width: 300px;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.me-2 {
+  margin-right: 8px;
+}
+
+.ms-2 {
+  margin-left: 8px;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold; 
+  margin-bottom: 0.5rem;
+  color: #333; 
+}
+
 /* Form Labels */
 .form-label {
   font-weight: 600;
   display: block;
   margin-bottom: 6px;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
 }
 
 /* Input Fields */
 .form-control {
-  width: 100%;
+  max-width: 400px;
   padding: 8px 12px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -63,9 +89,9 @@ h3 {
   max-height: 150px;
   overflow-y: auto;
   position: absolute;
-  z-index: 1000;
+  // z-index: 1000;
   background: #fff;
-  width: 100%;
+  width: 400px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
@@ -100,8 +126,7 @@ h3 {
 /* Select Dropdown */
 select.form-control {
   appearance: none;
-  background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23666" viewBox="0 0 8 8"><path d="M0 0l4 4 4-4z"/></svg>')
-    no-repeat right 12px center/8px 8px;
+  background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23666" viewBox="0 0 8 8"><path d="M0 0l4 4 4-4z"/></svg>') no-repeat right 12px center/8px 8px;
   padding-right: 30px;
 }
 

@@ -1,0 +1,25 @@
+<div class="d-flex">
+  <app-navbar></app-navbar>
+  <div class="main-content w-100">
+    <div>
+    <!-- Input for Barcode Value -->
+    <label for="barcodeValue">Barcode Value:</label>
+    <input 
+      id="barcodeValue" 
+      type="text" 
+      [(ngModel)]="barcodeValue" 
+      placeholder="Enter Barcode Value" 
+    />
+  
+    <!-- Barcode Canvas -->
+    <div id="barcodeContainer">
+      <svg id="barcode"></svg>
+    </div>
+  
+    <!-- Buttons -->
+    <button (click)="generateBarcode()">Generate Barcode</button>
+    <button (click)="printBarcode()">Print</button>
+  </div>
+  </div>
+</div>
+  

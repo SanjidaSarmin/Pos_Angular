@@ -37,25 +37,25 @@ const routes: Routes = [
 
 
   { path: "navbar", component: SideNavbarComponent },
-  // { path: 'dashboard', component: DashboardComponent, },
+  { path: 'dashboard', component: DashboardComponent },
   // { path: 'product', component: ProductComponent},
   // { path: 'productlist', component: ListComponent },
   // { path: 'Addproduct', component: AddComponent },
   // { path: 'productEdit/:pId', component: EditComponent },
   // { path: 'sell', component: SellComponent },
-  { path: 'damageList', component: DamageListComponent },
-  { path: 'damageAdd', component: DamageAddComponent },
+  // { path: 'damageList', component: DamageListComponent },
+  // { path: 'damageAdd', component: DamageAddComponent },
   { path: 'suppliarList', component: SupplierListComponent },
   // { path: 'offerProduct', component: OfferListComponent},
   // { path: 'offerAdd', component: OfferAddComponent},
   // { path: 'offerEdit/:oId', component: OfferEditComponent},
 
-  { path: 'bundleProduct', component: BundleProductComponent},
-  { path: 'bundleAdd', component: BundleAddComponent},
+  // { path: 'bundleProduct', component: BundleProductComponent},
+  // { path: 'bundleAdd', component: BundleAddComponent},
   // { path: 'catagory', component: ProductCatagoryComponent},
-  { path: 'return', component: ReturnComponent},
-  { path: 'returnAdd', component: ReturnAddComponent},
-  { path: 'barcode', component: BarcodePrintComponent},
+  // { path: 'return', component: ReturnComponent},
+  // { path: 'returnAdd', component: ReturnAddComponent},
+  // { path: 'barcode', component: BarcodePrintComponent},
 
   { path: 'massage', component: WebSocketMessagingComponent},
 

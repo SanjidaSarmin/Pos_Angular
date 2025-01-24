@@ -1,0 +1,62 @@
+<div class="d-flex">
+    <app-navbar></app-navbar>
+      
+    <!-- Main Content -->
+    <div class="main-content w-100">
+    <div class="table-container">
+      <h2>All Damaged Products</h2>
+      <div class="add-product-container">
+        <button class="add-product-button" routerLink="/employee/damageAdd">Add Damaged Product</button>
+      </div>
+      <div class="table-controls">
+        <label for="entries">Show
+          <select id="entries" [(ngModel)]="entries">
+            <option *ngFor="let num of [10, 25, 50, 100]" [value]="num">{{ num }}</option>
+          </select>
+        </label>
+        <div class="search-container">
+          <input type="text" [(ngModel)]="searchText" placeholder="Search" class="search-box" />
+          <button type="submit">Search</button>
+        </div>
+      </div>
+      
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Date</th>
+            <th>Branch</th>
+            <th>Damaged Stock</th>
+            <th>Reason</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let damagedStock of damageList">
+            <td>{{ damagedStock.id }}</td>
+            <td>{{ damagedStock.productName }}</td>
+            <td>{{ damagedStock.date }}</td>
+            <td>{{ damagedStock.branch }}</td>
+            <td>{{ damagedStock.damagedStock }}</td>
+            <td>{{ damagedStock.reason }}</td>
+            <td style="text-align: center;">
+              <a [routerLink]="['/employee/damageEdit/', damagedStock.id]">
+                <button class="btn1">
+                  <img src="assets/pen.png" alt="Edit" class="icon" />
+                </button>
+              </a>
+              |
+              <button class="btn1">
+                <img src="/assets/bin.png" alt="Delete" class="icon" />
+              </button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+     
+    </div>
+    </div>
+    </div>

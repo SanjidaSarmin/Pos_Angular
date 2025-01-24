@@ -27,10 +27,10 @@ export class LandingPageComponent {
   totalPayable: number = 0;
 
   products = [
-    { name: 'HP Laptop', price: 100 },
-    { name: 'Samsung Galaxy', price: 150 },
-    { name: 'Nike Shoes', price: 120 },
-    { name: 'Ad-All Capsule', price: 120 },
+    { name: 'Mr Noodles', image: '/assets/coffe.jpg', price: 250 },
+    { name: 'Kitkat Chocolate', image: '/assets/kitkat.jpg', price: 100 },
+    { name: 'Pran Potata', image: '/assets/pran_potata.jpg', price: 50 },
+    { name: 'AllTime Cookies', image: '/assets/cookies.png', price: 20},
   ];
 
   filteredProducts = [...this.products];
