@@ -6,11 +6,14 @@
   box-sizing: border-box;
 }
 
-div {
-  margin: 20px auto;
-  max-width: 400px;
+.container {
+  margin-top: 150px;
+  padding: 20px;
+  max-width: 600px;
   text-align: center;
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 /* Input field styling */
