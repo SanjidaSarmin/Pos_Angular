@@ -1,14 +1,16 @@
 export interface Product {
-    id : any,
+    id: number;
     image: string;
-    barcode: string;
     name: string;
-    category: string;
+    barcode: string;
     vat: number;
-    branch: string;
-    stock: number 
-    costPrice: number
-    sellPrice: number 
-    expiredDate: Date;
-    supplier: string
+    stock: number;
+    costPrice: number;
+    sellPrice: number;
+    expiredDate: string;
+    dateCreated: string;
+    lastUpdated: string;
+    categoryId: number;
+    branchId: number;
+    supplierId: number;
   }
