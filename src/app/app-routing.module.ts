@@ -19,6 +19,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./employee/employee.module').then((m) => m.EmployeeModule),
   },
+  {
+    path: 'manager',
+    loadChildren: () =>
+      import('./branch-manager/branch-manager.module').then((m) => m.BranchManagerModule),
+  },
 
 
   { path: "navbar", component: SideNavbarComponent },

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CatagoryService } from 'src/app/employee/Service/Catagory/catagory.service';
+import { CategoryService } from 'src/app/branch-manager/Service/category/category.service';
 import { Category } from 'src/app/Models/Catagory';
 
 @Component({
-  selector: 'app-product-catagory',
-  templateUrl: './product-catagory.component.html',
-  styleUrls: ['./product-catagory.component.scss']
+  selector: 'app-category-list',
+  templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.scss']
 })
-export class ProductCatagoryComponent implements OnInit{
+export class CategoryListComponent implements OnInit{
     constructor(
-      private catagoryservice : CatagoryService
+      private catagoryservice : CategoryService
      ){}
      
      catagoryList: Category[] = [];
@@ -20,12 +20,12 @@ export class ProductCatagoryComponent implements OnInit{
       })
     }
   
-    // deletereturn(id : any){
-    //   this.catagoryservice.deleteById(id).subscribe((val : any) =>{
-    //     console.log("Data deleted");
-    //     this.ngOnInit()
-    //   })
-    //  }
+    deletecategory(id : any){
+      this.catagoryservice.deleteById(id).subscribe((val : any) =>{
+        console.log("Data deleted");
+        this.ngOnInit()
+      })
+     }
   
   searchTerm = '';
   filteredCategories = [...this.catagoryList];

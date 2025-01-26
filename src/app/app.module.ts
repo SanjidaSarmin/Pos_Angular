@@ -15,10 +15,6 @@ import { OfferListComponent } from './Product/Offer/offer-list/offer-list.compon
 import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-messaging.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { Event, NavigationEnd, Router } from '@angular/router';
-import { ProductListComponent } from './BranchManager/Components/Product/product-list/product-list.component';
-import { ProductAddComponent } from './BranchManager/Components/Product/product-add/product-add.component';
-import { ProductEditComponent } from './BranchManager/Components/Product/product-edit/product-edit.component';
-import { CategoryComponent } from './BranchManager/Components/Product/category/category.component';
 
 
 
@@ -40,10 +36,6 @@ import { CategoryComponent } from './BranchManager/Components/Product/category/c
     OfferListComponent,
     WebSocketMessagingComponent,
     SideNavbarComponent,
-    ProductListComponent,
-    ProductAddComponent,
-    ProductEditComponent,
-    CategoryComponent
  
   ],
   imports: [

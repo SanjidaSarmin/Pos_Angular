@@ -8,7 +8,7 @@ import { ReturnService } from 'src/app/employee/Service/Return/return.service';
   templateUrl: './return-add.component.html',
   styleUrls: ['./return-add.component.scss']
 })
-export class ReturnAddComponent  implements OnInit{
+export class ReturnAddComponent implements OnInit{
  
   constructor(
     private returnService : ReturnService,
