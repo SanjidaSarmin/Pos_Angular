@@ -31,17 +31,33 @@
 
     <li class="nav-item">
       <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
-
-        <i class="fa fa-users menu-icon"></i>Customer
-
+        <i class="fa fa-user menu-icon"></i>People
         <i class="fa fa-caret-down dropdown-toggle-btn"></i>
       </div>
       <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
-        <li><a routerLink="/employee/suppliarList"><i class="fa fa-users menu-icon"></i>Customer List</a></li>
-        <li><a routerLink="/employee/Addsupplier"><i class="fa fa-user-plus menu-icon"></i> Add New Customer</a></li>
-        <li><a href="#"><i class="fa fa-gift menu-icon"></i> Loyality Points</a></li>
+        <li>
+          <a routerLink="/employee/suppliarList">
+            <i class="fa fa-users menu-icon"></i> Customer List
+          </a>
+        </li>
+        <li>
+          <a routerLink="/employee/Addsupplier">
+            <i class="fa fa-truck menu-icon"></i> Supplier List
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-user menu-icon"></i> User List
+          </a>
+        </li>
+        <li>
+          <a routerLink="/employee/Addsupplier">
+            <i class="fa fa-star menu-icon"></i> Loyality points
+          </a>
+        </li>
       </ul>
     </li>
+
 
     <li><a href="/employee"><i class="fa fa-truck menu-icon"></i>Suppliers List</a></li>
 
@@ -101,10 +117,11 @@
         <div class="header-support1">
           <div class="notification-icon">
             <i class="fa fa-bell"></i>
+            <span class="notification-badge" *ngIf="notificationsCount > 0">{{ notificationsCount }}</span>
           </div>
 
           <div class="user-dropdown">
-            <i class="fa fa-user"></i>
+            <i class="fa fa-user"></i> User
             <div class="dropdown-menu">
               <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
               <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>

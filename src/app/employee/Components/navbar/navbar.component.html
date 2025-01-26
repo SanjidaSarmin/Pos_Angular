@@ -1,6 +1,4 @@
-<!-- Sidebar and Main Content Layout (to be used across all pages) -->
 
-<!-- Sidebar -->
 <div class="dashboard-container">
   <div class="sidenav" [class.closed]="isSidebarClosed">
     <div class="sidenav-header">
@@ -35,17 +33,33 @@
 
       <li class="nav-item">
         <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
-
-          <i class="fa fa-users menu-icon"></i>Customer
-
+          <i class="fa fa-user menu-icon"></i>People
           <i class="fa fa-caret-down dropdown-toggle-btn"></i>
         </div>
         <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
-          <li><a routerLink="/employee/suppliarList"><i class="fa fa-users menu-icon"></i>Customer List</a></li>
-          <li><a routerLink="/employee/Addsupplier"><i class="fa fa-user-plus menu-icon"></i> Add New Customer</a></li>
-          <li><a href="#"><i class="fa fa-gift menu-icon"></i> Loyality Points</a></li>
+          <li>
+            <a routerLink="/employee/suppliarList">
+              <i class="fa fa-users menu-icon"></i> Customer List
+            </a>
+          </li>
+          <li>
+            <a routerLink="/employee/Addsupplier">
+              <i class="fa fa-truck menu-icon"></i> Supplier List
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-user menu-icon"></i> User List
+            </a>
+          </li>
+          <li>
+            <a routerLink="/employee/Addsupplier">
+              <i class="fa fa-star menu-icon"></i> Loyality points
+            </a>
+          </li>
         </ul>
       </li>
+      
 
       <li><a href="/employee"><i class="fa fa-truck menu-icon"></i>Suppliers List</a></li>
 
@@ -104,20 +118,9 @@
             {{ notificationsCount }}
           </span>
         </div>
-
-        <div class="branch-dropdown">
-          <select name="branch" id="branch-select">
-            <option value="" disabled selected>Select Branch</option>
-            <option value="branch1">Branch</option>
-            <option value="branch2">Gowdown</option>
-          </select>
-        </div>
-
-
-
         <!-- Admin Dropdown with Icon -->
         <div class="user-dropdown">
-          <i class="fa fa-user"></i> Manager
+          <i class="fa fa-user"></i> Employee
           <div class="dropdown-menu">
             <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
             <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
