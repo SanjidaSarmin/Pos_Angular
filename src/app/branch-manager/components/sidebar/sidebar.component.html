@@ -2,133 +2,155 @@
 
 <!-- Sidebar -->
 <div class="dashboard-container">
-    <div class="sidebar">
-      <h2>Menu</h2>
-      <ul class="sidebar-menu">
-        <li>
-          <a routerLink="/employee/main">
-            <i class="fa fa-shopping-cart"></i> Sell
+  <div class="sidenav" [class.closed]="isSidebarClosed">
+    <div class="sidenav-header">
+      <h2>Clover</h2>
+      <span class="menu-icon" (click)="toggleSidebar()">
+        <i class="fas" [class.fa-bars]="isSidebarClosed" [class.fa-times]="!isSidebarClosed"></i>
+      </span>
+    </div>
+    <ul class="sidebar-menu">
+      <li>
+        <a routerLink="/employee/main">
+          <i class="fa fa-shopping-cart"></i> Sell
+        </a>
+      </li>
+  
+      <li class="nav-item">
+        <div class="dropdown-header" (click)="toggleDropdown('submenu3')">
+          <a href="">
+            <i class="fa fa-box menu-icon"></i>Product
           </a>
-        </li>
+          <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+        </div>
+        <ul [class.show]="activeDropdown === 'submenu3'" class="submenu" id="submenu3">
+          <li><a routerLink="/employee/productlist"><i class="fa fa-list menu-icon"></i> View All Products</a></li>
+          <li><a routerLink="/employee/productAdd"><i class="fa fa-plus menu-icon"></i> Add New Product</a></li>
+          <li><a routerLink="/employee/catagory"><i class="fa fa-th menu-icon"></i> Product Categories</a></li>
+          <li><a routerLink="/employee/damageList"><i class="fa fa-trash menu-icon"></i> Damage Products</a></li>
+          <li><a href="/employee/return"><i class="fa fa-credit-card menu-icon"></i> Return Product</a></li>
+          <li><a href="/employee/barcode"><i class="fa fa-barcode"></i> Product BarCode</a></li>
+          <li><a href="/employee/barcodePrint"><i class="fa fa-print"></i> Barcode Level Printers</a></li>
+        </ul>
+      </li>
   
-        <li class="nav-item">
-          <div class="dropdown-header" (click)="toggleDropdown('submenu3')">
-            <a href="/employee/product">
-              <i class="fa fa-box menu-icon"></i>Product
-            </a>
-            <i class="fa fa-caret-down dropdown-toggle-btn"></i>
-          </div>
-          <ul [class.show]="activeDropdown === 'submenu3'" class="submenu" id="submenu3">
-            <li><a routerLink="/employee/productlist"><i class="fa fa-list menu-icon"></i> All Products</a></li>
-            <li><a routerLink="/employee/productAdd"><i class="fa fa-plus menu-icon"></i> Add New Product</a></li>
-            <li><a routerLink="/manager/categoryList"><i class="fa fa-th menu-icon"></i> Product Categories</a></li>
-            <li><a routerLink="/employee/damageList"><i class="fa fa-trash menu-icon"></i> Damage Products</a></li>
-            <li><a href="/employee/return"><i class="fa fa-credit-card menu-icon"></i> Return Product</a></li>
-            <li><a href="/employee/barcode"><i class="fa fa-barcode"></i> Product BarCode</a></li>
-            <li><a href="/employee/barcodePrint"><i class="fa fa-print"></i> Barcode Level Printers</a></li>
-          </ul>
-        </li>
+      <li class="nav-item">
+        <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
+          <a href="">
+            <i class="fa fa-users menu-icon"></i>Customer
+          </a>
+          <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+        </div>
+        <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
+          <li><a routerLink="/employee/suppliarList"><i class="fa fa-users menu-icon"></i>Customer List</a></li>
+          <li><a routerLink="/employee/Addsupplier"><i class="fa fa-user-plus menu-icon"></i> Add New Customer</a></li>
+          <li><a href="#"><i class="fa fa-gift menu-icon"></i> Loyality Points</a></li>
+        </ul>
+      </li>
+  
+  
+      <li class="nav-item">
+        <div class="dropdown-header" (click)="toggleDropdown('submenu4')">
+          <a href="">
+            <i class="fa fa-truck menu-icon"></i>Supplier
+          </a>
+          <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+        </div>
+        <ul [class.show]="activeDropdown === 'submenu4'" class="submenu" id="submenu4">
+          <li><a routerLink="/employee/suppliarList"><i class="fa fa-list menu-icon"></i> All Suppliers</a></li>
+          <li><a routerLink="/employee/Addsupplier"><i class="fa fa-plus menu-icon"></i> Add New Supplier</a></li>
+          <li><a href="/employee"><i class="fa fa-tags menu-icon"></i> Purchases List</a></li>
+          <li><a href="/employee"><i class="fa fa-th menu-icon"></i> Add New Purchase</a></li>
+        </ul>
+      </li>
+  
+      <li class="nav-item">
+        <div class="dropdown-header" (click)="toggleDropdown('submenu5')">
+          <a href="/">
+            <i class="fa fa-gift menu-icon"></i>Products Offers
+          </a>
+          <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+        </div>
+        <ul [class.show]="activeDropdown === 'submenu5'" class="submenu" id="submenu5">
+          <li><a routerLink="/employee/offer"><i class="fa fa-tags menu-icon"></i>Promotion Product</a></li>
+          <li><a routerLink="/employee/bundleProduct"><i class="fa fa-boxes menu-icon"></i>Bundle Product</a></li>
+        </ul>
+      </li>
+  
+  
+      <li><a href="/employee"><i class="fa fa-database menu-icon"></i> Product Stocks</a></li>
+      <li><a href="/employee"><i class="fa fa-envelope menu-icon"></i> SMS Panel</a></li>
+      <li><a href="/employee"><i class="fa fa-cogs menu-icon"></i> Shop Setting & Others</a></li>
+    </ul>
+  
+    <hr>
+  
+    <!-- Profile Section -->
+    <div class="profile">
+      <img src="/assets/admin.png" alt="Admin Profile">
+      <div class="info">
+        <p>Admin</p>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Header Section -->
+  <div class="main-content1" [class.full-width]="isSidebarClosed">
+  <div class="main-section">
+    <div class="header-buttons">
+      <span class="menu-icon" *ngIf="isSidebarClosed" (click)="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </span>
+      <button class="header-btn wings-btn">
+        <i class="fa fa-paper-plane"></i> Wings
+      </button>
 
-        <li class="nav-item">
-          <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
-            <a href="/">
-              <i class="fa fa-users menu-icon"></i>Customer
-            </a>
-            <i class="fa fa-caret-down dropdown-toggle-btn"></i>
-          </div>
-          <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
-            <li><a routerLink="/employee/suppliarList"><i class="fa fa-users menu-icon"></i>Customer List</a></li>
-            <li><a routerLink="/employee/Addsupplier"><i class="fa fa-user-plus menu-icon"></i> Add New Customer</a></li>
-            <li><a href="#"><i class="fa fa-gift menu-icon"></i> Loyality Points</a></li>
-          </ul>
-        </li>
-        
-  
-        <li class="nav-item">
-          <div class="dropdown-header" (click)="toggleDropdown('submenu4')">
-            <a href="/">
-              <i class="fa fa-truck menu-icon"></i>Supplier
-            </a>
-            <i class="fa fa-caret-down dropdown-toggle-btn"></i>
-          </div>
-          <ul [class.show]="activeDropdown === 'submenu4'" class="submenu" id="submenu4">
-            <li><a routerLink="/employee/suppliarList"><i class="fa fa-list menu-icon"></i> All Suppliers</a></li>
-            <li><a routerLink="/employee/Addsupplier"><i class="fa fa-plus menu-icon"></i> Add New Supplier</a></li>
-            <li><a href="/employee#"><i class="fa fa-tags menu-icon"></i> Purchases List</a></li>
-            <li><a href="/employee#"><i class="fa fa-th menu-icon"></i> Add New Purchase</a></li>
-          </ul>
-        </li>
+      <button class="header-btn sell-btn" routerLink="/employee/main">
+        <i class="fa fa-shopping-cart"></i> SELL
+      </button>
 
-        <li class="nav-item">
-          <div class="dropdown-header" (click)="toggleDropdown('submenu5')">
-            <a href="/">
-              <i class="fa fa-gift menu-icon"></i>Products Offers
-            </a>
-            <i class="fa fa-caret-down dropdown-toggle-btn"></i>
-          </div>
-          <ul [class.show]="activeDropdown === 'submenu5'" class="submenu" id="submenu5">
-            <li><a routerLink="/employee/offer"><i class="fa fa-tags menu-icon"></i>Promotion Product</a></li>
-            <li><a routerLink="/employee/bundleProduct"><i class="fa fa-boxes menu-icon"></i>Bundle Product</a></li>
-          </ul>
-        </li>
-  
-        <li><a href="#/employee"><i class="fa fa-envelope menu-icon"></i> SMS Panel</a></li>
-        <li><a href="#/employee"><i class="fa fa-cogs menu-icon"></i> Shop Setting & Others</a></li>
-      </ul>
-  
-      <hr>
-  
-      <!-- Profile Section -->
-      <div class="profile">
-        <img src="/assets/admin.png" alt="Admin Profile">
-        <div class="info">
-          <p>Admin</p>
-          <a href="#">Logout</a>
+    </div>
+    <div class="header-support1">
+      <!-- Notification Icon -->
+      <div class="notification-icon" (click)="onNotificationClick()" aria-label="Notifications" role="button">
+        <i class="fa fa-bell"></i>
+        <span 
+          class="notification-badge" 
+          *ngIf="notificationsCount > 0" 
+          [ngClass]="{'high-count': notificationsCount > 10}">
+          {{ notificationsCount }}
+        </span>
+      </div>
+      
+      <div class="branch-dropdown">
+        <select name="branch" id="branch-select">
+          <option value="" disabled selected>Select Branch</option>
+          <option value="branch1">Branch</option>
+          <option value="branch2">Gowdown</option>
+        </select>
+      </div>
+
+      
+
+      <!-- Admin Dropdown with Icon -->
+      <div class="user-dropdown">
+        <i class="fa fa-user"></i>   Manager 
+        <div class="dropdown-menu">
+          <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
+          <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
         </div>
       </div>
     </div>
-    <!-- Header Section -->
-    <div class="header-section">
-      <div class="header-buttons">
-        <button class="header-btn wings-btn">
-          <i class="fa fa-paper-plane"></i> Wings
-        </button>
-  
-        <button class="header-btn sell-btn" routerLink="/employee/main">
-          <i class="fa fa-shopping-cart"></i> SELL
-        </button>
-  
-      </div>
-      <div class="header-support1">
-        
-  
-        <!-- Notification Icon -->
-        <div class="notification-icon">
-          <i class="fa fa-bell"></i>
-        </div>
-  
-        <!-- Admin Dropdown with Icon -->
-        <div class="user-dropdown">
-          <i class="fa fa-user"></i>   Manager 
-          <div class="dropdown-menu">
-            <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
-            <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
-          </div>
-        </div>
-      </div>
-  
-  
-  
-      <!-- Main Content (dynamically loaded content via Angular Router) -->
-      <div class="main-content">
-        <router-outlet></router-outlet>
-      </div>
+  </div>
+
+
+
+    <!-- Main Content (dynamically loaded content via Angular Router) -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
     </div>
-  
-  
-    <script>
-      function toggleDropdown(menuId) {
-        const submenu = document.getElementById(menuId);
-        submenu.classList.toggle('show');
-      }
-    </script>
+  </div>
+
+
+ 
