@@ -9,7 +9,6 @@
 
       <div class="toolbar">
         <div class="toolbar-left">
-          <button routerLink="/employee/productAdd" class="btn add-product">+ Add Product Category</button>
           <input type="date" placeholder="Date Range" class="date-range-input" />
         </div>
         <div class="toolbar-right">
@@ -34,7 +33,12 @@
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
             <td>{{ category.description || '-' }}</td>
-            <td><button class="action-btn">View</button></td>
+            <td style="text-align: center;">
+              <button class="action-btn">
+                <i class="fas fa-eye"></i>
+              </button>
+            </td>
+            
           </tr>
         </tbody>
       </table>

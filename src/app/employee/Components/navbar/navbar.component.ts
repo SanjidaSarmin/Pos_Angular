@@ -7,9 +7,19 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   activeDropdown: string | null = null;
+  notificationsCount = 3;
 
   // Toggle dropdown visibility
   toggleDropdown(menuId: string): void {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
   }
+  isSidebarClosed = false;
+
+  toggleSidebar() {
+    this.isSidebarClosed = !this.isSidebarClosed;
+  }
+
+  
+ 
+
 }
