@@ -1,16 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Product } from 'src/app/Models/Product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BundleService {
+export class ProductService {
 
-  private apiUrl = "http://localhost:8081/api/bundleProduct";
+
   constructor(private httpClient: HttpClient) { }
 
-  addData(bundle : any){
-    return this.httpClient.post(this.apiUrl, bundle)
+  private apiUrl = "http://localhost:8081/api/product";
+  // private apiUrl = "http://localhost:3000/products";
+
+  addData(product : any){
+    return this.httpClient.post(this.apiUrl , product)
   }
 
   getAllData(){
@@ -25,7 +29,7 @@ export class BundleService {
     return this.httpClient.delete(this.apiUrl+"/"+ id)
   }
 
-  updateData(bundle: any){
-    return this.httpClient.put(this.apiUrl+"/"+bundle.id, bundle)
+  updateData(product: Product){
+    return this.httpClient.put(this.apiUrl+"/"+product.id, product)
   }
 }

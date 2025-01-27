@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BundleService } from 'src/app/employee/Service/Bundle/bundle.service';
+import { BundleService } from 'src/app/branch-manager/Service/Bundle/bundle.service';
 
 @Component({
   selector: 'app-bundle-add',
@@ -31,7 +31,7 @@ export class BundleAddComponent implements OnInit{
   onSubmit(){
     this.bundleService.addData(this.bundleForm.value).subscribe((val : any) => {
       console.log("created succesfully");
-      this.router.navigateByUrl('/employee/bundleProduct')
+      this.router.navigateByUrl('/manager/bundleProduct')
     })
   }
   ngOnInit(): void {}

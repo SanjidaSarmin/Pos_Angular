@@ -8,7 +8,6 @@
 
       <div class="toolbar">
         <div class="toolbar-left">
-          <button routerLink="/employee/productAdd" class="btn add-product">+ Add Product</button>
           <input type="date" placeholder="Date Range" class="date-range-input" />
         </div>
         <div class="toolbar-right">
@@ -33,7 +32,6 @@
             <th>Expired Date</th>
             <th>Branch</th>
             <th>Supplier</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -51,18 +49,7 @@
             <td>{{ product.expiredDate || '-' }}</td>
             <td>{{ product.branchId}}</td>
             <td>{{ product.supplierId}}</td>
-            <td style="text-align: center;">
-              <a [routerLink]="['/employee/productEdit/', product.id]">
-                <button class="btn1">
-                  <img src="assets/pen.png" alt="Edit" class="icon">
-                </button>
-              </a>
-              |
-              <button class="btn1" (click)="deleteProduct(product.id)">
-                <img src="/assets/bin.png" alt="Delete" class="icon">
-              </button>
-
-            </td>
+            
           </tr>
         </tbody>
       </table>

@@ -1,1 +1,72 @@
-<p>product-list works!</p>
+<div class="d-flex"><app-sidebar></app-sidebar>
+    <div class="main-content w-100">
+      <div class="product-list-container">
+        <div class="header">
+          <h2>Product Lists</h2>
+          <p>Manage Your Products</p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/manager/productAdd" class="btn add-product">+ Add Product</button>
+            <input type="date" placeholder="Date Range" class="date-range-input" />
+          </div>
+          <div class="toolbar-right">
+            <input type="text" placeholder="Search" class="search-input" />
+            <button class="btn">Search</button>
+  
+          </div>
+        </div>
+  
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Barcode</th>
+              <th>Sell Price</th>
+              <th>Stocks</th>
+              <th>Category Id</th>
+              <th>Vat</th>
+              <th>Expired Date</th>
+              <th>Branch</th>
+              <th>Supplier</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productList">
+              <td>{{product.id}}</td>
+              <td>{{ product.name }}</td>
+              <td>
+                <img [src]="product.image" alt="Product Image" class="product-image" />
+              </td>
+              <td>{{ product.barcode }}</td>
+              <td>{{ product.sellPrice}}</td>
+              <td>{{ product.stock}}</td>
+              <td>{{ product.categoryId}}</td>
+              <td>{{ product.vat}}</td>
+              <td>{{ product.expiredDate || '-' }}</td>
+              <td>{{ product.branchId}}</td>
+              <td>{{ product.supplierId}}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/manager/productEdit/', product.id]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon">
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deleteProduct(product.id)">
+                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                </button>
+  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </div>
+    </div>
+  </div>

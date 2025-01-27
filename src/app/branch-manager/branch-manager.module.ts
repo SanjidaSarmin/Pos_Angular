@@ -11,6 +11,12 @@ import { CategoryEditComponent } from './components/Category/category-edit/categ
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BundleAddComponent } from './components/Promotion/Bundle/bundle-add/bundle-add.component';
+import { BundleEditComponent } from './components/Promotion/Bundle/bundle-edit/bundle-edit.component';
+import { BundleListComponent } from './components/Promotion/Bundle/bundle-list/bundle-list.component';
+import { OfferAddComponent } from './components/Promotion/Offers/offer-add/offer-add.component';
+import { OfferEditComponent } from './components/Promotion/Offers/offer-edit/offer-edit.component';
+import { OfferListComponent } from './components/Promotion/Offers/offer-list/offer-list.component';
 
 
 
@@ -22,7 +28,13 @@ import { RouterModule } from '@angular/router';
     ProductEditComponent,
     CategoryListComponent,
     CategoryAddComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    BundleAddComponent,
+    BundleEditComponent,
+    BundleListComponent,
+    OfferAddComponent,
+    OfferEditComponent,
+    OfferListComponent
   ],
   imports: [
     CommonModule,

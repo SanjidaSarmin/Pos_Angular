@@ -111,13 +111,13 @@
       </div>
       <div class="header-support1">
         <!-- Notification Icon -->
-        <div class="notification-icon" (click)="onNotificationClick()" aria-label="Notifications" role="button">
+        <div class="notification-icon">
           <i class="fa fa-bell"></i>
-          <span class="notification-badge" *ngIf="notificationsCount > 0"
-            [ngClass]="{'high-count': notificationsCount > 10}">
+          <span class="notification-badge" *ngIf="notificationsCount > 0">
             {{ notificationsCount }}
           </span>
         </div>
+  
         <!-- Admin Dropdown with Icon -->
         <div class="user-dropdown">
           <i class="fa fa-user"></i> Employee

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BundleService } from 'src/app/employee/Service/Bundle/bundle.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BundleService } from 'src/app/branch-manager/Service/Bundle/bundle.service';
 
 @Component({
   selector: 'app-bundle-edit',
@@ -36,7 +36,7 @@ export class BundleEditComponent implements OnInit{
   onSubmit(){
     this.bundleService.updateData(this.bundleForm.value).subscribe((val : any) => {
       console.log("updated succesfully");
-      this.router.navigateByUrl('/employee/bundleProduct')
+      this.router.navigateByUrl('/manager/bundleProduct')
     })
   }
   

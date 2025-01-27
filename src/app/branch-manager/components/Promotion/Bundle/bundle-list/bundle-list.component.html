@@ -1,5 +1,5 @@
 <div class="d-flex">
-    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
     <div class="main-content w-100">
 
 <div class="bundle-product-list">
@@ -11,6 +11,7 @@
         <input type="text" placeholder="Search" class="search-bar" />
         <button type="submit">Search</button>
       </div>      
+      <button class="create-button" routerLink="/manager/bundleAdd">+ Create Bundle Product</button>
     </div>
   
     <table class="table">
@@ -26,6 +27,7 @@
           <th>Cost Price</th>
           <th>Sell Price</th>
           <th>Expired Date</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -40,7 +42,17 @@
           <td>{{ product.costPrice }}</td>
           <td>{{ product.sellPrice }}</td>
           <td>{{ product.expiredDate}}</td>
-        
+          <td>
+          <a [routerLink]="['/manager/bundleEdit/', product.id]">
+            <button class="btn1">
+              <img src="assets/pen.png" alt="Edit" class="icon">
+            </button>
+          </a>
+          |
+          <button class="btn1" (click)="deletebundle(product.id)">
+            <img src="/assets/bin.png" alt="Delete" class="icon">
+          </button>
+        </td>
         </tr>
       </tbody>
     </table>

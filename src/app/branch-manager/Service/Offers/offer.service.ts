@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class OfferService {
 
 
+
  constructor(private httpClient: HttpClient) { }
  
    private apiUrl = "http://localhost:8081/api/promotions";
