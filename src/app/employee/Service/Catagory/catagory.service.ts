@@ -29,5 +29,9 @@ export class CatagoryService {
   //  updateData(catagoryData: any){
   //    return this.httpClient.put(this.apiUrl+"/"+catagoryData.id, catagoryData)
   //  }
+
+  serarchCategpry(searchText: string) {
+    return this.httpClient.get(this.apiUrl +"/search" + "?name=" + searchText)
+  }
   }
 

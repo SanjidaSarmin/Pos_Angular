@@ -11,6 +11,14 @@ export class ProductCatagoryComponent implements OnInit{
     constructor(
       private catagoryservice : CatagoryService
      ){}
+
+    
+ searchTest :string = "";
+  search() {
+    this.catagoryservice.serarchCategpry(this.searchTest).subscribe((val: any) => {
+      this.catagoryList = val
+    })
+  }
      
      catagoryList: Category[] = [];
   
@@ -27,12 +35,8 @@ export class ProductCatagoryComponent implements OnInit{
     //   })
     //  }
   
-  searchTerm = '';
+ 
   filteredCategories = [...this.catagoryList];
 
-  search() {
-    this.filteredCategories = this.catagoryList.filter(category =>
-      category.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-  }
+  
 }

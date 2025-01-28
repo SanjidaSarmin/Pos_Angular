@@ -9,18 +9,20 @@ import { Damage } from 'src/app/Models/Damage';
 })
 export class DamageListComponent implements OnInit{
   entries = 10;
-  searchText = '';
+
   
   constructor(
     private damageService : DamageService
    ){}
 
    
-   damageList: Damage[] = [];
+   damageList: any[] = [];
 
   ngOnInit(): void {
      this.damageService.getAllData().subscribe((val : any) => {
       this.damageList = val  
+      console.log("----------",this.damageList);
+      
     })
   }
 
@@ -31,7 +33,13 @@ export class DamageListComponent implements OnInit{
     })
    }
 
-
+searchTest :string = "";
+  search() {
+    this.damageService.serarchProduct(this.searchTest).subscribe((val: any) => {
+      this.damageList = val
+    })
+  }
+  
  
 
 }

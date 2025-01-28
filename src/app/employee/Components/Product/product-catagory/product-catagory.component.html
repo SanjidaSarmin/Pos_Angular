@@ -12,9 +12,8 @@
           <input type="date" placeholder="Date Range" class="date-range-input" />
         </div>
         <div class="toolbar-right">
-          <input type="text" placeholder="Search" class="search-input" />
-          <button class="btn">Search</button>
-
+          <input type="text" placeholder="Search" class="search-input" [(ngModel)]="searchTest" />
+          <button class="btn" (click)="search()">Search</button>
         </div>
       </div>
 

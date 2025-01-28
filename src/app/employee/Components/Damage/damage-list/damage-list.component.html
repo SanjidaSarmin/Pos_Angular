@@ -15,8 +15,8 @@
           </select>
         </label>
         <div class="search-container">
-          <input type="text" [(ngModel)]="searchText" placeholder="Search" class="search-box" />
-          <button type="submit">Search</button>
+          <input type="text" placeholder="Search" class="search-input" [(ngModel)]="searchTest" />
+          <button class="btn" (click)="search()">Search</button>
         </div>
       </div>
       
@@ -27,19 +27,16 @@
             <th>Id</th>
             <th>Product Name</th>
             <th>Date</th>
-            <th>Branch</th>
-            <th>Damaged Stock</th>
+            <th>Quantity</th>
             <th>Reason</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let damagedStock of damageList">
             <td>{{ damagedStock.id }}</td>
-            <td>{{ damagedStock.productName }}</td>
-            <td>{{ damagedStock.date }}</td>
-            <td>{{ damagedStock.branch }}</td>
-            <td>{{ damagedStock.damagedStock }}</td>
+            <td>{{ damagedStock.productname }}</td>
+            <td>{{ damagedStock.dateReported }}</td>
+            <td>{{ damagedStock.quantity }}</td>
             <td>{{ damagedStock.reason }}</td>
             <td style="text-align: center;">
               <a [routerLink]="['/employee/damageEdit/', damagedStock.id]">

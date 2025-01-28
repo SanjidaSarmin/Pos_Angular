@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DamageService {
+  
 
 constructor(private httpClient: HttpClient) { }
 
@@ -28,5 +29,9 @@ constructor(private httpClient: HttpClient) { }
 
   updateData(damage: any){
     return this.httpClient.put(this.apiUrl+"/"+damage.id, damage)
+  }
+
+  serarchProduct(searchText: string) {
+    return this.httpClient.get(this.apiUrl +"/search" + "?productname=" + searchText)
   }
 }

@@ -1,8 +1,7 @@
 export interface Damage {
     id: number;
-    date: string;
-    branch: string;
-    productName: string;
-    damagedStock: number;
+    name: String;
+    date: Date;
+    quantity: number;
     reason: string;
 }
