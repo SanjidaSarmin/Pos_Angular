@@ -31,7 +31,7 @@ export class SellService {
     }
 
     getSellWithItems(sellId: number) {
-      return this.httpClient.get(`http://localhost:8081/api/sells/${sellId}`);
+      return this.httpClient.get("http://localhost:8081/api/sells/${sellId}");
     }
     
    }

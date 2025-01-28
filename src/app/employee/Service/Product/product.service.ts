@@ -13,23 +13,27 @@ export class ProductService {
   private apiUrl = "http://localhost:8081/api/product";
   // private apiUrl = "http://localhost:3000/products";
 
-  addData(product : any){
-    return this.httpClient.post(this.apiUrl , product)
+  addData(product: any) {
+    return this.httpClient.post(this.apiUrl, product)
   }
 
-  getAllData(){
+  getAllData() {
     return this.httpClient.get(this.apiUrl)
   }
 
-  getById(id: any){
-    return this.httpClient.get(this.apiUrl +"/"+ id) 
+  getById(id: any) {
+    return this.httpClient.get(this.apiUrl + "/" + id)
   }
 
-  deleteById(id:any){
-    return this.httpClient.delete(this.apiUrl+"/"+ id)
+  deleteById(id: any) {
+    return this.httpClient.delete(this.apiUrl + "/" + id)
   }
 
-  updateData(product: Products){
-    return this.httpClient.put(this.apiUrl+"/"+product.id, product)
+  updateData(product: Products) {
+    return this.httpClient.put(this.apiUrl + "/" + product.id, product)
+  }
+
+  serarchProduct(searchText: string) {
+    return this.httpClient.get(this.apiUrl +"/search" + "?keyword=" + searchText)
   }
 }

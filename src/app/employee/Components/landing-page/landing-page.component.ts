@@ -4,14 +4,15 @@ import { CatagoryService } from '../../Service/Catagory/catagory.service';
 import { Category } from 'src/app/Models/Catagory';
 import { ProductService } from '../../Service/Product/product.service';
 import { Product } from 'src/app/Models/Product';
+import { CartService } from '../../Service/Cart/cart.service';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit{
- 
+export class LandingPageComponent implements OnInit {
+
   notificationsCount = 3;
   isSidebarClosed = false;
 
@@ -20,106 +21,89 @@ export class LandingPageComponent implements OnInit{
   }
   activeDropdown: string | null = null;
 
-  // Toggle dropdown visibility
+
   toggleDropdown(menuId: string): void {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
   }
 
-  searchQuery: string = '';
-  totalGross: number = 0;
-  discount: number = 10; // Sample discount
-  subtotal: number = 0;
-  preDue: number = 0;
-  walletBalance: number = 0;
-  totalPayable: number = 0;
-
-  products = [
-    { name: 'Mr Noodles', image: '/assets/coffe.jpg', price: 250 },
-    { name: 'Kitkat Chocolate', image: '/assets/kitkat.jpg', price: 100 },
-    { name: 'Pran Potata', image: '/assets/pran_potata.jpg', price: 50 },
-    { name: 'AllTime Cookies', image: '/assets/cookies.png', price: 20},
-  ];
-
-  filteredProducts = [...this.products];
-
-  cartItems: { product: any, quantity: number, total: number }[] = [];
-
-  searchProducts() {
-    if (this.searchQuery) {
-      this.filteredProducts = this.products.filter(product =>
-        product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    } else {
-      this.filteredProducts = [...this.products];
-    }
-  }
-
   addToCart(product: any) {
     const existingItem = this.cartItems.find(item => item.product.name === product.name);
-    
+
     if (existingItem) {
       existingItem.quantity++;
       existingItem.total = existingItem.quantity * existingItem.product.price;
     } else {
       this.cartItems.push({ product, quantity: 1, total: product.price });
     }
-    this.updateTotal();
+    // this.updateTotal();
   }
 
-  removeFromCart(item: any) {
-    const index = this.cartItems.indexOf(item);
-    if (index > -1) {
-      this.cartItems.splice(index, 1);
-    }
-    this.updateTotal();
+  numberConverter(num: any) {
+    console.log('val-------------',num);
+
+    return Number(num);
+
   }
-
-  updateTotal() {
-    this.totalGross = this.cartItems.reduce((sum, item) => sum + item.total, 0);
-    this.subtotal = this.totalGross - this.discount;
-    this.totalPayable = this.subtotal > 0 ? this.subtotal : 0;
-  }
-
-
-  sellData: any; // Store the fetched sell data
-  sellItems: any[] = []; // Store associated sell items
 
   constructor(
     private sellService: SellService,
-    private catagoryService : CatagoryService,
-    private proService : ProductService
-  ) {}
+    private catagoryService: CatagoryService,
+    private proService: ProductService,
+    private cartService: CartService
+  ) { }
 
- 
 
-
-  fetchSellDetails(sellId: number): void {
-    this.sellService.getSellWithItems(sellId).subscribe(
-      (data: any) => {
-        this.sellData = data;
-        this.sellItems = data.sellItems; // Extract sell items from response
-        console.log('Fetched Sell Data:', data);
-      },
-      (error) => {
-        console.error('Error fetching sell details:', error);
-      }
-    );
-  }
-
+  searchQuery: string = '';
+  totalGross: number = 0;
+  discount: number = 10;
+  subtotal: number = 0;
+  preDue: number = 0;
+  walletBalance: number = 0;
+  totalPayable: number = 0;
 
   productList: Product[] = [];
   categoryList: Category[] = [];
-  selectedCategory: string = ''; 
+  selectedCategory: string = '';
+
+  filteredProducts: any[] = [...this.productList];
+
+  cartItems: any[] = [];
+  total: number = 0;
+
+  searchProducts() {
+    if (this.searchQuery) {
+      this.filteredProducts = this.productList.filter(product =>
+        product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    } else {
+      this.filteredProducts = [...this.productList];
+    }
+  }
+
+
+  // updateTotal(): void {
+  //   this.cartService.calculateTotal(this.cartItems).subscribe((total: any) => {
+  //     this.total = total;
+  //   });
+  // }
+
+  removeFromCart(item: any): void {
+    this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
+    // this.updateTotal();
+  }
+ 
+  
+
 
   ngOnInit(): void {
-    this.catagoryService.getAllData().subscribe((val : any) => {
-      this.categoryList = val  
+    this.catagoryService.getAllData().subscribe((val: any) => {
+      this.categoryList = val
     })
 
-    this.proService.getAllData().subscribe((val : any) => {
-      this.productList = val  
+    this.proService.getAllData().subscribe((val: any) => {
+      this.productList = val
     })
   }
 
- 
+
 }

@@ -167,7 +167,7 @@
           <div *ngFor="let product of productList" class="product-card" (click)="addToCart(product)">
             <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
             <h3 class="product-name">{{product.name}}</h3>
-            <p class="product-price">Price: ${{ product.sellPrice }}</p>
+            <p class="product-price">Price: {{ product.sellPrice }} Taka</p>
           </div>
         </div>
         
@@ -190,13 +190,24 @@
             <tbody>
               <tr *ngFor="let item of cartItems">
                 <td>{{ item.product.name }}</td>
-                <td><input type="number" [(ngModel)]="item.quantity" (input)="updateTotal()" min="1"></td>
-                <td>{{ item.total }}</td>
+                <td><input type="number" [(ngModel)]="item.quantity"  min="1"></td>
+                <!-- <td>{{ item.quantity * item.total }} $  </td> -->
+                <td>{{ item.quantity * item.product.sellPrice || 0 }} Taka </td>
+
                 <td><button (click)="removeFromCart(item)">Remove</button></td>
+              </tr>
+              <tr>
+                <td>Phone Number: </td>
+                <td><input type="number"></td>
+                <!-- <td>{{ item.quantity * item.total }} $  </td> -->
+                <td></td>
+
+                <td></td>
               </tr>
             </tbody>
           </table>
         </div>
+        
       </div>
     </div>
 

@@ -7,25 +7,32 @@ import { Product } from 'src/app/Models/Product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit{
-  constructor(
-    private proService : ProductService
-   ){}
+export class ProductListComponent implements OnInit {
 
-   
-   productList: Product[] = [];
+  searchTest :string = "";
+  search() {
+    this.proService.serarchProduct(this.searchTest).subscribe((val: any) => {
+      this.productList = val
+    })
+  }
+  constructor(
+    private proService: ProductService
+  ) { }
+
+
+  productList: Product[] = [];
 
   ngOnInit(): void {
-     this.proService.getAllData().subscribe((val : any) => {
-      this.productList = val  
+    this.proService.getAllData().subscribe((val: any) => {
+      this.productList = val
     })
   }
 
-  deleteProduct(id : any){
-    this.proService.deleteById(id).subscribe((val : any) =>{
+  deleteProduct(id: any) {
+    this.proService.deleteById(id).subscribe((val: any) => {
       console.log("Data deleted");
       this.ngOnInit()
     })
-   }
+  }
 
 }
