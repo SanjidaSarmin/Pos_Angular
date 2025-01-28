@@ -22,6 +22,7 @@ import { DamageListComponent } from './Components/Damage/damage-list/damage-list
 import { DamageAddComponent } from './Components/Damage/damage-add/damage-add.component';
 import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit.component';
 import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
+import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
 
 
 
@@ -46,7 +47,8 @@ import { SellDetailsComponent } from './Components/Sell/sell-details/sell-detail
     DamageListComponent,
     DamageAddComponent,
     DamageEditComponent,
-    SellDetailsComponent
+    SellDetailsComponent,
+    SellReportComponent
   ],
   imports: [
     CommonModule,
