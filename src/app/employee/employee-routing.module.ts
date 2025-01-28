@@ -19,6 +19,7 @@ import { PrintComponent } from './Components/Barcode/print/print.component';
 import { DamageListComponent } from './Components/Damage/damage-list/damage-list.component';
 import { DamageAddComponent } from './Components/Damage/damage-add/damage-add.component';
 import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit.component';
+import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -47,6 +48,8 @@ const routes: Routes = [
   { path: 'damageList', component: DamageListComponent },
   { path: 'damageAdd', component: DamageAddComponent },
   { path: 'damageEdit/:dId', component: DamageEditComponent },
+
+  { path: 'sell', component: SellDetailsComponent },
 ];
 
 @NgModule({

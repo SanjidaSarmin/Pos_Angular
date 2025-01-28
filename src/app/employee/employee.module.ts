@@ -21,6 +21,7 @@ import { PrintComponent } from './Components/Barcode/print/print.component';
 import { DamageListComponent } from './Components/Damage/damage-list/damage-list.component';
 import { DamageAddComponent } from './Components/Damage/damage-add/damage-add.component';
 import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit.component';
+import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
 
 
 
@@ -44,7 +45,8 @@ import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit
     PrintComponent,
     DamageListComponent,
     DamageAddComponent,
-    DamageEditComponent
+    DamageEditComponent,
+    SellDetailsComponent
   ],
   imports: [
     CommonModule,

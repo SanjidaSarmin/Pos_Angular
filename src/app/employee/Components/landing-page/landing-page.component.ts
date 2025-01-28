@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SellService } from '../../Service/Sell/sell.service';
+import { CatagoryService } from '../../Service/Catagory/catagory.service';
+import { Category } from 'src/app/Models/Catagory';
+import { ProductService } from '../../Service/Product/product.service';
+import { Product } from 'src/app/Models/Product';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit{
+ 
   notificationsCount = 3;
   isSidebarClosed = false;
 
@@ -73,4 +79,47 @@ export class LandingPageComponent {
     this.subtotal = this.totalGross - this.discount;
     this.totalPayable = this.subtotal > 0 ? this.subtotal : 0;
   }
+
+
+  sellData: any; // Store the fetched sell data
+  sellItems: any[] = []; // Store associated sell items
+
+  constructor(
+    private sellService: SellService,
+    private catagoryService : CatagoryService,
+    private proService : ProductService
+  ) {}
+
+ 
+
+
+  fetchSellDetails(sellId: number): void {
+    this.sellService.getSellWithItems(sellId).subscribe(
+      (data: any) => {
+        this.sellData = data;
+        this.sellItems = data.sellItems; // Extract sell items from response
+        console.log('Fetched Sell Data:', data);
+      },
+      (error) => {
+        console.error('Error fetching sell details:', error);
+      }
+    );
+  }
+
+
+  productList: Product[] = [];
+  categoryList: Category[] = [];
+  selectedCategory: string = ''; 
+
+  ngOnInit(): void {
+    this.catagoryService.getAllData().subscribe((val : any) => {
+      this.categoryList = val  
+    })
+
+    this.proService.getAllData().subscribe((val : any) => {
+      this.productList = val  
+    })
+  }
+
+ 
 }

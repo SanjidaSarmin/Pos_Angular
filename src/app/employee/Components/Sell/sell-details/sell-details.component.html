@@ -1,0 +1,56 @@
+<div class="sell-details-container">
+    <h2>Sell Details</h2>
+    <table class="sell-details-table">
+      <tr>
+        <td><strong>Sell ID:</strong></td>
+        <td>{{ sellData?.id }}</td>
+      </tr>
+      <tr>
+        <td><strong>Sale Date:</strong></td>
+        <td>{{ sellData?.saleDate }}</td>
+      </tr>
+      <tr>
+        <td><strong>Customer Name:</strong></td>
+        <td>{{ sellData?.customerName }}</td>
+      </tr>
+      <tr>
+        <td><strong>Total Amount:</strong></td>
+        <td>{{ sellData?.totalAmount }}</td>
+      </tr>
+      <tr>
+        <td><strong>Payment Method:</strong></td>
+        <td>{{ sellData?.paymentMethod }}</td>
+      </tr>
+      <tr>
+        <td><strong>Discount:</strong></td>
+        <td>{{ sellData?.discount }}</td>
+      </tr>
+      <tr>
+        <td><strong>VAT:</strong></td>
+        <td>{{ sellData?.vat }}</td>
+      </tr>
+    </table>
+  
+    <h3>Sell Items</h3>
+    <table class="sell-items-table">
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of sellItems">
+          <td>{{ item.productId }}</td>
+          <td>{{ item.productName }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.totalPrice }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

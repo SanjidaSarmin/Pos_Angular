@@ -1,0 +1,24 @@
+.sell-details-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sell-details-table,
+  .sell-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .sell-details-table td,
+  .sell-items-table th,
+  .sell-items-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .sell-items-table th {
+    background-color: #f4f4f4;
+  }
+  

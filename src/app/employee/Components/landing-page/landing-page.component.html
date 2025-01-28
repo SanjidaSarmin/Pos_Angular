@@ -75,7 +75,7 @@
       </ul>
     </li>
 
-    <li><a href="/employee"><i class="fa fa-envelope menu-icon"></i> SMS Panel</a></li>
+    <li><a href="/employee/sell"><i class="fa fa-envelope menu-icon"></i> SMS Panel</a></li>
     <li><a href="/employee"><i class="fa fa-cogs menu-icon"></i> Shop Setting & Others</a></li>
   </ul>
 
@@ -139,13 +139,12 @@
       <div class="section product-panel">
         <div class="search-bar-container">
           <div class="dropdown category-dropdown">
-            <select class="dropdown-select">
+            <select class="dropdown-select" [(ngModel)]="selectedCategory">
               <option value="">Select Category</option>
-              <option value="electronics">Electronics</option>
-              <option value="clothing">Clothing</option>
-              <option value="home-appliances">Home Appliances</option>
+              <option *ngFor="let category of categoryList" [value]="category">{{ category.name }}</option>
             </select>
           </div>
+          
 
           <div class="dropdown brand-dropdown">
             <select class="dropdown-select">
@@ -165,12 +164,13 @@
 
         <!-- Product Grid with Select Button -->
         <div class="product-grid">
-          <div *ngFor="let product of filteredProducts" class="product-card" (click)="addToCart(product)">
-            <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image" />
-            <h3 class="product-name">{{ product.name }}</h3>
-            <p class="product-price">Price: ${{ product.price }}</p>
+          <div *ngFor="let product of productList" class="product-card" (click)="addToCart(product)">
+            <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
+            <h3 class="product-name">{{product.name}}</h3>
+            <p class="product-price">Price: ${{ product.sellPrice }}</p>
           </div>
         </div>
+        
 
       </div>
 
