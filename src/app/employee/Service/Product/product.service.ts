@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Products } from '../../Model/Product';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/Models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +35,8 @@ export class ProductService {
     return this.httpClient.put(this.apiUrl + "/" + product.id, product)
   }
 
-  serarchProduct(searchText: string) {
-    return this.httpClient.get(this.apiUrl +"/search" + "?keyword=" + searchText)
+  searchProduct(searchText: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.apiUrl + "/search?keyword=" + searchText);
   }
+  
 }

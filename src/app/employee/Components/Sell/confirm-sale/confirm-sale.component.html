@@ -1,0 +1,49 @@
+<div class="payment-success-page">
+    <div class="payment-success-header">
+      <h2>Payment Successful!</h2>
+      <p>Thank you for your purchase. Your payment has been successfully processed.</p>
+    </div>
+  
+    <!-- Customer Details -->
+    <div class="customer-details">
+      <h3>Customer Information</h3>
+      <p>Name: <span>{{ customerName }}</span></p>
+      <p>Phone Number: <span>{{ customerPhone }}</span></p>
+    </div>
+  
+    <!-- Payment Details -->
+    <div class="payment-summary">
+      <h3>Payment Summary</h3>
+      <div>Total Items: <span>{{ cartItems.length }}</span></div>
+      <div>Total Cost: <span>{{ totalCost }} Taka</span></div>
+      <div>Discount: <span>{{ discount }} Taka</span></div>
+      <div>Coupon: <span>{{ coupon }} Taka</span></div>
+      <div>Tax: <span>{{ tax }} Taka</span></div>
+      <div>Shipping: <span>{{ shipping }} Taka</span></div>
+      <div class="grand-total">
+        <h4>Grand Total: <span>{{ grandTotal }} Taka</span></h4>
+      </div>
+    </div>
+  
+    <!-- Payment Method -->
+    <div class="payment-method">
+      <h3>Payment Method</h3>
+      <p>Payment Method: <span>{{ paymentMethod }}</span></p>
+    </div>
+  
+    <!-- Payment Status Message -->
+    <div class="payment-status">
+      <h3>Status: {{ paymentStatus }}</h3>
+    </div>
+  
+    <!-- Thank You Message -->
+    <div class="thank-you-message">
+      <h4>We appreciate your business. Come back soon!</h4>
+    </div>
+  
+    <!-- Return Home Button -->
+    <div class="return-home">
+      <button class="btn btn-primary" (click)="goHome()">Return to Home</button>
+    </div>
+  </div>
+  

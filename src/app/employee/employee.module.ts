@@ -23,6 +23,8 @@ import { DamageAddComponent } from './Components/Damage/damage-add/damage-add.co
 import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit.component';
 import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
 import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
+import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
+import { PaymentConfirmComponent } from './Components/Sell/payment-confirm/payment-confirm.component';
 
 
 
@@ -48,7 +50,9 @@ import { SellReportComponent } from './Components/Sell/sell-report/sell-report.c
     DamageAddComponent,
     DamageEditComponent,
     SellDetailsComponent,
-    SellReportComponent
+    SellReportComponent,
+    ConfirmSaleComponent,
+    PaymentConfirmComponent
   ],
   imports: [
     CommonModule,

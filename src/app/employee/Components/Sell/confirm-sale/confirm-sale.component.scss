@@ -1,0 +1,120 @@
+.payment-success-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .payment-success-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .payment-success-header h2 {
+    color: #28a745;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .payment-success-header p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .customer-details,
+  .payment-summary,
+  .payment-method {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-details h3,
+  .payment-summary h3,
+  .payment-method h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .payment-summary div,
+  .payment-method p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .payment-summary div span,
+  .payment-method span {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .grand-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 20px;
+  }
+  
+  .payment-status {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .payment-status h3 {
+    font-size: 1.5rem;
+    color: #28a745;
+  }
+  
+  .thank-you-message {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .thank-you-message h4 {
+    font-size: 1.5rem;
+    color: #555;
+  }
+  
+  .return-home {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .return-home button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .return-home button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .cart-table th,
+  .cart-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-table th {
+    background-color: #f1f1f1;
+  }
+  
+  .cart-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  

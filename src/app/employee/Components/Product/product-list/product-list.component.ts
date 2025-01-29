@@ -11,7 +11,7 @@ export class ProductListComponent implements OnInit {
 
   searchTest :string = "";
   search() {
-    this.proService.serarchProduct(this.searchTest).subscribe((val: any) => {
+    this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
       this.productList = val
     })
   }

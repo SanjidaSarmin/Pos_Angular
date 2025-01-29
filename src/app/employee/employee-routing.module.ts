@@ -21,6 +21,7 @@ import { DamageAddComponent } from './Components/Damage/damage-add/damage-add.co
 import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit.component';
 import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
 import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
+import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -52,6 +53,7 @@ const routes: Routes = [
 
   { path: 'sell', component: SellDetailsComponent },
   { path: 'sellreport', component: SellReportComponent },
+  { path: 'confirmPayment', component: ConfirmSaleComponent },
 ];
 
 @NgModule({

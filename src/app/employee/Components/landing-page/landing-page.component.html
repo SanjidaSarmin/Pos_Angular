@@ -158,13 +158,13 @@
 
         <!-- Search Bar Below Dropdowns -->
         <div class="search-bar-container">
-          <input type="text" [(ngModel)]="searchQuery" placeholder="Search Products" class="search-bar" />
-          <button class="search-button" (click)="searchProducts()">Search</button>
+          <input type="text" [(ngModel)]="searchTest" placeholder="Search Products" class="search-bar" />
+          <button class="search-button" (click)="search()">Search</button>
         </div>
 
         <!-- Product Grid with Select Button -->
         <div class="product-grid">
-          <div *ngFor="let product of productList" class="product-card" (click)="addToCart(product)">
+          <div *ngFor="let product of filteredProducts" class="product-card" (click)="addToCart(product)">
             <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
             <h3 class="product-name">{{product.name}}</h3>
             <p class="product-price">Price: {{ product.sellPrice }} Taka</p>
@@ -175,7 +175,7 @@
       </div>
 
       <!-- Right Section: Cart Table -->
-      <div class="section cart-panel">
+      <!-- <div class="section cart-panel">
         <div class="cart-header">Selected Products</div>
         <div class="cart-table-container">
           <table class="product-table">
@@ -191,7 +191,6 @@
               <tr *ngFor="let item of cartItems">
                 <td>{{ item.product.name }}</td>
                 <td><input type="number" [(ngModel)]="item.quantity"  min="1"></td>
-                <!-- <td>{{ item.quantity * item.total }} $  </td> -->
                 <td>{{ item.quantity * item.product.sellPrice || 0 }} Taka </td>
 
                 <td><button (click)="removeFromCart(item)">Remove</button></td>
@@ -199,7 +198,6 @@
               <tr>
                 <td>Phone Number: </td>
                 <td><input type="number"></td>
-                <!-- <td>{{ item.quantity * item.total }} $  </td> -->
                 <td></td>
 
                 <td></td>
@@ -209,10 +207,39 @@
         </div>
         
       </div>
+    </div> -->
+     <!-- Right Section: Cart Table -->
+     <div class="section cart-panel">
+      <div class="cart-header">Selected Products</div>
+      <div class="cart-table-container">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Product Code</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartItems">
+              <td>{{ item.product.name }}</td>
+              <td>{{ item.product.barcode }}</td>
+              <td>{{ item.product.sellPrice }} Taka</td>
+              <td><input type="number" [(ngModel)]="item.quantity" min="1" (change)="updateCartItem(item)"></td>
+              <td>{{ item.quantity * item.product.sellPrice || 0 }} Taka</td>
+              <td><button (click)="removeFromCart(item)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 
     <!-- Second Row: Billing Section -->
-    <div class="row">
+    <!-- <div class="row">
       <div class="section billing-panel">
         <div class="cart-header">Customer Info</div>
         <div class="customer-info">Walking Customer | 20221605WALKING | 111111111 | None</div>
@@ -233,9 +260,37 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- </div>
 </div> -->
+
+<div class="row">
+  <div class="section billing-panel">
+    <div class="cart-header1">Customer Info</div>
+    <div class="customer-info">
+      <span>Walking Customer | 20221605WALKING | </span>
+      <input type="number" [(ngModel)]="customerPhone" placeholder="Phone Number">
+    </div>
+
+    <div class="summary-panel">
+      <div>Total Items: <span>{{ cartItems.length }}</span></div>
+      <div>Total Cost: <span>{{ totalCost }} Taka</span></div>
+      <div>Discount: <span><input type="number" [(ngModel)]="discount" (change)="updateTotals()"> Taka</span></div>
+      <div>Coupon: <span><input type="number" [(ngModel)]="coupon" (change)="updateTotals()"> Taka</span></div>
+      <div>Tax: <span><input type="number" [(ngModel)]="tax" (change)="updateTotals()"> Taka</span></div>
+      <div>Shipping: <span><input type="number" [(ngModel)]="shipping" (change)="updateTotals()"> Taka</span></div>
+      <div>Grand Total: <span>{{ grandTotal }} Taka</span></div>
+    </div>
+
+    <div class="payment-buttons">
+      <button class="btn btn-primary" (click)="processPayment('cash')">Cash</button>
+      <button class="btn btn-secondary" (click)="processPayment('card')">Card</button>
+      <button class="btn btn-warning" (click)="processPayment('paypal')">PayPal</button>
+      <button class="btn btn-danger" (click)="processPayment('multiple')">Multiple Pay</button>
+    </div>
+  </div>
+</div>
+</div>
 
   <script>
     function toggleDropdown(menuId) {
