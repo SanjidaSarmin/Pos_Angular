@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-sale',
@@ -19,7 +19,9 @@ export class ConfirmSaleComponent implements OnInit {
   customerName: string = ''; 
   customerPhone: string = ''; 
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private router : Router,
+    private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     // Retrieve query params
@@ -39,6 +41,6 @@ export class ConfirmSaleComponent implements OnInit {
   }
 
   goHome() {
-    // Navigate to home or dashboard
+    this.router.navigate(['/employee/main']);
   }
 }

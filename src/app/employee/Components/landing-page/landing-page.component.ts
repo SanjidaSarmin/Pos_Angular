@@ -125,8 +125,8 @@ export class LandingPageComponent implements OnInit {
   
 
   search() {
-    this.proService.searchProduct(this.searchTest).subscribe((val: Product[]) => {
-      this.filteredProducts = val;  // Update the correct list used in the template
+    this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
+      this.filteredProducts = val; 
     });
   }
   

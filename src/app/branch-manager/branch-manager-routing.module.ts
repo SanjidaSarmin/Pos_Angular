@@ -11,6 +11,9 @@ import { CategoryEditComponent } from './components/Category/category-edit/categ
 import { BundleListComponent } from './components/Promotion/Bundle/bundle-list/bundle-list.component';
 import { BundleAddComponent } from './components/Promotion/Bundle/bundle-add/bundle-add.component';
 import { BundleEditComponent } from './components/Promotion/Bundle/bundle-edit/bundle-edit.component';
+import { OfferAddComponent } from './components/Promotion/Offers/offer-add/offer-add.component';
+import { OfferEditComponent } from './components/Promotion/Offers/offer-edit/offer-edit.component';
+import { OfferListComponent } from './components/Promotion/Offers/offer-list/offer-list.component';
 
 const routes: Routes = [
   { path: "navbar", component:SidebarComponent },
@@ -26,6 +29,14 @@ const routes: Routes = [
    { path: "bundleProduct", component: BundleListComponent },
     { path: "bundleAdd", component: BundleAddComponent },
     { path: "bundleEdit/:bId", component: BundleEditComponent },
+
+    { path: "offerList", component: OfferListComponent },
+      { path: "offerAdd", component: OfferAddComponent },
+      { path: 'offerEdit/:oId', component: OfferEditComponent },
+
+    // { path: 'damageList', component: DamageListComponent },
+    //   { path: 'damageAdd', component: DamageAddComponent },
+    //   { path: 'damageEdit/:dId', component: DamageEditComponent },
   
 
 ];

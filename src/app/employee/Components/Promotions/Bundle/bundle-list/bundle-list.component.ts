@@ -13,7 +13,7 @@ export class BundleListComponent implements OnInit{
      ){}
      searchTerm = '';
      
-     bundleList: BundleProduct[] = [];
+     bundleList: any[] = [];
   
     ngOnInit(): void {
        this.bundleService.getAllData().subscribe((val : any) => {
