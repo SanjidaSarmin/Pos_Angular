@@ -42,9 +42,9 @@ export class CategoryListComponent implements OnInit{
     this.catagoryservice.searchCategories(name, description, page, size).subscribe(response => {
       console.log('API Response:', response);  // Log the response to see if filtering is applied
   
-      this.catagoryList = response.content;  // List of categories for the current page
-      this.totalItems = response.totalElements;  // Total number of items for pagination
-      this.totalPages = response.totalPages;  // Total pages count for pagination
+      this.catagoryList = response.content;  
+      this.totalItems = response.totalElements;  
+      this.totalPages = response.totalPages;  
   
     }, error => {
       console.error('Error fetching categories:', error);

@@ -33,8 +33,8 @@ export class CategoryService {
 
   searchCategories(name: string, description: string, page: number, size: number) {
     const params = {
-      name: name || '',  // default to empty string if name is null/undefined
-      description: description || '',  // default to empty string if description is null/undefined
+      name: name || '',  
+      description: description || '', 
       page: page.toString(),
       size: size.toString(),
     };
