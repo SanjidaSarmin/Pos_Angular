@@ -1,8 +1,8 @@
 <div class="d-flex"><app-sidebar></app-sidebar>
     <div class="main-content w-100">
         <div class="add-category-form">
-    <h2>Add New Category</h2>
-    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <h2>Update Category</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" *ngIf="categoryData">
       <div class="form-row">
         <div class="form-group">
             <label>Category id</label>

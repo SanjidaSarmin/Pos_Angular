@@ -25,6 +25,7 @@ export class OfferAddComponent implements OnInit{
     appliedFor: new FormControl(),
     startDate: new FormControl(),
     endDate: new FormControl(),
+    productId: new FormControl(),
   });
 
   onSubmit(){

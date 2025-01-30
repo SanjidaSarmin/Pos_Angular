@@ -13,7 +13,7 @@ export class OfferListComponent implements OnInit{
    ){}
 
    
-   offerList: Offers[] = [];
+   offerList: any[] = [];
 
   ngOnInit(): void {
      this.offerService.getAllData().subscribe((val : any) => {

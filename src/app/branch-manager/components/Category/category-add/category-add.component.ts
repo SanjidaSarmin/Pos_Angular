@@ -26,7 +26,7 @@ export class CategoryAddComponent implements OnInit{
   onSubmit(){
     this.categoryService.addData(this.categoryForm.value).subscribe((val : any) => {
       console.log("ReturnForm created succesfully");
-      this.router.navigateByUrl('/employee/return')
+      this.router.navigateByUrl('/manager/categoryList')
     })
   }
   ngOnInit(): void {}

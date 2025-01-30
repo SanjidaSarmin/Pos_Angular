@@ -33,14 +33,14 @@ export class ProductEditComponent implements OnInit{
   image: new FormControl(),
   barcode: new FormControl(),
   name: new FormControl(),
-  category: new FormControl(),
+  categoryId: new FormControl(),
   vat: new FormControl(),
-  branch: new FormControl(),
+  branchId: new FormControl(),
   stock: new FormControl(),
   costPrice: new FormControl(),
   sellPrice: new FormControl(),
   expiredDate: new FormControl(),
-  supplier: new FormControl()
+  supplierId: new FormControl()
   })
 
   onSubmit(){

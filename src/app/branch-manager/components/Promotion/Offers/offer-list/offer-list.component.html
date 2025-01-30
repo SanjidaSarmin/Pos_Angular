@@ -10,7 +10,7 @@
           <input type="text" placeholder="Search" class="search-bar" />
           <button type="submit">Search</button>
         </div>     
-        <button class="create-button" routerLink="/manager/offerAdd">+ Create Offer Product</button> 
+        <button class="create-button" routerLink="/manager/offerAdd">+ Create Promotion</button> 
       </div>
 
       <table class="data-table">
@@ -26,6 +26,7 @@
             <th>Applied For</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th>Product Id</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -33,7 +34,7 @@
           <tr *ngFor="let coupon of offerList">
             <td>{{ coupon.id }}</td>
             <td>{{ coupon.name }}</td>
-            <td>{{ coupon.code }}</td>
+            <td>{{ coupon.barcode }}</td>
             <td>{{ coupon.status }}</td>
             <td>{{ coupon.minimumPurchase }}</td>
             <td>{{ coupon.discount }}</td>
@@ -41,6 +42,7 @@
             <td>{{ coupon.appliedFor }}</td>
             <td>{{ coupon.startDate }}</td>
             <td>{{ coupon.endDate }}</td>
+            <td>{{ coupon.productId}}</td>
             <td style="text-align: center;">
               <a [routerLink]="['/manager/offerEdit/', coupon.id]">
                 <button class="btn1">

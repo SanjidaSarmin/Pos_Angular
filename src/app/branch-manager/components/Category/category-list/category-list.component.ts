@@ -12,7 +12,7 @@ export class CategoryListComponent implements OnInit{
       private catagoryservice : CategoryService
      ){}
      
-     catagoryList: Category[] = [];
+     catagoryList: any[] = [];
   
     ngOnInit(): void {
        this.catagoryservice.getAllData().subscribe((val : any) => {
@@ -27,12 +27,37 @@ export class CategoryListComponent implements OnInit{
       })
      }
   
-  searchTerm = '';
+     
   filteredCategories = [...this.catagoryList];
 
-  search() {
-    this.filteredCategories = this.catagoryList.filter(category =>
-      category.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
+  searchTest = ''; 
+  currentPage: number = 0;  
+  pageSize: number = 10;   
+  totalItems: number = 0;
+  totalPages: number = 0;  
+  
+  search(name: string = this.searchTest, description: string = '', page: number = this.currentPage, size: number = this.pageSize): void {
+    console.log(`Searching with name: ${name}, description: ${description}, page: ${page}, size: ${size}`);
+  
+    this.catagoryservice.searchCategories(name, description, page, size).subscribe(response => {
+      console.log('API Response:', response);  // Log the response to see if filtering is applied
+  
+      this.catagoryList = response.content;  // List of categories for the current page
+      this.totalItems = response.totalElements;  // Total number of items for pagination
+      this.totalPages = response.totalPages;  // Total pages count for pagination
+  
+    }, error => {
+      console.error('Error fetching categories:', error);
+    });
   }
+  
+
+  goToPage(page: number): void {
+    if (page >= 0 && page < this.totalPages) {
+      this.currentPage = page;
+      this.search();
+    }
+  }
+  
+
 }

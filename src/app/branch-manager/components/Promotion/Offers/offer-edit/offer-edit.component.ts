@@ -22,7 +22,7 @@ export class OfferEditComponent implements OnInit{
   promotionForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
-    code: new FormControl(),
+    barcode: new FormControl(),
     status: new FormControl(),
     minimumPurchase: new FormControl(),
     discount: new FormControl(),
@@ -30,6 +30,7 @@ export class OfferEditComponent implements OnInit{
     appliedFor: new FormControl(),
     startDate: new FormControl(),
     endDate: new FormControl(),
+    productId: new FormControl(),
   });
 
 

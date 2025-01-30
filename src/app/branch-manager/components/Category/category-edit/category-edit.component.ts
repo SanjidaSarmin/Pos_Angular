@@ -11,7 +11,7 @@ import { CategoryService } from 'src/app/branch-manager/Service/category/categor
 export class CategoryEditComponent implements OnInit{
 
   id! : any;
-  categoryData! : any;
+  categoryData: any | null= null;
  
   constructor(
     private categoryService : CategoryService,
@@ -30,8 +30,8 @@ export class CategoryEditComponent implements OnInit{
 
   onSubmit(){
     this.categoryService.updateData(this.categoryForm.value).subscribe((val : any) => {
-      console.log("ReturnForm created succesfully");
-      this.router.navigateByUrl('/employee/return')
+      console.log("Form updated succesfully");
+      this.router.navigateByUrl('/manager/categoryList')
     })
   }
   

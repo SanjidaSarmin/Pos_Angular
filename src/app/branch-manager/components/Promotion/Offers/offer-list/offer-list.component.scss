@@ -19,21 +19,21 @@
     margin-right: 10px; 
   }
   button {
-    background-color: #307bb1;
+    background-color: #286aa7;
     color: white;
     border: none; 
     padding: 8px 20px; 
     text-align: center;
     text-decoration: none; 
     display: inline-block; 
-    font-size: 14px; 
+    font-size: 15px; 
     cursor: pointer;
-    border-radius: 5px; 
+    border-radius: 4px; 
     transition: background-color 0.3s; 
   }
 
   button:hover {
-    background-color: #215069; 
+    background-color: #183470;
   }
   
   
@@ -43,23 +43,24 @@
     justify-content: space-between;
     margin-bottom: 20px;
 
-    .search-bar,
-    .date-filter {
-      padding: 8px;
+    .search-bar{
+      padding: 8px 12px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
 
     .create-button {
       padding: 8px 12px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
+      background-color: #ffffff;
+      color: #289fa7;
+      border: 1px solid #289fa7;
       border-radius: 4px;
+      font-size: 15px;
       cursor: pointer;
 
       &:hover {
-        background-color: #0056b3;
+        background-color: #289fa7;
+        color: #fafafa;
       }
     }
   }

@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit{
    ){}
 
    
-   productList: Product[] = [];
+   productList: any[] = [];
 
   ngOnInit(): void {
      this.proService.getAllData().subscribe((val : any) => {
