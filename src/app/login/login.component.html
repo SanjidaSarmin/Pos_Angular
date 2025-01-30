@@ -1,0 +1,59 @@
+<body>
+    <div class="container">
+      <!-- Left Section -->
+      <div class="left-section my-auto">
+        <img src="/assets/logo.png" alt="Logo" class="logo">
+  
+        <div class="logo-container">
+  
+          <a href="#" class="forgot-link1">I do not have an account yet</a>
+          <p><b> I am</b></p>
+        </div>
+  
+        <div class="buttons">
+          <div class="circular-button">
+            <img src="/assets/administrator.png" alt="Admin Icon" width="40"><br>
+           Admin
+          </div>
+          <div class="circular-button">
+            <img src="/assets/manager (1).png" alt="Student Icon" width="40"><br>
+           Manager
+          </div>
+          <div class="circular-button">
+            <img src="/assets/computer.png" alt="Employee Icon" width="40"><br>
+            Employee
+          </div>
+        </div>
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+          <div class="form-group">
+            <input type="text" formControlName="Email" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <input type="password" formControlName="Pass" placeholder="Password">
+          </div>
+          <div class="remember-me">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember Me</label>
+          </div>
+          <div class="form-group">
+            <button>Login</button>
+          </div>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </form>
+      </div>
+  
+      <!-- Right Section -->
+      <div class="right-section">
+        <div class="centered-container ">
+          <h1 class="heading">Guiding You Every Step of the Way</h1>
+          <p class="paragraph">Start your school journey with us</p>
+          <button class="cta-button" style="text-align: center;">Get Started</button>
+          <div class="top-right">
+            <p class="p-color">Don't have any account? &nbsp; &nbsp;
+              <button class="login-button" routerLink="/signup">Sign Up</button></p>
+           </div>
+        </div>
+        <img src="/assets/Login.jpg" alt="Illustration" class="image">
+      </div>
+    </div>
+  </body>

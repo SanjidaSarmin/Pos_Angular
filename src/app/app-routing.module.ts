@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SupplierListComponent } from './Supplier/supplier-list/supplier-list.component';
 import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-messaging.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -38,6 +40,8 @@ const routes: Routes = [
   // { path: 'bundleAdd', component: BundleAddComponent},
 
   { path: 'massage', component: WebSocketMessagingComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignupComponent},
 
 ];
 

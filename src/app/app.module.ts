@@ -15,6 +15,8 @@ import { OfferListComponent } from './Product/Offer/offer-list/offer-list.compon
 import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-messaging.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { Event, NavigationEnd, Router } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -36,6 +38,8 @@ import { Event, NavigationEnd, Router } from '@angular/router';
     OfferListComponent,
     WebSocketMessagingComponent,
     SideNavbarComponent,
+    LoginComponent,
+    SignupComponent,
  
   ],
   imports: [

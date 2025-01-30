@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    // box-sizing: border-box;
+  }
+  
+  body {
+    width: auto;
+    height: 60%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    height: 90vh;
+    width: 90vw;
+    padding: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+  }
+  
+  .left-section {
+    flex: 4;
+    // background-color: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 5%;
+    padding-right: 8%;
+    box-shadow: #f1f3f5;
+  
+  }
+  
+  .left-section:hover {
+    border-color: #007bff;
+    /* Add border color on hover */
+  }
+  
+  .right-section {
+    flex: 7;
+    // background-color: rgb(85, 143, 190);
+    // padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: none;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 90px;
+  }
+  
+  
+  .logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  .link {
+    margin-bottom: 20px;
+    color: #3e90e7;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #093768;
+    color: #fff;
+  }
+  
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    // border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form-group button {
+    width: 90%;
+    padding: 10px;
+    margin: 8px;
+    background-color: rgb(25, 77, 119);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .form-group button:hover {
+    background-color: rgb(7, 45, 88);
+  }
+  
+  .top-right {
+    top: 10px;
+    right: 20px;
+    text-align: right;
+  }
+  
+  .login-button {
+    background-color: rgb(252, 252, 252);
+    color:  rgb(25, 77, 119);
+    padding: 2px 15px;
+    border-radius: 25px;
+    border: 1px solid rgb(23, 105, 138);
+    cursor: pointer;
+    // margin-top: 10px;
+  }
+  
+  .login-button:hover {
+    background-color: rgb(25, 77, 119);
+    color: rgb(250, 250, 250);
+    
+  }
+  .p-color{
+    color: rgb(23, 105, 138);
+  }
+  
+  .centered-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+  }
+  
+  /* Styling for the heading */
+  .heading {
+    color: rgb(23, 105, 138);
+    font-size: 30px;
+    margin-bottom: 4px;
+  }
+  
+  /* Styling for the paragraph */
+  .paragraph {
+    color: rgb(23, 105, 138);
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .cta-button {
+    width: 50%;
+    padding: 10px 20px;
+    margin: 20px 10px;
+    background-color: rgb(252, 252, 252);
+    color:  rgb(25, 77, 119);
+    border: 1px solid #1e656e;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .cta-button:hover {
+    background-color: rgb(25, 77, 119);
+    color: rgb(250, 250, 250);
+  }
+  
+  .image {
+    width: 100%;
+    // max-width: 400px; 
+    height: 60%;
+    // margin-top: auto;
+  }
+  
+  .forgot-link {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    color: #555;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+  
+  .forgot-link:hover {
+    color: #1c74e2;
+  }
+  
+  .forgot-link1 {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    color: #555;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  
+  .forgot-link1:hover {
+    color: #1c74e2;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .remember-me input {
+    margin-right: 10px;
+  }
+  
+  .circular-button {
+    width: 90px;
+    height: 90px;
+    background-color: #f1f3f5;
+    color:  rgb(25, 77, 119);
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+ 
+  .circular-button:hover {
+    background-color: #5e9bdb;
+    transform: scale(1.1);
+  }

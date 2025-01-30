@@ -1,0 +1,179 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    width: 95%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent any scrolling caused by gaps */
+  }
+  
+  /* Container Layout */
+  .container {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+    width: 95%;
+    padding: auto; 
+    margin: 15px;
+    margin-left: 10%;/* Full width of the viewport */
+    margin-right: 20%;
+  }
+  
+  /* Left Column (40%) */
+  .left-column {
+    flex: 50%; /* Takes 40% of the width */
+    background-color: rgb(25, 89, 119);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+  }
+  
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+  }
+  
+  select.form-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  
+  .submit-button {
+    background-color: white;
+    color: blue;
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .submit-button:hover {
+    background-color: rgb(15, 46, 71);
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .hover-link {
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .hover-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Right Column (60%) */
+  .right-column {
+    flex: 50%; 
+    background-color: white;
+    padding: none; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+  }
+  
+  
+  .login-button {
+    background-color: rgb(22, 22, 85);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .login-button:hover {
+    background-color: white;
+    color: rgb(25, 77, 119);
+    border: 1px solid rgb(25, 77, 119);
+  }
+  
+  .heading {
+    font-size: 28px;
+    margin: 20px 0;
+    padding-left: 20%;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+  }
+   span {
+    color:rgb(64, 64, 185);/* Change the font color to a blue shade */
+  }
+  
+  
+  .paragraph {
+    font-size: 18px;
+    line-height: 1.6;
+    padding-left: 20%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+  
+  .bottom-image {
+    width: 100%; 
+    max-width: none;
+    height: auto; 
+    align-self: center; 
+  }
+
+  .buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .circular-button {
+    width: 85px;
+    height: 85px;
+    background-color: #f1f3f5;
+    color:  rgb(25, 77, 119);
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+ 
+  .circular-button:hover {
+    background-color: #5e9bdb;
+    transform: scale(1.1);
+  }
+  
+  
