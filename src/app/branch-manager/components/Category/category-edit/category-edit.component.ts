@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from 'src/app/branch-manager/Service/category/category.service';
+import { CategoryService } from 'src/app/Service/category/category.service';
 
 @Component({
   selector: 'app-category-edit',

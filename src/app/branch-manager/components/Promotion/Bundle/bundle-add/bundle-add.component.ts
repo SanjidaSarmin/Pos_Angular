@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BundleService } from 'src/app/branch-manager/Service/Bundle/bundle.service';
+import { BundleService } from 'src/app/Service/Bundle/bundle.service';
 
 @Component({
   selector: 'app-bundle-add',

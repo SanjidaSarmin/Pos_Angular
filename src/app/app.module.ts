@@ -12,11 +12,11 @@ import { SupplierListComponent } from './Supplier/supplier-list/supplier-list.co
 import { OfferAddComponent } from './Product/Offer/offer-add/offer-add.component';
 import { OfferEditComponent } from './Product/Offer/offer-edit/offer-edit.component';
 import { OfferListComponent } from './Product/Offer/offer-list/offer-list.component';
-import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-messaging.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-messaging.component';
 
 
 

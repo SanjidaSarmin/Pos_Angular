@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BranchService } from 'src/app/branch-manager/Service/Branch/branch.service';
-import { CategoryService } from 'src/app/branch-manager/Service/category/category.service';
-import { ProductService } from 'src/app/branch-manager/Service/Product/product.service';
-import { SuppliersService } from 'src/app/branch-manager/Service/Supplier/suppliers.service';
+import { BranchService } from 'src/app/Service/Branch/branch.service';
+import { CategoryService } from 'src/app/Service/category/category.service';
+import { ProductService } from 'src/app/Service/Product/product.service';
+import { SuppliersService } from 'src/app/Service/Supplier/suppliers.service';
 
 @Component({
   selector: 'app-product-edit',

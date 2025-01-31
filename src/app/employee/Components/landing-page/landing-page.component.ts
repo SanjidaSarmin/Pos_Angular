@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SellService } from '../../Service/Sell/sell.service';
 import { CatagoryService } from '../../Service/Catagory/catagory.service';
-import { Category } from 'src/app/Models/Catagory';
-import { ProductService } from '../../Service/Product/product.service';
+import { ProductService } from 'src/app/Service/Product/product.service';
+import { CartService } from 'src/app/Service/Cart/cart.service';
 import { Product } from 'src/app/Models/Product';
-import { CartService } from '../../Service/Cart/cart.service';
-import { Router } from '@angular/router';
+import { Category } from 'src/app/Models/Catagory';
 
 @Component({
   selector: 'app-landing-page',

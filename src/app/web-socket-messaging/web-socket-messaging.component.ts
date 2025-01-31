@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tasks } from '../Models/Tasks';
-import { WebSocketService } from '../Service/WebSocketing/web-socket.service';
+import { WebsocketService } from '../Service/WebSocket/web-socket.service';
 
 @Component({
   selector: 'app-web-socket-messaging',
@@ -12,7 +12,7 @@ export class WebSocketMessagingComponent {
   newTaskName: string = '';
   newTaskDays: number = 0;
 
-  constructor(private websocketService: WebSocketService) {}
+  constructor(private websocketService: WebsocketService) {}
 
   ngOnInit(): void {
     // Listen for incoming tasks

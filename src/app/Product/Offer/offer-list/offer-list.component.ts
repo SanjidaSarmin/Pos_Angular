@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Offers } from 'src/app/Models/Offers';
-import { OfferService } from 'src/app/Service/Offer/offer.service';
+import { OfferService } from 'src/app/Service/Offers/offer.service';
 
 @Component({
   selector: 'app-offer-list',

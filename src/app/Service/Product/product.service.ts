@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/Models/Product';
 
 @Injectable({
@@ -32,4 +33,8 @@ export class ProductService {
   updateData(product: Product){
     return this.httpClient.put(this.apiUrl+"/"+product.id, product)
   }
+
+  searchProduct(searchText: string): Observable<Product[]> {
+      return this.httpClient.get<Product[]>(this.apiUrl + "/search?keyword=" + searchText);
+    }
 }
