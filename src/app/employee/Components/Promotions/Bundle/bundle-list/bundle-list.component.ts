@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BundleService } from 'src/app/employee/Service/Bundle/bundle.service';
 import { BundleProduct } from 'src/app/Models/Bundle';
+import { BundleService } from 'src/app/Service/Bundle/bundle.service';
 
 @Component({
   selector: 'app-bundle-list',

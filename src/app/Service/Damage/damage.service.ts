@@ -4,13 +4,15 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class BundleService {
+export class DamageService {
+  
 
-  private apiUrl = "http://localhost:8081/api/bundleProduct";
-  constructor(private httpClient: HttpClient) { }
+constructor(private httpClient: HttpClient) { }
 
-  addData(bundle : any){
-    return this.httpClient.post(this.apiUrl, bundle)
+  private apiUrl = "http://localhost:8081/api/damage";
+
+  addData(damage : any){
+    return this.httpClient.post(this.apiUrl, damage)
   }
 
   getAllData(){
@@ -25,7 +27,9 @@ export class BundleService {
     return this.httpClient.delete(this.apiUrl+"/"+ id)
   }
 
-  updateData(bundle: any){
-    return this.httpClient.put(this.apiUrl+"/"+bundle.id, bundle)
+  updateData(damage: any){
+    return this.httpClient.put(this.apiUrl+"/"+damage.id, damage)
   }
+
+  
 }

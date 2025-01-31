@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CatagoryService } from 'src/app/employee/Service/Catagory/catagory.service';
 import { Category } from 'src/app/Models/Catagory';
+import { CategoryService } from 'src/app/Service/category/category.service';
 
 @Component({
   selector: 'app-product-catagory',
@@ -9,15 +9,15 @@ import { Category } from 'src/app/Models/Catagory';
 })
 export class ProductCatagoryComponent implements OnInit{
     constructor(
-      private catagoryservice : CatagoryService
+      private catagoryservice : CategoryService
      ){}
 
     
  searchTest :string = "";
   search() {
-    this.catagoryservice.serarchCategpry(this.searchTest).subscribe((val: any) => {
-      this.catagoryList = val
-    })
+    // this.catagoryservice.searchCategories(this.searchTest).subscribe((val: any) => {
+    //   this.catagoryList = val
+    // })
   }
      
      catagoryList: Category[] = [];

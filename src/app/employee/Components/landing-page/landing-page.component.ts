@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SellService } from '../../Service/Sell/sell.service';
-import { CatagoryService } from '../../Service/Catagory/catagory.service';
-import { ProductService } from 'src/app/Service/Product/product.service';
-import { CartService } from 'src/app/Service/Cart/cart.service';
 import { Product } from 'src/app/Models/Product';
 import { Category } from 'src/app/Models/Catagory';
+import { SellService } from '../../../Service/Sell/sell.service';
+import { CategoryService } from 'src/app/Service/category/category.service';
+import { ProductService } from 'src/app/Service/Product/product.service';
+import { CartService } from 'src/app/Service/Cart/cart.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -30,7 +30,7 @@ export class LandingPageComponent implements OnInit {
   
   constructor(
     private sellService: SellService,
-    private catagoryService: CatagoryService,
+    private catagoryService: CategoryService,
     private proService: ProductService,
     private cartService: CartService,
     private router: Router

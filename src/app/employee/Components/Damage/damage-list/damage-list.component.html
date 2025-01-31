@@ -14,10 +14,10 @@
             <option *ngFor="let num of [10, 25, 50, 100]" [value]="num">{{ num }}</option>
           </select>
         </label>
-        <div class="search-container">
+        <!-- <div class="search-container">
           <input type="text" placeholder="Search" class="search-input" [(ngModel)]="searchTest" />
           <button class="btn" (click)="search()">Search</button>
-        </div>
+        </div> -->
       </div>
       
       
@@ -38,17 +38,6 @@
             <td>{{ damagedStock.dateReported }}</td>
             <td>{{ damagedStock.quantity }}</td>
             <td>{{ damagedStock.reason }}</td>
-            <td style="text-align: center;">
-              <a [routerLink]="['/employee/damageEdit/', damagedStock.id]">
-                <button class="btn1">
-                  <img src="assets/pen.png" alt="Edit" class="icon" />
-                </button>
-              </a>
-              |
-              <button class="btn1">
-                <img src="/assets/bin.png" alt="Delete" class="icon" />
-              </button>
-            </td>
           </tr>
           
         </tbody>

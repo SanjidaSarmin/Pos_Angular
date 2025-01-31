@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DamageService } from 'src/app/employee/Service/Damage/damage.service';
 import { Damage } from 'src/app/Models/Damage';
+import { DamageService } from 'src/app/Service/Damage/damage.service';
 
 @Component({
   selector: 'app-damage-list',
@@ -33,12 +33,12 @@ export class DamageListComponent implements OnInit{
     })
    }
 
-searchTest :string = "";
-  search() {
-    this.damageService.serarchProduct(this.searchTest).subscribe((val: any) => {
-      this.damageList = val
-    })
-  }
+// searchTest :string = "";
+//   search() {
+//     this.damageService.serarchProduct(this.searchTest).subscribe((val: any) => {
+//       this.damageList = val
+//     })
+//   }
   
  
 

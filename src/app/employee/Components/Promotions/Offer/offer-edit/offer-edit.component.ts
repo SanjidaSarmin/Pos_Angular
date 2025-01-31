@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { OfferService } from 'src/app/employee/Service/Offers/offer.service';
+import { OfferService } from 'src/app/Service/Offers/offer.service';
 
 @Component({
   selector: 'app-offer-edit',
