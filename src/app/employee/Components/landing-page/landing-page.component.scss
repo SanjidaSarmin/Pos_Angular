@@ -686,5 +686,16 @@ a {
   .btn:active {
     transform: scale(0.95); /* Adds a click effect */
   }
+
+  .pagination-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-container pagination-controls {
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
   
 

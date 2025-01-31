@@ -9,11 +9,20 @@
         <div class="toolbar">
           <div class="toolbar-left">
             <button routerLink="/manager/productAdd" class="btn add-product">+ Add Product</button>
-            <input type="date" placeholder="Date Range" class="date-range-input" />
           </div>
           <div class="toolbar-right">
-            <input type="text" placeholder="Search" class="search-input" />
-            <button class="btn">Search</button>
+            <div class="form-group">
+              <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" id="productName" [formControl]="productNameControl"
+                  (input)="filterProducts()" placeholder="Type product name" />
+                <button class="btn" (click)="searchProduct()">Search</button>
+              </div>
+              <ul *ngIf="filteredProducts.length > 0" class="autocomplete-list">
+                <li *ngFor="let product of filteredProducts" (click)="selectProduct(product)" class="autocomplete-item">
+                  {{ product.name }}
+                </li>
+              </ul>
+            </div>
   
           </div>
         </div>
@@ -37,7 +46,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let product of productList">
+            <tr *ngFor="let product of productList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
               <td>{{product.id}}</td>
               <td>{{ product.name }}</td>
               <td>
@@ -67,6 +76,12 @@
           </tbody>
         </table>
   
+         <!-- Pagination Controls -->
+      <!-- Pagination Controls -->
+<div class="pagination-container">
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+
       </div>
     </div>
   </div>

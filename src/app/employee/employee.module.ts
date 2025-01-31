@@ -25,6 +25,7 @@ import { SellDetailsComponent } from './Components/Sell/sell-details/sell-detail
 import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
 import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
 import { PaymentConfirmComponent } from './Components/Sell/payment-confirm/payment-confirm.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -60,7 +61,8 @@ import { PaymentConfirmComponent } from './Components/Sell/payment-confirm/payme
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class EmployeeModule { }

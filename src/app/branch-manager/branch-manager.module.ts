@@ -17,6 +17,7 @@ import { BundleListComponent } from './components/Promotion/Bundle/bundle-list/b
 import { OfferAddComponent } from './components/Promotion/Offers/offer-add/offer-add.component';
 import { OfferEditComponent } from './components/Promotion/Offers/offer-edit/offer-edit.component';
 import { OfferListComponent } from './components/Promotion/Offers/offer-list/offer-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -43,6 +44,7 @@ import { OfferListComponent } from './components/Promotion/Offers/offer-list/off
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule, 
+    NgxPaginationModule
   ]
 })
 export class BranchManagerModule { }

@@ -5,7 +5,7 @@ import { Category } from 'src/app/Models/Catagory';
 import { SellService } from '../../../Service/Sell/sell.service';
 import { CategoryService } from 'src/app/Service/category/category.service';
 import { ProductService } from 'src/app/Service/Product/product.service';
-import { CartService } from 'src/app/Service/Cart/cart.service';
+import { CartService } from 'src/app/employee/Service/Cart/cart.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -141,6 +141,9 @@ export class LandingPageComponent implements OnInit {
       this.filteredProducts = [...this.productList];
     });
   }
+
+  currentPage = 1;
+  itemsPerPage = 6;
 }
 
   // ngOnInit(): void {

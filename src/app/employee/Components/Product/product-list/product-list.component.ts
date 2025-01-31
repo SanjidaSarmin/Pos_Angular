@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Product } from 'src/app/Models/Product';
 import { ProductService } from 'src/app/Service/Product/product.service';
 
@@ -9,30 +10,97 @@ import { ProductService } from 'src/app/Service/Product/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  searchTest :string = "";
-  search() {
-    this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
-      this.productList = val
-    })
-  }
   constructor(
     private proService: ProductService
   ) { }
 
 
   productList: any[] = [];
+  
 
   ngOnInit(): void {
     this.proService.getAllData().subscribe((val: any) => {
       this.productList = val
+      this.updatePaginatedProducts();
     })
   }
 
-  deleteProduct(id: any) {
-    this.proService.deleteById(id).subscribe((val: any) => {
-      console.log("Data deleted");
-      this.ngOnInit()
-    })
-  }
+   productNameControl = new FormControl('');
+    selectedProduct: string = ''; 
+    selectedProducts: any[] = [];
+    filteredProducts: any[] = [];
+    paginatedProducts: any[] = [];
+    currentPage = 1;
+    itemsPerPage: number = 10;
 
+
+    
+  
+
+
+    searchProduct(): void {
+      const searchTerm = this.productNameControl.value?.trim();
+      if (!searchTerm) {
+        alert('Please enter a product name to search.');
+        return;
+      }
+      this.proService.searchProduct(searchTerm).subscribe((val: any) => {
+        this.productList = val;
+        this.currentPage = 1; // Reset to the first page
+        this.updatePaginatedProducts(); // Update the displayed products
+      });
+    }
+    updatePaginatedProducts(): void {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      this.paginatedProducts = this.productList.slice(start, start + this.itemsPerPage);
+    }
+
+    filterProducts() {
+      const input = this.productNameControl.value?.toLowerCase() || '';
+      if (input.trim() === '') {
+        this.filteredProducts = [];
+      } else {
+        this.filteredProducts = this.productList.filter((product) =>
+          product.name.toLowerCase().includes(input)
+        );
+      }
+    }
+  
+    
+    selectProduct(product: any) {
+      const existingProduct = this.selectedProducts.find(
+        (p) => p.code === product.code
+      );
+      if (!existingProduct) {
+        this.selectedProducts.push({ ...product, quantity: 1 });
+      } else {
+        alert('Product is already in the list.');
+      }
+      this.productNameControl.setValue('');
+      this.filteredProducts = []; 
+    }
 }
+
+
+// searchProduct() {
+    //   const searchTerm = this.productNameControl.value?.trim();
+    //   if (!searchTerm) {
+    //     alert('Please enter a product name to search.');
+    //     return;
+    //   }
+      // this.filteredProducts = this.productList.filter(product =>
+      //   product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      // );
+    //   this.proService.searchProduct(searchTerm).subscribe((val: any) => {
+    //     this.productList = val
+    //   })
+    //   if (this.filteredProducts.length === 0) {
+    //     alert('No products found matching your search.');
+    //   } else {
+    //     this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
+    //       this.productList = val
+    //     })
+    //     console.log('Filtered Products:', this.filteredProducts);
+    //   }
+      
+    // }

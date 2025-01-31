@@ -34,7 +34,7 @@ export class ProductService {
     return this.httpClient.put(this.apiUrl+"/"+product.id, product)
   }
 
-  searchProduct(searchText: string): Observable<Product[]> {
-      return this.httpClient.get<Product[]>(this.apiUrl + "/search?keyword=" + searchText);
+  searchProduct(searchText: string) {
+      return this.httpClient.get(this.apiUrl + "/search?keyword=" + searchText);
     }
 }

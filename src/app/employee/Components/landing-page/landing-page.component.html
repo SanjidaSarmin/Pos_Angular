@@ -164,12 +164,14 @@
 
         <!-- Product Grid with Select Button -->
         <div class="product-grid">
-          <div *ngFor="let product of filteredProducts" class="product-card" (click)="addToCart(product)">
+          <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 6, currentPage: currentPage }" 
+          class="product-card" (click)="addToCart(product)">
             <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
             <h3 class="product-name">{{product.name}}</h3>
             <p class="product-price">Price: {{ product.sellPrice }} Taka</p>
           </div>
         </div>
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
         
 
       </div>

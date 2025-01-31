@@ -17,6 +17,7 @@ import { Event, NavigationEnd, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-messaging.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -47,7 +48,8 @@ import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-m
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Damage } from 'src/app/Models/Damage';
-import { DamageService } from 'src/app/Service/Damage/damage.service';
+import { DamageService } from 'src/app/employee/Service/Damage/damage.service';
 
 @Component({
   selector: 'app-damage-list',
