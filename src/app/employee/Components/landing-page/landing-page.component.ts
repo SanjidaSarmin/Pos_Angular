@@ -27,7 +27,7 @@ export class LandingPageComponent implements OnInit {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
   }
 
-  
+
   constructor(
     private sellService: SellService,
     private catagoryService: CategoryService,
@@ -36,7 +36,7 @@ export class LandingPageComponent implements OnInit {
     private router: Router
   ) { }
 
-  
+
 
   searchTest: string = '';
   totalCost: number = 0;
@@ -51,7 +51,7 @@ export class LandingPageComponent implements OnInit {
   filteredProducts: any[] = [...this.productList];
   cartItems: any[] = [];
   customerPhone: string = '';
-  paymentStatus: string= '';
+  paymentStatus: string = '';
   paymentMethod: string = '';
 
   addToCart(product: any) {
@@ -82,11 +82,11 @@ export class LandingPageComponent implements OnInit {
     this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
   }
 
-  
+
 
   // processPayment(paymentMethod: string) {
   //   this.paymentStatus = `Payment successful via ${paymentMethod}. Thank you for your purchase!`;
-  
+
   //   // Send sale data to backend
   //   const saleData = {
   //     customerPhone: this.customerPhone,
@@ -95,7 +95,7 @@ export class LandingPageComponent implements OnInit {
   //     paymentMethod: paymentMethod,
   //     date: new Date() // You can include the current date
   //   };
-  
+
   //   this.sellService.recordSale(saleData).subscribe(response => {
   //     console.log('Sale recorded:', response);
   //     // After recording the sale, reset the cart
@@ -111,9 +111,9 @@ export class LandingPageComponent implements OnInit {
     this.paymentStatus = 'Payment cancelled.';
     // Reset cart or perform necessary actions
   }
-  
 
-  
+
+
   fetchCartItems() {
     // Example of hardcoded cart items
     this.cartItems = [
@@ -123,14 +123,15 @@ export class LandingPageComponent implements OnInit {
     this.updateTotals();
   }
 
-  
+
 
   search() {
     this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
-      this.filteredProducts = val; 
+      this.filteredProducts = val;
     });
   }
-  
+
+
 
   ngOnInit(): void {
     this.catagoryService.getAllData().subscribe((val: any) => {
@@ -143,7 +144,7 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
-  navigateToConfirmSale() {
+  navigateToConfirmSale(type: any) {
     // Set the data in the CartService
     this.cartService.setCartData({
       totalCost: this.totalCost,
@@ -158,36 +159,41 @@ export class LandingPageComponent implements OnInit {
     this.cartService.setPaymentMethod(this.paymentMethod);
 
     // Navigate to the confirm sale page
-    this.router.navigate(['/employee/confirmPayment']);
+    this.router.navigate(['/employee/confirmPayment/', type]);
   }
 
   currentPage = 1;
   itemsPerPage = 6;
+  logout() {
+    localStorage.clear();
+    sessionStorage.clear();
+    window.location.href = "/login";
+  }
 }
 
-  // ngOnInit(): void {
-  //   this.catagoryService.getAllData().subscribe((val: any) => {
-  //     this.categoryList = val
-  //   })
+// ngOnInit(): void {
+//   this.catagoryService.getAllData().subscribe((val: any) => {
+//     this.categoryList = val
+//   })
 
-  //   this.proService.getAllData().subscribe((val: any) => {
-  //     this.productList = val
-  //   })
-  // }
-  // searchProducts() {
-  //   if (this.searchQuery) {
-  //     this.filteredProducts = this.productList.filter(product =>
-  //       product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-  //     );
-  //   } else {
-  //     this.filteredProducts = [...this.productList];
-  //   }
-  // }
-  // numberConverter(num: any) {
-  //   console.log('val-------------',num);
+//   this.proService.getAllData().subscribe((val: any) => {
+//     this.productList = val
+//   })
+// }
+// searchProducts() {
+//   if (this.searchQuery) {
+//     this.filteredProducts = this.productList.filter(product =>
+//       product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+//     );
+//   } else {
+//     this.filteredProducts = [...this.productList];
+//   }
+// }
+// numberConverter(num: any) {
+//   console.log('val-------------',num);
 
-  //   return Number(num);
+//   return Number(num);
 
-  // }
+// }
 
 

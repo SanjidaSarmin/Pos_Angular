@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
   activeDropdown: string | null = null;
   notificationsCount = 3;
   onNotificationClick(): void {
@@ -32,7 +33,11 @@ export class NavbarComponent {
     this.isSidebarClosed = !this.isSidebarClosed;
   }
 
-  
+  logout() {
+    localStorage.clear();
+    sessionStorage.clear();
+    window.location.href="/login";
+    }
  
 
 }

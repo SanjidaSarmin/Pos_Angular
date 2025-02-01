@@ -17,7 +17,7 @@ export class ConfirmSaleComponent implements OnInit {
   // paymentMethod: string = '';
   paymentStatus: string = 'Payment Successful!';
   // cartItems: any[] = [];
-  customerName: string = ''; 
+  customerName: string = '';
   // customerPhone: string = ''; 
 
   totalCost: number = 0;
@@ -31,43 +31,45 @@ export class ConfirmSaleComponent implements OnInit {
   paymentMethod: string = '';
 
   constructor(
-    private router : Router,
+    private router: Router,
     private route: ActivatedRoute,
-  private cartService : CartService) {}
+    private cartService: CartService) { }
 
   // ngOnInit(): void {
-    // Retrieve query params
-    // this.route.queryParams.subscribe(params => {
-    //   this.totalCost = params['totalCost'];
-    //   this.paymentMethod = params['paymentMethod'];
-    //   this.paymentStatus = params['status'];
-    //   this.cartItems = params['cartItems']; // or fetch from a service
-    //   this.customerName = params['customerName']; // This should be passed as a query parameter or set globally
-    //   this.customerPhone = params['customerPhone']; // This too
-    //   this.discount = params['discount'];
-    //   this.coupon = params['coupon'];
-    //   this.tax = params['tax'];
-    //   this.shipping = params['shipping'];
-    //   this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
-    // });
+  // Retrieve query params
+  // this.route.queryParams.subscribe(params => {
+  //   this.totalCost = params['totalCost'];
+  //   this.paymentMethod = params['paymentMethod'];
+  //   this.paymentStatus = params['status'];
+  //   this.cartItems = params['cartItems']; // or fetch from a service
+  //   this.customerName = params['customerName']; // This should be passed as a query parameter or set globally
+  //   this.customerPhone = params['customerPhone']; // This too
+  //   this.discount = params['discount'];
+  //   this.coupon = params['coupon'];
+  //   this.tax = params['tax'];
+  //   this.shipping = params['shipping'];
+  //   this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
+  // });
 
-    ngOnInit() {
-      // Get the cart data from the CartService
-      const cartData = this.cartService.getCartData();
-      if (cartData) {
-        this.totalCost = cartData.totalCost;
-        this.discount = cartData.discount;
-        this.coupon = cartData.coupon;
-        this.tax = cartData.tax;
-        this.shipping = cartData.shipping;
-        this.grandTotal = cartData.grandTotal;
-        this.customerPhone = cartData.customerPhone;
-        this.cartItems = cartData.cartItems;
-        // this.paymentMethod = cartData.paymentMethod;
-        this.paymentMethod = this.cartService.getPaymentMethod() || 'Not Available';
-      }
+  ngOnInit() {
+    this.paymentMethod = this.route.snapshot.params['type'];
+
+    // Get the cart data from the CartService
+    const cartData = this.cartService.getCartData();
+    if (cartData) {
+      this.totalCost = cartData.totalCost;
+      this.discount = cartData.discount;
+      this.coupon = cartData.coupon;
+      this.tax = cartData.tax;
+      this.shipping = cartData.shipping;
+      this.grandTotal = cartData.grandTotal;
+      this.customerPhone = cartData.customerPhone;
+      this.cartItems = cartData.cartItems;
+      // this.paymentMethod = cartData.paymentMethod;
+      // this.paymentMethod = this.cartService.getPaymentMethod() || 'Not Available';
     }
-  
+  }
+
 
   goHome() {
     this.router.navigate(['/employee/main']);

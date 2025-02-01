@@ -86,7 +86,7 @@
     <img src="/assets/admin.png" alt="Admin Profile">
     <div class="info">
       <p>Admin</p>
-      <a href="#">Logout</a>
+      <a (click)="logout()">Logout</a>
     </div>
   </div>
 </div>
@@ -124,7 +124,7 @@
             <i class="fa fa-user"></i> User
             <div class="dropdown-menu">
               <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
-              <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+              <a (click)="logout()"><i class="fa fa-sign-out-alt"></i> Logout</a>
             </div>
           </div>
 
@@ -285,10 +285,10 @@
     </div>
 
     <div class="payment-buttons">
-      <button class="btn btn-primary" (click)="navigateToConfirmSale()">Cash</button>
-      <button class="btn btn-secondary" (click)="navigateToConfirmSale()">Card</button>
-      <button class="btn btn-warning" (click)="navigateToConfirmSale()">PayPal</button>
-      <button class="btn btn-danger" (click)="navigateToConfirmSale()">Multiple Pay</button>
+      <button class="btn btn-primary" (click)="navigateToConfirmSale('Cash')">Cash</button>
+      <button class="btn btn-secondary" (click)="navigateToConfirmSale('Card')">Card</button>
+      <button class="btn btn-warning" (click)="navigateToConfirmSale('PayPal')">PayPal</button>
+      <button class="btn btn-danger" (click)="navigateToConfirmSale('Multiple Pay')">Multiple Pay</button>
     </div>
   </div>
 </div>

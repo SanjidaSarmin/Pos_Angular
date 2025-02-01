@@ -53,7 +53,7 @@ const routes: Routes = [
 
   { path: 'sell', component: SellDetailsComponent },
   { path: 'sellreport', component: SellReportComponent },
-  { path: 'confirmPayment', component: ConfirmSaleComponent },
+  { path: 'confirmPayment/:type', component: ConfirmSaleComponent },
 ];
 
 @NgModule({
