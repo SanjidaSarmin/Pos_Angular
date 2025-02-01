@@ -15,7 +15,7 @@ export class WebsocketService implements OnDestroy {
   private subscription: StompSubscription | undefined;
 
   constructor() {
-    this.connection = Stomp.client('ws://192.168.20.136:8080/websocket');
+    this.connection = Stomp.client('ws://localhost:8081/websocket');
     this.connection.connect({}, () => {});
   }
 

@@ -27,6 +27,14 @@ const routes: Routes = [
       import('./branch-manager/branch-manager.module').then((m) => m.BranchManagerModule),
   },
 
+  { 
+    path: 'admin',
+    loadChildren: () => 
+      import('./admin/admin.module').then(m => m.AdminModule),
+   },
+
+  
+
 
   { path: "navbar", component: SideNavbarComponent },
   { path: 'dashboard', component: DashboardComponent },

@@ -16,7 +16,10 @@ import { OfferEditComponent } from './components/Promotion/Offers/offer-edit/off
 import { OfferListComponent } from './components/Promotion/Offers/offer-list/offer-list.component';
 
 const routes: Routes = [
-  { path: "navbar", component:SidebarComponent },
+   { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: "home", component: SidebarComponent },
+
+  // { path: "navbar", component:SidebarComponent },
 
   { path: "productlist", component:ProductListComponent },
   { path: "productAdd", component:ProductAddComponent },
