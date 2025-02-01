@@ -1,126 +1,166 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.d-flex {
+  display: flex;
+}
+
 .main-content {
   padding: 20px;
-  background-color: #f9f9f9; 
-  // min-height: calc(100vh - 70px); 
-  box-sizing: border-box; 
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin-top: 9%;
+  margin-right: 70px;
+  margin-left: 30px;
 }
-.payment-success-page {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  .payment-success-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
+
+/* Header section */
+.payment-success-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.payment-success-header h2 {
+  font-size: 2rem;
+  color: #4caf50;
+}
+
+.payment-success-header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Customer Details */
+.customer-details {
+  margin-bottom: 30px;
+  margin-left: 40px;
+}
+
+.customer-details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.customer-details p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Payment Summary */
+.payment-summary {
+  margin-bottom: 30px;
+  margin-left: 40px;
+}
+
+.payment-summary h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.payment-summary div {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.payment-summary .grand-total {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Payment Method */
+.payment-method {
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.payment-method h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.payment-method p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Payment Status */
+.payment-status {
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.payment-status h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #0e0e0e;
+}
+
+// .payment-status h3 span { 
+//       color: #0e0e0e;
+//     }
+
+/* Thank You Message */
+.thank-you-message {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.thank-you-message h3 {
+  font-size: 1.25rem;
+  color: #4a9c5e
+}
+
+/* Return Home Button */
+.return-home {
+  text-align: center;
+}
+
+.return-home button {
+  background-color: #4a9c5e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.return-home button:hover {
+  background-color: #2e7931;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   .payment-success-header h2 {
-    color: #28a745;
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .payment-success-header p {
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  .customer-details,
-  .payment-summary,
-  .payment-method {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .customer-details h3,
-  .payment-summary h3,
-  .payment-method h3 {
     font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
   }
-  
-  .payment-summary div,
-  .payment-method p {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-  
-  .payment-summary div span,
-  .payment-method span {
-    font-weight: bold;
-    color: #007bff;
-  }
-  
-  .grand-total {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #28a745;
-    margin-top: 20px;
-  }
-  
-  .payment-status {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .payment-status h3 {
-    font-size: 1.5rem;
-    color: #28a745;
-  }
-  
-  .thank-you-message {
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .thank-you-message h4 {
-    font-size: 1.5rem;
-    color: #555;
-  }
-  
-  .return-home {
-    text-align: center;
-    margin-top: 40px;
-  }
-  
-  .return-home button {
-    font-size: 1rem;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .return-home button:hover {
-    background-color: #0056b3;
-  }
-  
-  .cart-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .cart-table th,
-  .cart-table td {
+
+  .payment-summary, .customer-details, .payment-method, .payment-status, .thank-you-message {
     padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
   }
-  
-  .cart-table th {
-    background-color: #f1f1f1;
+
+  .return-home button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
-  
-  .cart-table tr:hover {
-    background-color: #f9f9f9;
-  }
-  
+}

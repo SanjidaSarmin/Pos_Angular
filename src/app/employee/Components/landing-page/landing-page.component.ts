@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/Models/Product';
 import { Category } from 'src/app/Models/Catagory';
-import { SellService } from '../../../Service/Sell/sell.service';
+import { CartService } from 'src/app/Service/Cart/cart.service';
 import { CategoryService } from 'src/app/Service/category/category.service';
 import { ProductService } from 'src/app/Service/Product/product.service';
-import { CartService } from 'src/app/employee/Service/Cart/cart.service';
+import { SellService } from 'src/app/Service/Sell/sell.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -52,6 +52,7 @@ export class LandingPageComponent implements OnInit {
   cartItems: any[] = [];
   customerPhone: string = '';
   paymentStatus: string= '';
+  paymentMethod: string = '';
 
   addToCart(product: any) {
     const existingItem = this.cartItems.find(item => item.product.name === product.name);
@@ -83,29 +84,29 @@ export class LandingPageComponent implements OnInit {
 
   
 
-  processPayment(paymentMethod: string) {
-    this.paymentStatus = `Payment successful via ${paymentMethod}. Thank you for your purchase!`;
+  // processPayment(paymentMethod: string) {
+  //   this.paymentStatus = `Payment successful via ${paymentMethod}. Thank you for your purchase!`;
   
-    // Send sale data to backend
-    const saleData = {
-      customerPhone: this.customerPhone,
-      cartItems: this.cartItems,
-      totalCost: this.totalCost,
-      paymentMethod: paymentMethod,
-      date: new Date() // You can include the current date
-    };
+  //   // Send sale data to backend
+  //   const saleData = {
+  //     customerPhone: this.customerPhone,
+  //     cartItems: this.cartItems,
+  //     totalCost: this.totalCost,
+  //     paymentMethod: paymentMethod,
+  //     date: new Date() // You can include the current date
+  //   };
   
-    this.sellService.recordSale(saleData).subscribe(response => {
-      console.log('Sale recorded:', response);
-      // After recording the sale, reset the cart
-      this.cartItems = [];
-      this.totalCost = 0;
+  //   this.sellService.recordSale(saleData).subscribe(response => {
+  //     console.log('Sale recorded:', response);
+  //     // After recording the sale, reset the cart
+  //     this.cartItems = [];
+  //     this.totalCost = 0;
 
-      this.router.navigate(['/employee/confirmPayment']);
-    }, error => {
-      console.error('Error:', error);
-    });
-  }
+  //     this.router.navigate(['/employee/confirmPayment']);
+  //   }, error => {
+  //     console.error('Error:', error);
+  //   });
+  // }
   cancelPayment() {
     this.paymentStatus = 'Payment cancelled.';
     // Reset cart or perform necessary actions
@@ -140,6 +141,24 @@ export class LandingPageComponent implements OnInit {
       this.productList = val;
       this.filteredProducts = [...this.productList];
     });
+  }
+
+  navigateToConfirmSale() {
+    // Set the data in the CartService
+    this.cartService.setCartData({
+      totalCost: this.totalCost,
+      discount: this.discount,
+      coupon: this.coupon,
+      tax: this.tax,
+      shipping: this.shipping,
+      grandTotal: this.grandTotal,
+      customerPhone: this.customerPhone,
+      cartItems: this.cartItems
+    });
+    this.cartService.setPaymentMethod(this.paymentMethod);
+
+    // Navigate to the confirm sale page
+    this.router.navigate(['/employee/confirmPayment']);
   }
 
   currentPage = 1;
