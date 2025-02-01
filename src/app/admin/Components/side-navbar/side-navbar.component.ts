@@ -12,4 +12,9 @@ export class SideNavbarComponent {
   toggleDropdown(menuId: string): void {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
   }
+  logout() {
+    localStorage.clear();
+    sessionStorage.clear();
+    window.location.href="/login";
+    }
 }

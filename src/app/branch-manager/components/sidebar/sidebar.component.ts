@@ -32,7 +32,11 @@ toggleSidebar() {
   this.isSidebarClosed = !this.isSidebarClosed;
 }
 
-
+logout() {
+  localStorage.clear();
+  sessionStorage.clear();
+  window.location.href="/login";
+  }
 
 
 }
