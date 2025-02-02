@@ -52,7 +52,8 @@ const routes: Routes = [
   { path: 'damageEdit/:dId', component: DamageEditComponent },
 
   { path: 'sell', component: SellDetailsComponent },
-  { path: 'sellreport', component: SellReportComponent },
+  { path: 'sellreport', component: SellReportComponent }, 
+  { path: 'selldetails', component: SellDetailsComponent },
   { path: 'confirmPayment/:type', component: ConfirmSaleComponent },
 ];
 

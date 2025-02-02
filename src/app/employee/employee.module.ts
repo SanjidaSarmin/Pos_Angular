@@ -24,7 +24,6 @@ import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit
 import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
 import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
 import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
-import { PaymentConfirmComponent } from './Components/Sell/payment-confirm/payment-confirm.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -52,8 +51,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DamageEditComponent,
     SellDetailsComponent,
     SellReportComponent,
-    ConfirmSaleComponent,
-    PaymentConfirmComponent
+    ConfirmSaleComponent
   ],
   imports: [
     CommonModule,

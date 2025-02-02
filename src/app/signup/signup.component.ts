@@ -19,16 +19,17 @@ export class SignupComponent implements OnInit {
   ) { }
 
   signupForm: FormGroup = new FormGroup({
-    Email: new FormControl(),
-    Pass: new FormControl(),
-    Pass2: new FormControl(),
-    role: new FormControl()
+    userFirstName: new FormControl(),
+    userLastName: new FormControl(),
+    username: new FormControl(),
+    email: new FormControl(),
+    password: new FormControl(),
   });
   
   onSubmit() {
     this.signService.addData(this.signupForm.value).subscribe((val: any) => {
       console.log("SignIn successfully");
-      this.router.navigateByUrl('/dashboard/login')
+      this.router.navigateByUrl('/login')
 
     })
   }
