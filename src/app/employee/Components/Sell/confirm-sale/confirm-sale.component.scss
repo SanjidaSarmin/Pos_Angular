@@ -150,6 +150,39 @@ body {
 }
 
 /* Responsive design */
+/* Responsive design */
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .payment-success-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .payment-summary, .customer-details, .payment-method, .payment-status, .thank-you-message {
+    padding: 15px;
+  }
+
+  .payment-summary h3, .customer-details h3, .payment-method h3, .payment-status h3 {
+    font-size: 1.3rem;
+  }
+
+  .payment-summary div, .payment-method p {
+    font-size: 1rem;
+  }
+
+  .thank-you-message h3 {
+    font-size: 1.1rem;
+  }
+
+  .return-home button {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}
+
 @media (max-width: 768px) {
   .payment-success-header h2 {
     font-size: 1.5rem;
@@ -159,8 +192,53 @@ body {
     padding: 10px;
   }
 
+  .payment-summary h3, .customer-details h3, .payment-method h3, .payment-status h3 {
+    font-size: 1.2rem;
+  }
+
+  .payment-summary div, .payment-method p {
+    font-size: 0.9rem;
+  }
+
+  .thank-you-message h3 {
+    font-size: 1rem;
+  }
+
   .return-home button {
     font-size: 0.9rem;
     padding: 8px 16px;
+  }
+
+  .main-content {
+    margin-top: 5%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-success-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .payment-summary, .customer-details, .payment-method, .payment-status, .thank-you-message {
+    padding: 8px;
+  }
+
+  .payment-summary h3, .customer-details h3, .payment-method h3, .payment-status h3 {
+    font-size: 1.1rem;
+  }
+
+  .payment-summary div, .payment-method p {
+    font-size: 0.9rem;
+  }
+
+  .thank-you-message h3 {
+    font-size: 0.9rem;
+  }
+
+  .return-home button {
+    font-size: 0.85rem;
+    padding: 7px 14px;
   }
 }

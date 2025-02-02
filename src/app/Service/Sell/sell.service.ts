@@ -35,9 +35,29 @@ export class SellService {
       return this.httpClient.get("http://localhost:8081/api/sells/${sellId}");
     }
 
-    recordSale(saleData: any) {
-      return this.httpClient.post('http://localhost:8081/api/sells', saleData, { responseType: 'text' });
+    recordSale(saleData: any): Observable<any> {
+      return this.httpClient.post(this.apiUrl, saleData);
     }
-    
+
+    private cartData: any;
+    private paymentMethod: string = '';
+
+    setCartData(data: any) {
+      this.cartData = data;
+    }
+  
+    getCartData() {
+      return this.cartData;
+    }
+  
+ 
+  
+    setPaymentMethod(paymentMethod: string) {
+      this.paymentMethod = paymentMethod;
+    }
+  
+    getPaymentMethod() {
+      return this.paymentMethod;
+    }
     
    }

@@ -290,6 +290,14 @@
       <button class="btn btn-warning" (click)="navigateToConfirmSale('PayPal')">PayPal</button>
       <button class="btn btn-danger" (click)="navigateToConfirmSale('Multiple Pay')">Multiple Pay</button>
     </div>
+    <!-- <div class="payment-buttons">
+      <button *ngFor="let method of paymentMethods" 
+              class="btn" 
+              [ngClass]="{'btn-primary': method === 'Cash', 'btn-secondary': method === 'Card', 'btn-warning': method === 'PayPal', 'btn-danger': method === 'Multiple Pay'}"
+              (click)="navigateToConfirmSale(method)">
+        {{ method }}
+      </button>
+    </div> -->
   </div>
 </div>
 </div>

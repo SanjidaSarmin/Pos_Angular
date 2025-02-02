@@ -6,14 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  private apiUrl = "http://localhost:8081/api/calculateTotal";
+  private apiUrl = "http://localhost:8081/api/cart";
   private cartData: any;
 
   constructor(private http: HttpClient) {}
 
-  calculateTotal(sellItems: any[]) {
-    return this.http.post(this.apiUrl, sellItems);
-  }
+  
 
   setCartData(data: any) {
     this.cartData = data;
