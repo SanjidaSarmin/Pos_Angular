@@ -139,9 +139,9 @@
       <div class="section product-panel">
         <div class="search-bar-container">
           <div class="dropdown category-dropdown">
-            <select class="dropdown-select" [(ngModel)]="salesSummery.selectedCategory">
+            <select class="dropdown-select" [(ngModel)]="selectedCategory">
               <option value="">Select Category</option>
-              <option *ngFor="let category of salesSummery.categoryList" [value]="category">{{ category.name }}</option>
+              <option *ngFor="let category of categoryList" [value]="category">{{ category.name }}</option>
             </select>
           </div>
           
@@ -158,13 +158,13 @@
 
         <!-- Search Bar Below Dropdowns -->
         <div class="search-bar-container">
-          <input type="text" [(ngModel)]="salesSummery.searchTest" placeholder="Search Products" class="search-bar" />
+          <input type="text" [(ngModel)]="searchTest" placeholder="Search Products" class="search-bar" />
           <button class="search-button" (click)="search()">Search</button>
         </div>
 
         <!-- Product Grid with Select Button -->
         <div class="product-grid">
-          <div *ngFor="let product of salesSummery.filteredProducts | paginate: { itemsPerPage: 6, currentPage: currentPage }" 
+          <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 6, currentPage: currentPage }" 
           class="product-card" (click)="addToCart(product)">
             <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
             <h3 class="product-name">{{product.name}}</h3>
@@ -226,7 +226,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of salesSummery.cartItems">
+            <tr *ngFor="let item of cartItems">
               <td>{{ item.product.name }}</td>
               <td>{{ item.product.barcode }}</td>
               <td>{{ item.product.sellPrice }} Taka</td>
@@ -271,17 +271,17 @@
     <div class="cart-header1">Customer Info</div>
     <div class="customer-info">
       <span>Walking Customer | 20221605WALKING | </span>
-      <input type="number" [(ngModel)]="salesSummery.customerPhone" placeholder="Phone Number">
+      <input type="number" [(ngModel)]="customerPhone" placeholder="Phone Number">
     </div>
 
     <div class="summary-panel">
-      <div>Total Items: <span>{{ salesSummery.cartItems.length }}</span></div>
-      <div>Total Cost: <span>{{ salesSummery.totalCost }} Taka</span></div>
-      <div>Discount: <span><input type="number" [(ngModel)]="salesSummery.discount" (change)="updateTotals()"> Taka</span></div>
-      <div>Coupon: <span><input type="number" [(ngModel)]="salesSummery.coupon" (change)="updateTotals()"> Taka</span></div>
-      <div>Tax: <span><input type="number" [(ngModel)]="salesSummery.tax" (change)="updateTotals()"> Taka</span></div>
-      <div>Shipping: <span><input type="number" [(ngModel)]="salesSummery.shipping" (change)="updateTotals()"> Taka</span></div>
-      <div>Grand Total: <span>{{ salesSummery.grandTotal }} Taka</span></div>
+      <div>Total Items: <span>{{ cartItems.length }}</span></div>
+      <div>Total Cost: <span>{{ totalCost }} Taka</span></div>
+      <div>Discount: <span><input type="number" [(ngModel)]="discount" (change)="updateTotals()"> Taka</span></div>
+      <div>Coupon: <span><input type="number" [(ngModel)]="coupon" (change)="updateTotals()"> Taka</span></div>
+      <div>Tax: <span><input type="number" [(ngModel)]="tax" (change)="updateTotals()"> Taka</span></div>
+      <div>Shipping: <span><input type="number" [(ngModel)]="shipping" (change)="updateTotals()"> Taka</span></div>
+      <div>Grand Total: <span>{{ grandTotal }} Taka</span></div>
     </div>
 
     <div class="payment-buttons">
