@@ -8,7 +8,7 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private apiUrl = "http://localhost:3000/signup";
+  private apiUrl = "http://localhost:8081/api/auth/signup";
   addData(user: any) {
     return this.httpClient.post(this.apiUrl, user)
   } 
@@ -17,18 +17,5 @@ export class LoginService {
     return this.httpClient.get(this.apiUrl)
   }
   
-
-  deleteById(id: any) {
-    return this.httpClient.delete(this.apiUrl+ "/"+ id)
-  }
-
-  getById(id: any){
-    return this.httpClient.get(this.apiUrl+ "/"+ id)
-  }
-
-  updateData(user: any){
-    console.log(user);
-    
-    return this.httpClient.put(this.apiUrl+ "/"+ user.id, user)
-  }
+ 
 }
