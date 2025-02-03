@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DamageService } from 'src/app/Service/Damage/damage.service';
+import { ProductService } from 'src/app/Service/Product/product.service';
 
 @Component({
   selector: 'app-damage-edit',
@@ -12,20 +13,23 @@ export class DamageEditComponent implements OnInit{
  
   id!: any;
   damageData! : any;
+  product: any[]= [];
 
   constructor(
     private damageService : DamageService,
+    private productService : ProductService,
     private router : Router,
     private route : ActivatedRoute,
   ){}
+ 
 
   damageForm : FormGroup = new FormGroup({
   id: new FormControl(),
-  date: new FormControl(),
-  branch: new FormControl(),
-  productName: new FormControl(),
-  damagedStock: new FormControl(),
-  reason: new FormControl()
+  quantity : new FormControl(),
+  reason: new FormControl(),
+  dateReported: new FormControl(),
+  productId: new FormControl()
+  
   })
 
   onSubmit(){
@@ -40,6 +44,10 @@ export class DamageEditComponent implements OnInit{
     this.damageService.getById(this.id).subscribe((val: any) => {
      this.damageData= val;
      this.damageForm.patchValue(this.damageData);
+    })
+
+    this.productService.getAllData().subscribe((val : any) => {
+      this.product = val  
     })
   }
 

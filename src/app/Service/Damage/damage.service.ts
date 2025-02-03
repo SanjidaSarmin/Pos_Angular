@@ -31,5 +31,14 @@ constructor(private httpClient: HttpClient) { }
     return this.httpClient.put(this.apiUrl+"/"+damage.id, damage)
   }
 
+  searchDamage(name: string, page: number, size: number) {
+    const params = {
+      name: name || '', 
+      page: page.toString(),
+      size: size.toString(),
+    };
+  
+    return this.httpClient.get<any>(`${this.apiUrl}/search`, { params });
+  }
   
 }

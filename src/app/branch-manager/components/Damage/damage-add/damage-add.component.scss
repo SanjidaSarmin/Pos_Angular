@@ -65,14 +65,14 @@ h2 {
     width: 100%;
 }
 
-.submit-button,
-.reset-button {
-    padding: 8px 15px;
+.submit-button {
+    padding: 8px 50px;
     font-size: 14px;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 30%;
     transition: background-color 0.3s ease;
 }
 
@@ -82,12 +82,4 @@ h2 {
 
 .submit-button:hover {
     background-color: #218838;
-}
-
-.reset-button {
-    background-color: #dc3545;
-}
-
-.reset-button:hover {
-    background-color: #c82333;
 }
