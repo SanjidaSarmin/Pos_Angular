@@ -1,179 +1,252 @@
 .main-content {
-    padding: 20px;
-    background-color: #f9f9f9; 
-    // min-height: calc(100vh - 70px); 
-    box-sizing: border-box; 
-  }
-    .product-list-container {
-      width: 1000px;
-      padding: 20px;
-      margin: 20px auto;
-      background-color: #ffffff;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      margin-top: 80px;
-    }
-    
-    .header {
-      margin-bottom: 20px;
-      border-bottom: 2px solid #289fa7; 
-      padding-bottom: 10px;
-    }
-    
-    .header h2 {
-      font-size: 24px;
-      font-weight: bold;
-      color: #375f8a;
-      margin: 0;
-    }
-    
-    .header p {
-      font-size: 14px;
-      color: #555555; 
-      margin: 5px 0 0; 
-    }
-    
-      
-      .toolbar {
-        display: flex;
-        justify-content: space-between; 
-        align-items: center;
-        margin-bottom: 16px;
-      }
-      
-      .toolbar-left,
-      .toolbar-right {
-        display: flex;
-        gap: 8px; 
-      }
-      
-      .toolbar-left {
-        flex: 1;
-      }
-      
-      .search-input,
-      .date-range-input {
-        padding: 8px;
-        border: 1px solid #3f7391;
-        border-radius: 4px;
-        font-size: 14px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      }
-      
-      .btn {
-        border: none;
-        background-color: #007bff;
-        color: #fff;
-        border-radius: 4px;
-        cursor: pointer;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      }
-      
-      .add-product {
-        padding: 8px 20px;
-        background-color: #289fa7;
-      }
-      
-      
-      .data-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 15px;
-        text-align: left;
-        margin-top: 30px;
-      }
-      
-      .data-table th,
-      .data-table td {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-      
-      .data-table th {
-        background-color: #289fa7;
-        font-weight: bold;
-        color: #fff;
-      }
-      
-      .data-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-      
-      .data-table tr:hover {
-        background-color: #f1f1f1;
-      }
-      
-      .product-image {
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-      }
-      
-      .btn {
-        background-color: transparent;
-        color:  #375f8a;
-        border: 1px solid #28578a;
-        border-radius: 4px;
-        padding: 8px 15px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .btn:hover {
-        background: #375f8a;
-        color: #f7f7f7;
-      }
-      
-      
-      .product-image {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-      }
-    
-      .btn1 {
-        background: none;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-      }
-      
-      .icon {
-        width: 20px;
-        height: 20px;
-        vertical-align: middle;
-      }
-      
-      .btn1:hover .icon {
-        filter: brightness(1.2);
-        background-color: #289fa7;
-      }
-      
+  padding: 20px;
+  background-color: #f9f9f9;
+  // min-height: calc(100vh - 70px); 
+  box-sizing: border-box;
+}
 
-      .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-      }
-      
-      .pagination-btn {
-        color: #0b86ac;
-        background-color: white;
-        border: 1px solid #28578a;
-        padding: 6px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        font-size: 14px;
-      }
-      .pagination-btn:hover{
-        background-color: #0b86ac;
-        color: white;
-      }
-      
-      
-      
-      
-      
+.product-list-container {
+  width: 1000px;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 80px;
+}
+
+.header {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #289fa7;
+  padding-bottom: 10px;
+}
+
+.header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #375f8a;
+  margin: 0;
+}
+
+.header p {
+  font-size: 14px;
+  color: #555555;
+  margin: 5px 0 0;
+}
+
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-left {
+  flex: 1;
+}
+
+.search-input,
+.date-range-input {
+  padding: 8px;
+  border: 1px solid #3f7391;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn {
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.add-product {
+  padding: 8px 20px;
+  background-color: #289fa7;
+}
+
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.data-table th {
+  background-color: #289fa7;
+  font-weight: bold;
+  color: #fff;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.btn {
+  background-color: transparent;
+  color: #375f8a;
+  border: 1px solid #28578a;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #375f8a;
+  color: #f7f7f7;
+}
+
+
+.product-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.btn1 {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.btn1:hover .icon {
+  filter: brightness(1.2);
+  background-color: #289fa7;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  color: #0b86ac;
+  background-color: white;
+  border: 1px solid #28578a;
+  padding: 6px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.pagination-btn:hover {
+  background-color: #0b86ac;
+  color: white;
+}
+
+
+
+
+.form-group select {
+  max-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Form Labels */
+.form-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Input Fields */
+.form-control {
+  max-width: 400px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+/* Autocomplete List */
+.autocomplete-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 4px 0 0;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  // z-index: 1000;
+  background: #fff;
+  width: 300px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.autocomplete-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.autocomplete-item:hover {
+  background-color: #f8f9fa;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

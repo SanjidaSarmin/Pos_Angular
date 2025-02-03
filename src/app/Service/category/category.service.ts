@@ -31,10 +31,9 @@ export class CategoryService {
     return this.httpClient.put(this.apiUrl + "/" + catagoryData.id, catagoryData)
   }
 
-  searchCategories(name: string, description: string, page: number, size: number) {
+  searchCategories(name: string, page: number, size: number) {
     const params = {
-      name: name || '',  
-      description: description || '', 
+      name: name || '', 
       page: page.toString(),
       size: size.toString(),
     };
@@ -42,5 +41,10 @@ export class CategoryService {
     return this.httpClient.get<any>(`${this.apiUrl}/search`, { params });
   }
 
+
+
+  // searchCategories(name: string, description: string, page: number = 0, size: number = 10) {
+  //   return this.httpClient.get(`${this.apiUrl}?name=${name}&description=${description}&page=${page}&size=${size}`);
+  // }
 }
 

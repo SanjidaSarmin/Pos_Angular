@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { CategoryService } from 'src/app/Service/category/category.service';
 
 
@@ -10,55 +11,83 @@ import { CategoryService } from 'src/app/Service/category/category.service';
 })
 export class CategoryListComponent implements OnInit{
     constructor(
-      private catagoryservice : CategoryService
+      private categoryservice : CategoryService
      ){}
      
      catagoryList: any[] = [];
+     filteredCategories = [...this.catagoryList];
   
     ngOnInit(): void {
-       this.catagoryservice.getAllData().subscribe((val : any) => {
+       this.categoryservice.getAllData().subscribe((val : any) => {
         this.catagoryList = val  
       })
     }
   
     deletecategory(id : any){
-      this.catagoryservice.deleteById(id).subscribe((val : any) =>{
+      this.categoryservice.deleteById(id).subscribe((val : any) =>{
         console.log("Data deleted");
         this.ngOnInit()
       })
      }
   
      
-  filteredCategories = [...this.catagoryList];
-
-  searchTest = ''; 
-  currentPage: number = 0;  
-  pageSize: number = 10;   
+ 
+// searchTest: string = "";
+   categoryNameControl = new FormControl('');
+      // selectedProduct: string = ''; 
+      selectedProducts: any[] = [];
+      filteredcategory: any[] = [];
+      paginatedProducts: any[] = [];
+      currentPage: number = 0;
+      itemsPerPage: number = 10;
   totalItems: number = 0;
-  totalPages: number = 0;  
-  
-  search(name: string = this.searchTest, description: string = '', page: number = this.currentPage, size: number = this.pageSize): void {
-    console.log(`Searching with name: ${name}, description: ${description}, page: ${page}, size: ${size}`);
-  
-    this.catagoryservice.searchCategories(name, description, page, size).subscribe(response => {
-      console.log('API Response:', response);  // Log the response to see if filtering is applied
-  
-      this.catagoryList = response.content;  
-      this.totalItems = response.totalElements;  
-      this.totalPages = response.totalPages;  
-  
-    }, error => {
-      console.error('Error fetching categories:', error);
+  totalPages: number = 1;
+  pageSize: number = 10;
+
+  search(){
+    this.categoryservice.searchCategories(this.categoryNameControl.value || "", this.currentPage, this.pageSize).subscribe((val: any) => {
+      console.log(val); // Debugging: Check response structure
+      this.catagoryList = val.content || [];  // Ensure content is correctly assigned
+      this.totalItems = val.totalElements || 0; // Update total items
+      this.totalPages = val.totalPages || 1;
+      this.updatePaginatedCategory(); // Update total pages
     });
   }
   
-
-  goToPage(page: number): void {
-    if (page >= 0 && page < this.totalPages) {
-      this.currentPage = page;
-      this.search();
-    }
-  }
   
+
+    updatePaginatedCategory(): void {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      this.paginatedProducts = this.catagoryList.slice(start, start + this.itemsPerPage);
+    }
+
+    filtercategory() {
+      const input = this.categoryNameControl.value?.toLowerCase() || '';
+      if (input.trim() === '') {
+        this.filteredcategory = [];
+      } else {
+        this.filteredcategory = this.catagoryList.filter((product) =>
+          product.name.toLowerCase().includes(input)
+        );
+      }
+    }
+  
+    
+    selectProduct(product: any) {
+      const existingProduct = this.selectedProducts.find(
+        (p) => p.code === product.code
+      );
+      if (!existingProduct) {
+        this.selectedProducts.push({ ...product, quantity: 1 });
+      } else {
+        alert('Product is already in the list.');
+      }
+      this.categoryNameControl.setValue('');
+      this.filteredcategory = []; 
+    }
+
+  
+
+ 
 
 }

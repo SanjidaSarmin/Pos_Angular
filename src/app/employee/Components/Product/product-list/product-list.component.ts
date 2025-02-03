@@ -34,10 +34,6 @@ export class ProductListComponent implements OnInit {
     itemsPerPage: number = 10;
 
 
-    
-  
-
-
     searchProduct(): void {
       const searchTerm = this.productNameControl.value?.trim();
       if (!searchTerm) {
@@ -80,27 +76,3 @@ export class ProductListComponent implements OnInit {
       this.filteredProducts = []; 
     }
 }
-
-
-// searchProduct() {
-    //   const searchTerm = this.productNameControl.value?.trim();
-    //   if (!searchTerm) {
-    //     alert('Please enter a product name to search.');
-    //     return;
-    //   }
-      // this.filteredProducts = this.productList.filter(product =>
-      //   product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      // );
-    //   this.proService.searchProduct(searchTerm).subscribe((val: any) => {
-    //     this.productList = val
-    //   })
-    //   if (this.filteredProducts.length === 0) {
-    //     alert('No products found matching your search.');
-    //   } else {
-    //     this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
-    //       this.productList = val
-    //     })
-    //     console.log('Filtered Products:', this.filteredProducts);
-    //   }
-      
-    // }

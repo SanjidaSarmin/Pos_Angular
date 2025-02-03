@@ -10,14 +10,22 @@
       <div class="toolbar">
         <div class="toolbar-left">
           <button routerLink="/manager/categoryAdd" class="btn add-product">+ Add Product Category</button>
-          <input type="date" placeholder="Date Range" class="date-range-input" />
         </div>
         <div class="toolbar-right">
-          <input type="text" [(ngModel)]="searchTest" placeholder="Search" class="search-input"
-            aria-label="Search Product Category" />
-          <button class="btn search-btn" (click)="search()" aria-label="Search">
-            Search
-          </button>
+          <div class="toolbar-right">
+            <div class="form-group">
+              <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" id="categoryName" [formControl]="categoryNameControl"
+                  (input)="filtercategory()" placeholder="Type category name" />
+                <button class="btn" (click)="search()">Search</button>
+              </div>
+              <ul *ngIf="filteredcategory.length > 0" class="autocomplete-list">
+                <li *ngFor="let category of filteredcategory" (click)="selectProduct(category)" class="autocomplete-item">
+                  {{ category.name }}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -31,7 +39,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let category of catagoryList">
+          <tr *ngFor="let category of catagoryList| paginate: { itemsPerPage: 10, currentPage: currentPage }">
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
             <td>{{ category.description || '-' }}</td>
@@ -51,14 +59,8 @@
       </table>
 
       <!-- Pagination Controls -->
-      <div class="pagination">
-        <button (click)="goToPage(currentPage - 1)" class="pagination-btn">
-          Previous
-        </button>
-        <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
-        <button (click)="goToPage(currentPage + 1)" class="pagination-btn">
-          Next
-        </button>
+      <div class="pagination-container">
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
       </div>
     </div>
   </div>
