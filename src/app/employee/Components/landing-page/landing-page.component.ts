@@ -79,10 +79,10 @@ export class LandingPageComponent implements OnInit {
   }
 
   updateTotals(): void {
-    // this.totalCost = this.cartItems.reduce((acc: number, item: any) => acc + item.total, 0);
-    // this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
     this.totalCost = this.cartItems.reduce((acc, item) => acc + (item.quantity * item.product.sellPrice), 0);
-    this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
+    const discountAmount = (this.discount / 100) * this.totalCost;
+    const taxAmount = (this.tax / 100) * this.totalCost;
+    this.grandTotal = this.totalCost - discountAmount - this.coupon + taxAmount + this.shipping;
   
   }
   cancelPayment() {
@@ -115,17 +115,17 @@ export class LandingPageComponent implements OnInit {
   }
 
   navigateToConfirmSale(type: string) {
-    // const saleData = {
-    //   totalCost: this.totalCost,
-    //   discount: this.discount,
-    //   coupon: this.coupon,
-    //   tax: this.tax,
-    //   shipping: this.shipping,
-    //   grandTotal: this.grandTotal,
-    //   customerPhone: this.customerPhone,
-    //   paymentMethod: type,
-    //   cartItems: this.cartItems
-    // };
+    const saleData2 = {
+      totalCost: this.totalCost,
+      discount: this.discount,
+      coupon: this.coupon,
+      tax: this.tax,
+      shipping: this.shipping,
+      grandTotal: this.grandTotal,
+      customerPhone: this.customerPhone,
+      paymentMethod: type,
+      cartItems: this.cartItems
+    };
     const saleData = {
       customerPhone: this.customerPhone,
       totalCost: this.totalCost,
@@ -143,32 +143,13 @@ export class LandingPageComponent implements OnInit {
         price: item.product.sellPrice
       }))
     };
-    this.sellService.setCartData(saleData)
+    this.sellService.setCartData(saleData2)
     this.sellService.recordSale(saleData).subscribe((val: any) => {
       console.log("Sales created succesfully");
       this.router.navigate(['/employee/confirmPayment/', type]);
       // this.router.navigate(['/employee/confirmPayment/', { method: this.paymentMethod }]);
     })
   }
-
-  // completeSale(paymentType: string) {
-  //   const saleData = {
-  //     cartItems: this.cartItems.map(item => ({
-  //       productId: item.id,
-  //       quantity: item.quantity,
-  //       price: item.sellPrice
-  //     })),
-  //     paymentMethod: paymentType
-  //   };
-  
-  //   this.http.post("http://localhost:8081/api/sales", saleData)
-  //     .subscribe(response => {
-  //       console.log("Sale recorded successfully!");
-  //       this.cartItems = [];  // Clear cart after sale
-  //     });
-  // }
-  
-
   currentPage = 1;
   itemsPerPage = 6;
   logout() {
