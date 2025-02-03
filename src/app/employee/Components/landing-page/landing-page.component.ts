@@ -37,10 +37,6 @@ export class LandingPageComponent implements OnInit {
   }
 
 
-
-
-
-
   searchTest: string = '';
   totalCost: number = 0;
   discount: number = 0;
@@ -70,10 +66,12 @@ export class LandingPageComponent implements OnInit {
     this.updateTotals();
   }
 
+
   updateCartItem(item: any) {
     item.total = item.quantity * item.product.sellPrice;
     this.updateTotals();
   }
+  
 
   removeFromCart(item: any): void {
     this.cartItems = this.cartItems.filter((cartItem: any) => cartItem !== item);
@@ -81,8 +79,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   updateTotals(): void {
-    this.totalCost = this.cartItems.reduce((acc: number, item: any) => acc + item.total, 0);
+    // this.totalCost = this.cartItems.reduce((acc: number, item: any) => acc + item.total, 0);
+    // this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
+    this.totalCost = this.cartItems.reduce((acc, item) => acc + (item.quantity * item.product.sellPrice), 0);
     this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
+  
   }
   cancelPayment() {
     this.paymentStatus = 'Payment cancelled.';
@@ -114,16 +115,33 @@ export class LandingPageComponent implements OnInit {
   }
 
   navigateToConfirmSale(type: string) {
+    // const saleData = {
+    //   totalCost: this.totalCost,
+    //   discount: this.discount,
+    //   coupon: this.coupon,
+    //   tax: this.tax,
+    //   shipping: this.shipping,
+    //   grandTotal: this.grandTotal,
+    //   customerPhone: this.customerPhone,
+    //   paymentMethod: type,
+    //   cartItems: this.cartItems
+    // };
     const saleData = {
+      customerPhone: this.customerPhone,
       totalCost: this.totalCost,
+      paymentMethod:  type,
       discount: this.discount,
       coupon: this.coupon,
       tax: this.tax,
       shipping: this.shipping,
       grandTotal: this.grandTotal,
-      customerPhone: this.customerPhone,
-      paymentMethod: type,
-      cartItems: this.cartItems
+      saleItems: this.cartItems.map(item => ({
+        product: {
+          id: item.product.id
+        },
+        quantity: item.quantity,
+        price: item.product.sellPrice
+      }))
     };
     this.sellService.setCartData(saleData)
     this.sellService.recordSale(saleData).subscribe((val: any) => {
@@ -133,6 +151,23 @@ export class LandingPageComponent implements OnInit {
     })
   }
 
+  // completeSale(paymentType: string) {
+  //   const saleData = {
+  //     cartItems: this.cartItems.map(item => ({
+  //       productId: item.id,
+  //       quantity: item.quantity,
+  //       price: item.sellPrice
+  //     })),
+  //     paymentMethod: paymentType
+  //   };
+  
+  //   this.http.post("http://localhost:8081/api/sales", saleData)
+  //     .subscribe(response => {
+  //       console.log("Sale recorded successfully!");
+  //       this.cartItems = [];  // Clear cart after sale
+  //     });
+  // }
+  
 
   currentPage = 1;
   itemsPerPage = 6;

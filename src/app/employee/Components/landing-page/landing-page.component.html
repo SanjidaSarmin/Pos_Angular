@@ -176,40 +176,6 @@
 
       </div>
 
-      <!-- Right Section: Cart Table -->
-      <!-- <div class="section cart-panel">
-        <div class="cart-header">Selected Products</div>
-        <div class="cart-table-container">
-          <table class="product-table">
-            <thead>
-              <tr>
-                <th>Product Info</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of cartItems">
-                <td>{{ item.product.name }}</td>
-                <td><input type="number" [(ngModel)]="item.quantity"  min="1"></td>
-                <td>{{ item.quantity * item.product.sellPrice || 0 }} Taka </td>
-
-                <td><button (click)="removeFromCart(item)">Remove</button></td>
-              </tr>
-              <tr>
-                <td>Phone Number: </td>
-                <td><input type="number"></td>
-                <td></td>
-
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-      </div>
-    </div> -->
      <!-- Right Section: Cart Table -->
      <div class="section cart-panel">
       <div class="cart-header">Selected Products</div>
@@ -239,32 +205,6 @@
       </div>
     </div>
   </div>
-
-    <!-- Second Row: Billing Section -->
-    <!-- <div class="row">
-      <div class="section billing-panel">
-        <div class="cart-header">Customer Info</div>
-        <div class="customer-info">Walking Customer | 20221605WALKING | 111111111 | None</div>
-
-        <div class="summary-panel">
-          <div>Total Gross: <span>{{ totalGross }}</span></div>
-          <div>Discount: <span>{{ discount }}</span></div>
-          <div>Subtotal: <span>{{ subtotal }}</span></div>
-          <div>Pre Due: <span>{{ preDue }}</span></div>
-          <div>Wallet Balance: <span>{{ walletBalance }}</span></div>
-          <div>Total Payable: <span>{{ totalPayable }}</span></div>
-        </div>
-
-        <div class="payment-buttons">
-          <button class="btn btn-primary">Cash</button><br>
-          <button class="btn btn-secondary">MFS or Card</button><br>
-          <button class="btn btn-warning">Multiple Pay</button><br>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- </div>
-</div> -->
 
 <div class="row">
   <div class="section billing-panel">
