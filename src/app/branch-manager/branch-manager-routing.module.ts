@@ -14,6 +14,9 @@ import { BundleEditComponent } from './components/Promotion/Bundle/bundle-edit/b
 import { OfferAddComponent } from './components/Promotion/Offers/offer-add/offer-add.component';
 import { OfferEditComponent } from './components/Promotion/Offers/offer-edit/offer-edit.component';
 import { OfferListComponent } from './components/Promotion/Offers/offer-list/offer-list.component';
+import { DamageListComponent } from './components/Damage/damage-list/damage-list.component';
+import { DamageAddComponent } from './components/Damage/damage-add/damage-add.component';
+import { DamageEditComponent } from './components/Damage/damage-edit/damage-edit.component';
 
 const routes: Routes = [
    { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,9 +40,9 @@ const routes: Routes = [
       { path: "offerAdd", component: OfferAddComponent },
       { path: 'offerEdit/:oId', component: OfferEditComponent },
 
-    // { path: 'damageList', component: DamageListComponent },
-    //   { path: 'damageAdd', component: DamageAddComponent },
-    //   { path: 'damageEdit/:dId', component: DamageEditComponent },
+    { path: 'damageList', component: DamageListComponent },
+      { path: 'damageAdd', component: DamageAddComponent },
+      { path: 'damageEdit/:dId', component: DamageEditComponent },
   
 
 ];

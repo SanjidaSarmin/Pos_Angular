@@ -18,6 +18,9 @@ import { OfferAddComponent } from './components/Promotion/Offers/offer-add/offer
 import { OfferEditComponent } from './components/Promotion/Offers/offer-edit/offer-edit.component';
 import { OfferListComponent } from './components/Promotion/Offers/offer-list/offer-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DamageAddComponent } from './components/Damage/damage-add/damage-add.component';
+import { DamageEditComponent } from './components/Damage/damage-edit/damage-edit.component';
+import { DamageListComponent } from './components/Damage/damage-list/damage-list.component';
 
 
 
@@ -35,7 +38,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BundleListComponent,
     OfferAddComponent,
     OfferEditComponent,
-    OfferListComponent
+    OfferListComponent,
+    DamageAddComponent,
+    DamageEditComponent,
+    DamageListComponent
   ],
   imports: [
     CommonModule,
