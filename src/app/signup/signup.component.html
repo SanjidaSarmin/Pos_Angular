@@ -3,6 +3,11 @@
     <div class="left-column">
       <img src="/assets/logo.png" alt="Logo" class="logo">
 
+      <div class="logo-container">
+        <a href="#" class="forgot-link1">I do not have an account yet</a>
+        <p><b> I am</b></p>
+      </div>
+
       <div class="buttons">
         <div class="circular-button">
           <img src="/assets/administrator.png" alt="Admin Icon" width="40"><br>
@@ -17,10 +22,24 @@
           Employee
         </div>
       </div>
-      <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Your Mail*" class="form-input" formControlName="Email">
-        <input type="password" placeholder="Choose Password*" class="form-input" formControlName="Pass">
-        <input type="password" placeholder="Confirm Password*" class="form-input" formControlName="Pass2">
+      <form class="login-form"  [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="text" placeholder="First Name*" class="form-input" formControlName="userFirstName">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Last Name*" class="form-input" formControlName="userLastName">
+        </div>
+         <div class="form-group">
+          <input type="text" placeholder="Username*" class="form-input" formControlName="username">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Your Mail*" class="form-input" formControlName="email">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Choose Password*" class="form-input" formControlName="password">
+        </div>
+        
+        
   
   
         <button type="submit" class="submit-button">Sign Up</button>

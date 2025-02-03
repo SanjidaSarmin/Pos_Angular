@@ -51,8 +51,8 @@
   }
   
   .logo {
-    width: 100px;
-    height: 90px;
+    width: 150px;
+    height: 120px;
   }
   
   
@@ -61,7 +61,11 @@
     margin-bottom: 20px;
   }
   
-  
+  .logo-container p{
+    text-align: center;
+    margin: 20px;
+    font-size: 20px;
+  }
   
   .link {
     margin-bottom: 20px;
@@ -146,7 +150,6 @@
     border-radius: 25px;
     border: 1px solid rgb(23, 105, 138);
     cursor: pointer;
-    // margin-top: 10px;
   }
   
   .login-button:hover {
@@ -174,7 +177,6 @@
     margin-bottom: 4px;
   }
   
-  /* Styling for the paragraph */
   .paragraph {
     color: rgb(23, 105, 138);
     font-size: 20px;
@@ -199,9 +201,7 @@
   
   .image {
     width: 100%;
-    // max-width: 400px; 
     height: 60%;
-    // margin-top: auto;
   }
   
   .forgot-link {
@@ -217,18 +217,7 @@
     color: #1c74e2;
   }
   
-  .forgot-link1 {
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-    color: #555;
-    font-size: 16px;
-    text-decoration: none;
-  }
   
-  .forgot-link1:hover {
-    color: #1c74e2;
-  }
   
   .remember-me {
     display: flex;

@@ -19,10 +19,12 @@ export class SignupComponent implements OnInit {
   ) { }
 
   signupForm: FormGroup = new FormGroup({
+    userFirstName: new FormControl(),
+    userLastName: new FormControl(),
     username: new FormControl(),
     email: new FormControl(),
-    Pass: new FormControl(),
-    role: new FormControl()
+    password: new FormControl(),
+
   });
   
   onSubmit() {

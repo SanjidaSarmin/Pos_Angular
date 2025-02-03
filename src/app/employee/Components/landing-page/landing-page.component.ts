@@ -32,7 +32,6 @@ export class LandingPageComponent implements OnInit {
   }
   activeDropdown: string | null = null;
 
-
   toggleDropdown(menuId: string): void {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
   }
@@ -77,12 +76,12 @@ export class LandingPageComponent implements OnInit {
   }
 
   removeFromCart(item: any): void {
-    this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
+    this.cartItems = this.cartItems.filter((cartItem: any) => cartItem !== item);
     this.updateTotals();
   }
 
   updateTotals(): void {
-    this.totalCost = this.cartItems.reduce((acc, item) => acc + item.total, 0);
+    this.totalCost = this.cartItems.reduce((acc: number, item: any) => acc + item.total, 0);
     this.grandTotal = this.totalCost - this.discount - this.coupon + this.tax + this.shipping;
   }
   cancelPayment() {
@@ -143,7 +142,4 @@ export class LandingPageComponent implements OnInit {
     window.location.href = "/login";
   }
 }
-
-
-
 
