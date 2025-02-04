@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DamageEditComponent } from './damage-edit.component';
+import { BranchAddComponent } from './branch-add.component';
 
-describe('DamageEditComponent', () => {
-  let component: DamageEditComponent;
-  let fixture: ComponentFixture<DamageEditComponent>;
+describe('BranchAddComponent', () => {
+  let component: BranchAddComponent;
+  let fixture: ComponentFixture<BranchAddComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DamageEditComponent ]
+      declarations: [ BranchAddComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DamageEditComponent);
+    fixture = TestBed.createComponent(BranchAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

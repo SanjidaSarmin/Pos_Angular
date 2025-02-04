@@ -17,11 +17,10 @@ import { BarcodeCreateComponent } from './Components/Barcode/barcode-create/barc
 import { BarcodePrintComponent } from './Components/Barcode/barcode-print/barcode-print.component';
 import { PrintComponent } from './Components/Barcode/print/print.component';
 import { DamageListComponent } from './Components/Damage/damage-list/damage-list.component';
-import { DamageAddComponent } from './Components/Damage/damage-add/damage-add.component';
-import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit.component';
 import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
 import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
 import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
+import { EmployeeBranchListComponent } from './Components/Branch/employee-branch-list/employee-branch-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -31,6 +30,9 @@ const routes: Routes = [
   { path: "productlist", component: ProductListComponent },
   
   { path: "catagory", component: ProductCatagoryComponent },
+  { path: 'damageList', component: DamageListComponent },
+  { path: 'branch', component: EmployeeBranchListComponent },
+  
 
   { path: "offer", component: OfferListComponent },
   { path: "offerAdd", component: OfferAddComponent },
@@ -47,9 +49,7 @@ const routes: Routes = [
   { path: 'Print', component: PrintComponent},
   { path: 'barcodePrint', component: BarcodePrintComponent},
 
-  { path: 'damageList', component: DamageListComponent },
-  { path: 'damageAdd', component: DamageAddComponent },
-  { path: 'damageEdit/:dId', component: DamageEditComponent },
+ 
 
   { path: 'sell', component: SellDetailsComponent },
   { path: 'sellreport', component: SellReportComponent }, 

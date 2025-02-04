@@ -28,4 +28,14 @@ export class BranchService {
   updateData(branch: any){
     return this.httpClient.put(this.apiUrl+"/"+branch.id, branch)
   }
+
+  searchBranch(branchname: string, page: number, size: number) {
+    const params = {
+      branchname: branchname || '', 
+      page: page.toString(),
+      size: size.toString(),
+    };
+  
+    return this.httpClient.get<any>(`${this.apiUrl}/search`, { params });
+  }
 }

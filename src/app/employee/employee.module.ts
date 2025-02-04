@@ -19,12 +19,11 @@ import { BarcodeCreateComponent } from './Components/Barcode/barcode-create/barc
 import { BarcodePrintComponent } from './Components/Barcode/barcode-print/barcode-print.component';
 import { PrintComponent } from './Components/Barcode/print/print.component';
 import { DamageListComponent } from './Components/Damage/damage-list/damage-list.component';
-import { DamageAddComponent } from './Components/Damage/damage-add/damage-add.component';
-import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit.component';
 import { SellDetailsComponent } from './Components/Sell/sell-details/sell-details.component';
 import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
 import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EmployeeBranchListComponent } from './Components/Branch/employee-branch-list/employee-branch-list.component';
 
 
 
@@ -47,11 +46,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BarcodePrintComponent,
     PrintComponent,
     DamageListComponent,
-    DamageAddComponent,
-    DamageEditComponent,
     SellDetailsComponent,
     SellReportComponent,
-    ConfirmSaleComponent
+    ConfirmSaleComponent,
+    EmployeeBranchListComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,72 @@
+
+<div class="d-flex"><app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+      <div class="product-list-container">
+        <div class="header">
+          <h2>All Branch</h2>
+          <p>Manage your all Branch</p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/admin/branchAdd" class="btn add-product">+ Add New Branch</button>
+          </div>
+          <div class="toolbar-right">
+            <div class="form-group">
+              <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" id="productname" [formControl]="NameControl"
+                (input)="filterBranch()" placeholder="Type branch name" />
+              <button class="btn" (click)="search()">Search</button>
+              </div>
+              <ul *ngIf="filteredBranch.length > 0" class="autocomplete-list">
+                <li *ngFor="let branch of filteredBranch" (click)="search()" class="autocomplete-item">
+                  {{ branch.branchName }}
+                </li>
+              </ul>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>BranchName</th>
+              <th>Location</th>
+              <th>Manager Name</th>
+              <th>Contact Number</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let branch of branchList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{ branch.id }}</td>
+              <td>{{ branch.branchName }}</td>
+              <td>{{ branch.location }}</td>
+              <td>{{ branch.managerName }}</td>
+              <td>{{ branch.contactNumber }}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/admin/BranchEdit/', branch.id]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon">
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deletebranch(branch.id)">
+                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <!-- Pagination Controls -->
+        <div class="pagination-container">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+  
+      </div>
+    </div>
+  </div>

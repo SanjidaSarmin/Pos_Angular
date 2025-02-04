@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DamageAddComponent } from './damage-add.component';
+import { BranchListComponent } from './branch-list.component';
 
-describe('DamageAddComponent', () => {
-  let component: DamageAddComponent;
-  let fixture: ComponentFixture<DamageAddComponent>;
+describe('BranchListComponent', () => {
+  let component: BranchListComponent;
+  let fixture: ComponentFixture<BranchListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DamageAddComponent ]
+      declarations: [ BranchListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DamageAddComponent);
+    fixture = TestBed.createComponent(BranchListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
