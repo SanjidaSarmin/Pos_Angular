@@ -18,23 +18,21 @@ export class ReturnAddComponent implements OnInit{
     private productService : ProductService,
     private router : Router
   ){}
-  product: any[]= [];
-  sell: any[]= [];
+  productList: any[]= [];
+  sellList: any[]= [];
 
   returnForm: FormGroup = new FormGroup({
-    saleId: new FormControl(),
-    branchName: new FormControl(),
-    customerName: new FormControl(),
+    saleId: new FormControl(), 
+    customerPhone: new FormControl(),
     orderDate: new FormControl(),
     returnDate: new FormControl(),
-    customerPhone: new FormControl(),
-    productPrice: new FormControl(),
+    productId: new FormControl(),
     returnQuantity: new FormControl(),
     returnAmount: new FormControl(),
     receivedBy: new FormControl(),
   });
 
-  branches: string[] = ['Branch 1', 'Branch 2', 'Branch 3'];
+
 
 
   onSubmit(){
@@ -45,10 +43,10 @@ export class ReturnAddComponent implements OnInit{
   }
   ngOnInit(): void {
     this.productService.getAllData().subscribe((val : any) => {
-      this.product = val  
+      this.productList = val  
     })
     this.saleService.getAllData().subscribe((val : any) => {
-      this.sell = val  
+      this.sellList = val  
     })
   }
 

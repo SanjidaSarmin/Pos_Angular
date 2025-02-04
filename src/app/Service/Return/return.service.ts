@@ -30,5 +30,10 @@ export class ReturnService {
    updateData(returnData: any){
      return this.httpClient.put(this.apiUrl+"/"+returnData.id, returnData)
    }
+
+   searchReturnsByDate(date: string) {
+    return this.httpClient.get(this.apiUrl + "/search?date=" + date);
+  }
+  
   }
 

@@ -51,41 +51,24 @@
     outline: none;
   }
   
-  /* Actions */
-  .form-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
   button {
-    padding: 10px 30px;
+    padding: 10px 50px;
     font-size: 14px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-left: 35%;
   }
   
   .submit-button {
     background-color: #1c6799;
     color: #fff;
-    margin-left: 50px;
+   
   }
   
   .submit-button:hover {
     background-color:  #113a55;
-  }
-  
-  .view-all-button {
-    background-color: #1a7949;
-    color: #fff;
-    margin-right: 50px;
-  }
-  
-  .view-all-button:hover {
-    background-color: #115332;
   }
   
   /* Responsive */

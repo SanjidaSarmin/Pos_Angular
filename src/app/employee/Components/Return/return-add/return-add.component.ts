@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProductService } from 'src/app/Service/Product/product.service';
 import { ReturnService } from 'src/app/Service/Return/return.service';
+import { SellService } from 'src/app/Service/Sell/sell.service';
 
 @Component({
   selector: 'app-return-add',
@@ -12,23 +14,25 @@ export class ReturnAddComponent implements OnInit{
  
   constructor(
     private returnService : ReturnService,
+    private saleService : SellService,
+    private productService : ProductService,
     private router : Router
   ){}
+  productList: any[]= [];
+  sellList: any[]= [];
 
   returnForm: FormGroup = new FormGroup({
-    invoice: new FormControl(),
-    branchName: new FormControl(),
-    customerName: new FormControl(),
+    saleId: new FormControl(), 
+    customerPhone: new FormControl(),
     orderDate: new FormControl(),
     returnDate: new FormControl(),
-    productName: new FormControl(),
-    productPrice: new FormControl(),
+    productId: new FormControl(),
     returnQuantity: new FormControl(),
     returnAmount: new FormControl(),
     receivedBy: new FormControl(),
   });
 
-  branches: string[] = ['Branch 1', 'Branch 2', 'Branch 3'];
+
 
 
   onSubmit(){
@@ -37,6 +41,13 @@ export class ReturnAddComponent implements OnInit{
       this.router.navigateByUrl('/employee/return')
     })
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productService.getAllData().subscribe((val : any) => {
+      this.productList = val  
+    })
+    this.saleService.getAllData().subscribe((val : any) => {
+      this.sellList = val  
+    })
+  }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Return } from 'src/app/Models/Return';
+import { ProductService } from 'src/app/Service/Product/product.service';
 import { ReturnService } from 'src/app/Service/Return/return.service';
 
 @Component({
@@ -9,16 +10,22 @@ import { ReturnService } from 'src/app/Service/Return/return.service';
 })
 export class ReturnListComponent implements OnInit{
     constructor(
-      private returnService : ReturnService
+      private returnService : ReturnService,
+      private productService : ProductService
      ){}
      searchTerm = '';
      
-     returnList: Return[] = [];
+     returnList: any[] = [];
+     productList: any[] = [];
   
     ngOnInit(): void {
        this.returnService.getAllData().subscribe((val : any) => {
         this.returnList = val  
       })
+      this.productService.getAllData().subscribe((val : any) => {
+        this.productList = val  
+      })
+
     }
   
     deletereturn(id : any){
