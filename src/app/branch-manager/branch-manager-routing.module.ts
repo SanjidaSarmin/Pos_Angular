@@ -17,6 +17,7 @@ import { OfferListComponent } from './components/Promotion/Offers/offer-list/off
 import { DamageListComponent } from './components/Damage/damage-list/damage-list.component';
 import { DamageAddComponent } from './components/Damage/damage-add/damage-add.component';
 import { DamageEditComponent } from './components/Damage/damage-edit/damage-edit.component';
+import { BranchListManagerComponent } from './components/Branch/branch-list-manager/branch-list-manager.component';
 
 const routes: Routes = [
    { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -43,6 +44,8 @@ const routes: Routes = [
     { path: 'damageList', component: DamageListComponent },
       { path: 'damageAdd', component: DamageAddComponent },
       { path: 'damageEdit/:dId', component: DamageEditComponent },
+
+      { path: 'branchList', component: BranchListManagerComponent },
   
 
 ];

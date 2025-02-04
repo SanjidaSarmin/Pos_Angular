@@ -1,0 +1,52 @@
+
+<div class="d-flex"><app-sidebar></app-sidebar>
+    <div class="main-content w-100">
+      <div class="product-list-container">
+        <div class="header">
+          <h2>All Branch</h2>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-right">
+            <div class="form-group">
+              <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" id="productname" [formControl]="NameControl"
+                  (input)="filterBranch()" placeholder="Type branch name" />
+                <button class="btn" (click)="search()">Search</button>
+              </div>
+              <ul *ngIf="filteredBranch.length > 0" class="autocomplete-list">
+                <li *ngFor="let branch of filteredBranch" (click)="search()" class="autocomplete-item">
+                  {{ branch.branchName }}
+                </li>
+              </ul>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>BranchName</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let branch of branchList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{ branch.id }}</td>
+              <td>{{ branch.branchName }}</td>
+              <td>{{ branch.location }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <!-- Pagination Controls -->
+        <div class="pagination-container">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+  
+      </div>
+    </div>
+  </div>

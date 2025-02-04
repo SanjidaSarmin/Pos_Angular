@@ -21,6 +21,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DamageAddComponent } from './components/Damage/damage-add/damage-add.component';
 import { DamageEditComponent } from './components/Damage/damage-edit/damage-edit.component';
 import { DamageListComponent } from './components/Damage/damage-list/damage-list.component';
+import { BranchListManagerComponent } from './components/Branch/branch-list-manager/branch-list-manager.component';
 
 
 
@@ -41,7 +42,8 @@ import { DamageListComponent } from './components/Damage/damage-list/damage-list
     OfferListComponent,
     DamageAddComponent,
     DamageEditComponent,
-    DamageListComponent
+    DamageListComponent,
+    BranchListManagerComponent,
   ],
   imports: [
     CommonModule,
