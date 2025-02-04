@@ -22,6 +22,9 @@ import { DamageAddComponent } from './components/Damage/damage-add/damage-add.co
 import { DamageEditComponent } from './components/Damage/damage-edit/damage-edit.component';
 import { DamageListComponent } from './components/Damage/damage-list/damage-list.component';
 import { BranchListManagerComponent } from './components/Branch/branch-list-manager/branch-list-manager.component';
+import { ReturnListComponent } from './components/Return/return-list/return-list.component';
+import { ReturnAddComponent } from './components/Return/return-add/return-add.component';
+import { ReturnEditComponent } from './components/Return/return-edit/return-edit.component';
 
 
 
@@ -44,6 +47,9 @@ import { BranchListManagerComponent } from './components/Branch/branch-list-mana
     DamageEditComponent,
     DamageListComponent,
     BranchListManagerComponent,
+    ReturnListComponent,
+    ReturnAddComponent,
+    ReturnEditComponent,
   ],
   imports: [
     CommonModule,

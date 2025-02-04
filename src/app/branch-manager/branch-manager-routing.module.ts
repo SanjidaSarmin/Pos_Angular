@@ -18,35 +18,42 @@ import { DamageListComponent } from './components/Damage/damage-list/damage-list
 import { DamageAddComponent } from './components/Damage/damage-add/damage-add.component';
 import { DamageEditComponent } from './components/Damage/damage-edit/damage-edit.component';
 import { BranchListManagerComponent } from './components/Branch/branch-list-manager/branch-list-manager.component';
+import { ReturnListComponent } from './components/Return/return-list/return-list.component';
+import { ReturnAddComponent } from './components/Return/return-add/return-add.component';
+import { ReturnEditComponent } from './components/Return/return-edit/return-edit.component';
 
 const routes: Routes = [
-   { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: "home", component: SidebarComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: "home", component: SidebarComponent },
 
   // { path: "navbar", component:SidebarComponent },
 
-  { path: "productlist", component:ProductListComponent },
-  { path: "productAdd", component:ProductAddComponent },
-  { path: 'productEdit/:pId', component:ProductEditComponent },
+  { path: "productlist", component: ProductListComponent },
+  { path: "productAdd", component: ProductAddComponent },
+  { path: 'productEdit/:pId', component: ProductEditComponent },
 
-  { path: "categoryList", component:CategoryListComponent },
-  { path: "categoryAdd", component:CategoryAddComponent },
-  { path: "categoryEdit/:cId", component:CategoryEditComponent },
+  { path: "categoryList", component: CategoryListComponent },
+  { path: "categoryAdd", component: CategoryAddComponent },
+  { path: "categoryEdit/:cId", component: CategoryEditComponent },
 
-   { path: "bundleProduct", component: BundleListComponent },
-    { path: "bundleAdd", component: BundleAddComponent },
-    { path: "bundleEdit/:bId", component: BundleEditComponent },
+  { path: "bundleProduct", component: BundleListComponent },
+  { path: "bundleAdd", component: BundleAddComponent },
+  { path: "bundleEdit/:bId", component: BundleEditComponent },
 
-    { path: "offerList", component: OfferListComponent },
-      { path: "offerAdd", component: OfferAddComponent },
-      { path: 'offerEdit/:oId', component: OfferEditComponent },
+  { path: "offerList", component: OfferListComponent },
+  { path: "offerAdd", component: OfferAddComponent },
+  { path: 'offerEdit/:oId', component: OfferEditComponent },
 
-    { path: 'damageList', component: DamageListComponent },
-      { path: 'damageAdd', component: DamageAddComponent },
-      { path: 'damageEdit/:dId', component: DamageEditComponent },
+  { path: 'damageList', component: DamageListComponent },
+  { path: 'damageAdd', component: DamageAddComponent },
+  { path: 'damageEdit/:dId', component: DamageEditComponent },
 
-      { path: 'branchList', component: BranchListManagerComponent },
-  
+  { path: 'return', component: ReturnListComponent },
+  { path: 'returnAdd', component: ReturnAddComponent },
+  { path: 'returnEdit/:rId', component: ReturnEditComponent },
+
+  { path: 'branchList', component: BranchListManagerComponent },
+
 
 ];
 
