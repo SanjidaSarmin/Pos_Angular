@@ -30,6 +30,8 @@ export class LandingPageComponent implements OnInit {
   notificationsCount = 0;
   notifications: { message: string; time: Date }[] = [];
   isDropdownVisible: boolean = false;
+  branchName: string = 'Mirpur Branch'; 
+  currentDate: string = '';
 
   
   showDropdown() {
@@ -56,6 +58,11 @@ export class LandingPageComponent implements OnInit {
 
   toggleDropdown(menuId: string): void {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
+  }
+  getCurrentDate(): void {
+    const today = new Date();
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    this.currentDate = today.toLocaleDateString('en-US', options);
   }
 
 
@@ -137,6 +144,7 @@ export class LandingPageComponent implements OnInit {
       this.notificationsCount = count;
     });
     this.clearNotifications();
+    this.getCurrentDate();
 
     // this.paymentService.getAllData().subscribe((val: any) => {
     //     this.paymentMethod = val;
