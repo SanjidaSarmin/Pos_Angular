@@ -24,6 +24,7 @@ import { SellReportComponent } from './Components/Sell/sell-report/sell-report.c
 import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EmployeeBranchListComponent } from './Components/Branch/employee-branch-list/employee-branch-list.component';
+import { StockAlertComponent } from './Components/stock-alert/stock-alert.component';
 
 
 
@@ -49,7 +50,8 @@ import { EmployeeBranchListComponent } from './Components/Branch/employee-branch
     SellDetailsComponent,
     SellReportComponent,
     ConfirmSaleComponent,
-    EmployeeBranchListComponent
+    EmployeeBranchListComponent,
+    StockAlertComponent
   ],
   imports: [
     CommonModule,

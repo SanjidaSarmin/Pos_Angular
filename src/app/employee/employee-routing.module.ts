@@ -21,6 +21,7 @@ import { SellDetailsComponent } from './Components/Sell/sell-details/sell-detail
 import { SellReportComponent } from './Components/Sell/sell-report/sell-report.component';
 import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
 import { EmployeeBranchListComponent } from './Components/Branch/employee-branch-list/employee-branch-list.component';
+import { StockAlertComponent } from './Components/stock-alert/stock-alert.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: "navbar", component: NavbarComponent },
   
   { path: "productlist", component: ProductListComponent },
+  { path: "stockalert", component: StockAlertComponent },
   
   { path: "catagory", component: ProductCatagoryComponent },
   { path: 'damageList', component: DamageListComponent },
