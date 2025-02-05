@@ -22,10 +22,11 @@ import { ReturnListComponent } from './components/Return/return-list/return-list
 import { ReturnAddComponent } from './components/Return/return-add/return-add.component';
 import { ReturnEditComponent } from './components/Return/return-edit/return-edit.component';
 import { StockAlertComponent } from './components/stock-alert/stock-alert.component';
+import { DashboardManagerComponent } from './components/dashboard-manager/dashboard-manager.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: "home", component: SidebarComponent },
+  { path: "home", component: DashboardManagerComponent },
 
   // { path: "navbar", component:SidebarComponent },
 

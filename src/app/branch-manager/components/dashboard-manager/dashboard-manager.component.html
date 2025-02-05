@@ -1,1 +1,103 @@
-<p>dashboard-manager works!</p>
+<div class="d-flex">
+    <app-sidebar></app-sidebar>
+    <div class="main-content w-100">
+  
+      <!-- Middle Section: Daily Sales & Return Summary for Branch Manager -->
+      <div class="middle-section">
+  
+        <!-- Daily Section start -->
+        <h2>Branch Sales & Customers</h2>
+        <div class="content-box">
+          <!-- Daily Sales -->
+          <div class="daily-sales-section">
+            <h3>Branch Sales & Return Summary</h3>
+            <div class="filters">
+              <input type="date" [(ngModel)]="selectedDate" />
+            </div>
+            <div class="summary-cards">
+              <div class="card">
+                <a href="#">
+                  <h4>{{ branchTotalSales }}</h4>
+                  <p>Total Sales</p>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#">
+                  <h4>{{ branchInstantPaid }}</h4>
+                  <p>Instant Paid</p>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#">
+                  <h4>{{ branchDuePaid }}</h4>
+                  <p>Due Paid</p>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#">
+                  <h4>{{ branchTotalReturn }}</h4>
+                  <p>Total Return</p>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Sell & Customers -->
+          <div class="sell-customers-section">
+            <h3>Sell & Customers</h3>
+            <div class="sell-customers-cards">
+              <div class="sell-customer-card" *ngFor="let item of branchSellCustomerData">
+                <a href="#">
+                  {{ item.value }} <br />
+                  <span>{{ item.label }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Products & Balance -->
+          <div class="sell-customers-section">
+            <h3>Products & Balance</h3>
+            <div class="sell-customers-cards">
+              <div class="sell-customer-card" *ngFor="let item of branchProductsBalance">
+                <a href="#">
+                  {{ item.value }} <br />
+                  <span>{{ item.label }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Suppliers -->
+          <div class="sell-customers-section">
+            <h3>Suppliers</h3>
+            <div class="sell-customers-cards">
+              <div class="sell-customer-card" *ngFor="let item of branchSuppliers">
+                <a href="#">
+                  {{ item.value }} <br />
+                  <span>{{ item.label }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right Section: Sales Details -->
+      <div class="sales-details">
+        <!-- Title in a Box -->
+        <div class="title-box">
+          <h2>Branch Sales</h2><br> 
+          <p>Last 7 Days</p>
+        </div>
+        <ul>
+          <li *ngFor="let sale of branchSalesHistory" class="sales-item">
+            <a href="#">
+              <span>{{ sale.date }}</span>
+              <span>{{ sale.amount }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
