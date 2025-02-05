@@ -1,0 +1,79 @@
+<div class="d-flex"><app-sidebar></app-sidebar>
+    <div class="main-content w-100">
+      <div class="employee-list-container">
+        <div class="header">
+          <h2>Employee Lists</h2>
+          <p>Manage Your Employee</p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/manager/employeeAdd" class="btn add-employee">+ Add Employee</button>
+          </div>
+          <div class="toolbar-right">
+            <!-- <div class="form-group">
+              <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" id="employeeName" [formControl]="employeeNameControl"
+                  (input)="filteremployees()" placeholder="Type employee name" />
+                <button class="btn" (click)="searchemployee()">Search</button>
+              </div>
+              <ul *ngIf="filteredemployees.length > 0" class="autocomplete-list">
+                <li *ngFor="let employee of filteredemployees" (click)="selectemployee(employee)" class="autocomplete-item">
+                  {{ employee.name }}
+                </li>
+              </ul>
+            </div> -->
+  
+          </div>
+        </div>
+  
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Salary</th>
+              <th>Hire Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employeeList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{employee.id}}</td>
+              <td>{{ employee.firstName }}</td>
+              <td>{{ employee.lastName }}</td>
+              <td>{{ employee.email }}</td>
+              <td>{{ employee.phoneNumber}}</td>
+              <td>{{ employee.salary}}</td>
+              <td>{{ employee.hireDate}}</td>
+              <td>{{ employee.status}}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/manager/employeeEdit/', employee.id]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon">
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deleteEmployee(employee.id)">
+                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                </button>
+  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+         <!-- Pagination Controls -->
+      <!-- Pagination Controls -->
+<div class="pagination-container">
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+
+      </div>
+    </div>
+  </div>

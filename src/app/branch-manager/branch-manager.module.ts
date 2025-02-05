@@ -27,6 +27,9 @@ import { ReturnAddComponent } from './components/Return/return-add/return-add.co
 import { ReturnEditComponent } from './components/Return/return-edit/return-edit.component';
 import { DashboardManagerComponent } from './components/dashboard-manager/dashboard-manager.component';
 import { StockAlertComponent } from './components/stock-alert/stock-alert.component';
+import { EmployeeAddComponent } from './components/Employee/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './components/Employee/employee-edit/employee-edit.component';
+import { EmployeeListComponent } from './components/Employee/employee-list/employee-list.component';
 
 
 
@@ -54,6 +57,9 @@ import { StockAlertComponent } from './components/stock-alert/stock-alert.compon
     ReturnEditComponent,
     DashboardManagerComponent,
     StockAlertComponent,
+    EmployeeAddComponent,
+    EmployeeEditComponent,
+    EmployeeListComponent,
   ],
   imports: [
     CommonModule,

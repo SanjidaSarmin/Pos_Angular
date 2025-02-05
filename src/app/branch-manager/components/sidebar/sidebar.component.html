@@ -47,29 +47,29 @@
       <li><a href="#"><i class="fa fa-chart-bar menu-icon"></i>Reports</a></li>
 
       <li class="nav-item">
-        <div class="dropdown-header" (click)="toggleDropdown('submenu7')">
-          <i class="fa fa-user-tie menu-icon"></i> Employee
+        <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
+          <i class="fa fa-user menu-icon"></i>People
           <i class="fa fa-caret-down dropdown-toggle-btn"></i>
         </div>
-        <ul [class.show]="activeDropdown === 'submenu7'" class="submenu" id="submenu7">
+        <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
           <li>
-            <a routerLink="/manager/managerList">
-              <i class="fa fa-users menu-icon"></i> Employee List
+            <a href="/manager/employeelist">
+              <i class="fa fa-user menu-icon"></i> Employee List
             </a>
           </li>
           <li>
-            <a routerLink="/manager/addmanager">
-              <i class="fa fa-user-plus menu-icon"></i> Add Employee
+            <a routerLink="/manager/suppliarList">
+              <i class="fa fa-users menu-icon"></i> Customer List
             </a>
           </li>
           <li>
-            <a routerLink="/manager/attendance">
-              <i class="fa fa-calendar-check menu-icon"></i> Attendance
+            <a routerLink="/manager/Addsupplier">
+              <i class="fa fa-truck menu-icon"></i> Supplier List
             </a>
           </li>
           <li>
-            <a routerLink="/manager/payroll">
-              <i class="fa fa-clock menu-icon"></i> Shift
+            <a routerLink="/manager/Addsupplier">
+              <i class="fa fa-star menu-icon"></i> Loyality points
             </a>
           </li>
         </ul>
@@ -90,36 +90,6 @@
       </li>
 
       <li><a href="/manager/branchList"><i class="fa fa-sitemap menu-icon"></i> Branch List</a></li>
-
-
-      <li class="nav-item">
-        <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
-          <i class="fa fa-user menu-icon"></i>People
-          <i class="fa fa-caret-down dropdown-toggle-btn"></i>
-        </div>
-        <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
-          <li>
-            <a routerLink="/manager/suppliarList">
-              <i class="fa fa-users menu-icon"></i> Customer List
-            </a>
-          </li>
-          <li>
-            <a routerLink="/manager/Addsupplier">
-              <i class="fa fa-truck menu-icon"></i> Supplier List
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-user menu-icon"></i> User List
-            </a>
-          </li>
-          <li>
-            <a routerLink="/manager/Addsupplier">
-              <i class="fa fa-star menu-icon"></i> Loyality points
-            </a>
-          </li>
-        </ul>
-      </li>
 
 
       <li><a href="#"><i class="fa fa-database menu-icon"></i> Product Stocks</a></li>

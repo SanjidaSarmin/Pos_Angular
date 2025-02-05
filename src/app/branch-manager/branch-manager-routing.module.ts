@@ -23,6 +23,9 @@ import { ReturnAddComponent } from './components/Return/return-add/return-add.co
 import { ReturnEditComponent } from './components/Return/return-edit/return-edit.component';
 import { StockAlertComponent } from './components/stock-alert/stock-alert.component';
 import { DashboardManagerComponent } from './components/dashboard-manager/dashboard-manager.component';
+import { EmployeeListComponent } from './components/Employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './components/Employee/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './components/Employee/employee-edit/employee-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,6 +36,10 @@ const routes: Routes = [
   { path: "productlist", component: ProductListComponent },
   { path: "productAdd", component: ProductAddComponent },
   { path: 'productEdit/:pId', component: ProductEditComponent },
+
+  { path: "employeelist", component: EmployeeListComponent},
+  { path: "employeeAdd", component: EmployeeAddComponent },
+  { path: 'employeeEdit/:eId', component: EmployeeEditComponent },
 
   { path: "categoryList", component: CategoryListComponent },
   { path: "categoryAdd", component: CategoryAddComponent },
