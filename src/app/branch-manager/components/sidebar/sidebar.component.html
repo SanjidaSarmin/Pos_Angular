@@ -1,4 +1,3 @@
-
 <div class="dashboard-container">
   <div class="sidenav" [class.closed]="isSidebarClosed">
     <div class="sidenav-header">
@@ -29,6 +28,8 @@
           <li><a href="/manager/return"><i class="fa fa-credit-card menu-icon"></i> Return Product</a></li>
         </ul>
       </li>
+
+      <li><a href="/manager/stockalert"><i class="fa fa-exclamation-triangle menu-icon"></i> Stock Alert</a></li>
 
       <li class="nav-item">
         <div class="dropdown-header" (click)="toggleDropdown('submenu5')">
@@ -74,10 +75,10 @@
         </ul>
       </li>
 
-      
+
       <li class="nav-item">
         <div class="dropdown-header" (click)="toggleDropdown('submenu4')">
-            <i class="fa fa-truck menu-icon"></i>Supplier
+          <i class="fa fa-truck menu-icon"></i>Supplier
           <i class="fa fa-caret-down dropdown-toggle-btn"></i>
         </div>
         <ul [class.show]="activeDropdown === 'submenu4'" class="submenu" id="submenu4">
@@ -89,7 +90,7 @@
       </li>
 
       <li><a href="/manager/branchList"><i class="fa fa-sitemap menu-icon"></i> Branch List</a></li>
-      
+
 
       <li class="nav-item">
         <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
@@ -119,7 +120,7 @@
           </li>
         </ul>
       </li>
-      
+
 
       <li><a href="#"><i class="fa fa-database menu-icon"></i> Product Stocks</a></li>
       <li><a href="/manager"><i class="fa fa-envelope menu-icon"></i> SMS Panel</a></li>
@@ -155,14 +156,28 @@
 
       </div>
       <div class="header-support1">
-        <!-- Notification Icon -->
-        <div class="notification-icon" (click)="onNotificationClick()" aria-label="Notifications" role="button">
+        <div class="notification-icon" (click)="showDropdown()" aria-label="Notifications" role="button">
           <i class="fa fa-bell"></i>
           <span class="notification-badge" *ngIf="notificationsCount > 0"
             [ngClass]="{'high-count': notificationsCount > 10}">
             {{ notificationsCount }}
           </span>
         </div>
+
+        <!-- Notification Box (Dropdown) -->
+        <div class="notification-box" *ngIf="isDropdownVisible">
+          <div class="notification-header">
+            <h4>Notifications</h4>
+            <button (click)="clearNotifications()">Clear All</button>
+          </div>
+          <ul>
+            <li *ngFor="let notification of notifications">
+              <span class="message">{{ notification.message }}</span>
+              <span class="time">{{ notification.time | date:'shortTime' }}</span>
+            </li>
+          </ul>
+        </div>
+
 
         <div class="branch-dropdown">
           <select name="branch" id="branch-select">

@@ -21,6 +21,7 @@ import { BranchListManagerComponent } from './components/Branch/branch-list-mana
 import { ReturnListComponent } from './components/Return/return-list/return-list.component';
 import { ReturnAddComponent } from './components/Return/return-add/return-add.component';
 import { ReturnEditComponent } from './components/Return/return-edit/return-edit.component';
+import { StockAlertComponent } from './components/stock-alert/stock-alert.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: 'returnEdit/:rId', component: ReturnEditComponent },
 
   { path: 'branchList', component: BranchListManagerComponent },
+  { path: "stockalert", component: StockAlertComponent },
 
 
 ];

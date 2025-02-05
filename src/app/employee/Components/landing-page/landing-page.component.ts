@@ -7,6 +7,7 @@ import { CategoryService } from 'src/app/Service/category/category.service';
 import { ProductService } from 'src/app/Service/Product/product.service';
 import { SellService } from 'src/app/Service/Sell/sell.service';
 import { PaymentService } from 'src/app/Service/Payment/payment.service';
+import { NotificationService } from 'src/app/Notification/notification.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -19,13 +20,34 @@ export class LandingPageComponent implements OnInit {
     private sellService: SellService,
     private catagoryService: CategoryService,
     private proService: ProductService,
-    // private paymentService : PaymentService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private notificationService: NotificationService
   ) { }
 
-  notificationsCount = 3;
+  
   isSidebarClosed = false;
+  notificationsCount = 0;
+  notifications: { message: string; time: Date }[] = [];
+  isDropdownVisible: boolean = false;
+
+  
+  showDropdown() {
+    this.isDropdownVisible = !this.isDropdownVisible;
+  }
+
+  onNotificationClick(): void {
+    if (this.notificationsCount > 0) {
+      console.log('Redirecting to notifications page...');
+    } else {
+      console.log('No new notifications.');
+    }
+  }
+
+  clearNotifications() {
+    this.notifications = [];
+    this.notificationsCount = 0;
+  }
 
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;
@@ -107,6 +129,14 @@ export class LandingPageComponent implements OnInit {
       this.productList = val;
       this.filteredProducts = [...this.productList];
     });
+    this.notificationService.notifications$.subscribe(notifications => {
+      this.notifications = notifications;
+    });
+
+    this.notificationService.notificationsCount$.subscribe(count => {
+      this.notificationsCount = count;
+    });
+    this.clearNotifications();
 
     // this.paymentService.getAllData().subscribe((val: any) => {
     //     this.paymentMethod = val;

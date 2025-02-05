@@ -1,0 +1,30 @@
+<div class="d-flex">
+    <app-sidebar></app-sidebar>
+    <div class="main-content w-100">
+
+<div *ngIf="lowStockProducts.length > 0" class="product-list-container">
+        <div class="header">
+          <h1>Product Quantity <span style="color: brown;">Alert</span></h1>
+        </div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th >Quantity Left</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of lowStockProducts">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td class="low-stock">{{ product.quantity }}</td>
+        <!-- <td [ngClass]="{ 'low-stock': product.quantity < 15 }">{{ product.quantity }}</td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+</div>
+
+      

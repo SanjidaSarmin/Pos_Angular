@@ -25,6 +25,8 @@ import { BranchListManagerComponent } from './components/Branch/branch-list-mana
 import { ReturnListComponent } from './components/Return/return-list/return-list.component';
 import { ReturnAddComponent } from './components/Return/return-add/return-add.component';
 import { ReturnEditComponent } from './components/Return/return-edit/return-edit.component';
+import { DashboardManagerComponent } from './components/dashboard-manager/dashboard-manager.component';
+import { StockAlertComponent } from './components/stock-alert/stock-alert.component';
 
 
 
@@ -50,6 +52,8 @@ import { ReturnEditComponent } from './components/Return/return-edit/return-edit
     ReturnListComponent,
     ReturnAddComponent,
     ReturnEditComponent,
+    DashboardManagerComponent,
+    StockAlertComponent,
   ],
   imports: [
     CommonModule,

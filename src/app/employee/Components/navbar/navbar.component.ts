@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotificationService } from 'src/app/Notification/notification.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  constructor(
+      private notificationService: NotificationService) { }
 
   activeDropdown: string | null = null;
-  notificationsCount = 3;
+  notificationsCount = 0;
+  notifications: { message: string; time: Date }[] = [];
+  isDropdownVisible: boolean = false;
+
+
+  showDropdown() {
+    this.isDropdownVisible = !this.isDropdownVisible;
+  }
+
   onNotificationClick(): void {
     if (this.notificationsCount > 0) {
       console.log('Redirecting to notifications page...');
@@ -17,13 +28,24 @@ export class NavbarComponent {
     }
   }
 
-  // Simulate notification count update (e.g., from a service)
-  updateNotifications(count: number): void {
-    this.notificationsCount = count;
-    console.log(`Notifications updated: ${this.notificationsCount}`);
+  
+
+  ngOnInit(): void {
+    this.notificationService.notifications$.subscribe(notifications => {
+      this.notifications = notifications;
+    });
+
+    this.notificationService.notificationsCount$.subscribe(count => {
+      this.notificationsCount = count;
+    });
+    this.clearNotifications();
+  }
+  clearNotifications() {
+    this.notifications = [];
+    this.notificationsCount = 0;
   }
 
-  // Toggle dropdown visibility
+  
   toggleDropdown(menuId: string): void {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
   }

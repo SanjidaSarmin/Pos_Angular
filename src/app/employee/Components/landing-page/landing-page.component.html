@@ -118,9 +118,24 @@
 
       <div class="right-section">
         <div class="header-support1">
-          <div class="notification-icon">
+          <div class="notification-icon" (click)="showDropdown()" aria-label="Notifications" role="button">
             <i class="fa fa-bell"></i>
-            <span class="notification-badge" *ngIf="notificationsCount > 0">{{ notificationsCount }}</span>
+            <span class="notification-badge" *ngIf="notificationsCount > 0"
+              [ngClass]="{'high-count': notificationsCount > 10}">
+              {{ notificationsCount }}
+            </span>
+          </div>
+          <div class="notification-box" *ngIf="isDropdownVisible">
+            <div class="notification-header">
+              <h4>Notifications</h4>
+              <button (click)="clearNotifications()">Clear All</button>
+            </div>
+            <ul>
+              <li *ngFor="let notification of notifications">
+                <span class="message">{{ notification.message }}</span>
+                <span class="time">{{ notification.time | date:'shortTime' }}</span>
+              </li>
+            </ul>
           </div>
 
           <div class="user-dropdown">
