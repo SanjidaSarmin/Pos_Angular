@@ -50,7 +50,10 @@
               <td>{{product.id}}</td>
               <td>{{ product.name }}</td>
               <td>
-                <img [src]="product.image" alt="Product Image" class="product-image" />
+                <img [src]="'http://localhost:8081/'+product.image" alt="Product Image" class="product-image" />
+                <img *ngIf="product.image" [src]="'http://localhost:8081/' + product.image" alt="Product Image" class="product-image" />
+                <span *ngIf="!product.image">No Image</span> <!-- Display message if no image exists -->
+           
               </td>
               <td>{{ product.barcode }}</td>
               <td>{{ product.sellPrice}}</td>

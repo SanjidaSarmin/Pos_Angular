@@ -11,6 +11,13 @@ import { SuppliersService } from 'src/app/Service/Supplier/suppliers.service';
   styleUrls: ['./product-add.component.scss']
 })
 export class ProductAddComponent implements OnInit{
+
+  selectedFiles?: FileList;
+
+
+ selectFiles(event: any): void {
+    this.selectedFiles = event.target.files;
+  }
  
   constructor(
     private proService : ProductService,
@@ -41,7 +48,25 @@ export class ProductAddComponent implements OnInit{
 
 
   onSubmit(){
-    this.proService.addData(this.productForm.value).subscribe((val : any) => {
+
+    const formData = new FormData();
+    
+    if (this.selectedFiles) {
+      // const file: File | null = this.selectedFiles.item(0);
+      // if (file) {
+        formData.append('files', this.selectedFiles[0]);
+      // }
+    }
+    // Append the file to the FormData object
+
+    // Append the metadata to the FormData object
+    formData.append('product', new Blob([JSON.stringify(this.productForm.value)], { type: 'application/json' }));
+
+
+    this.proService.addData(formData).subscribe((val : any) => {
+
+
+      
       console.log("Product created succesfully");
       this.router.navigateByUrl('/manager/productlist')
     })
