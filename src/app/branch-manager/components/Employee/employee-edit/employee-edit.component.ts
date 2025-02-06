@@ -38,7 +38,7 @@ export class EmployeeEditComponent implements OnInit{
 
 
   onSubmit(){
-    this.employeeService.addData(this.employeeForm.value).subscribe((val : any) => {
+    this.employeeService.updateData(this.employeeForm.value).subscribe((val : any) => {
       console.log("Employee Form created succesfully");
       this.router.navigateByUrl('/manager/employeelist')
     })

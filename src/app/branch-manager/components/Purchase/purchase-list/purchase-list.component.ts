@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BranchService } from 'src/app/Service/Branch/branch.service';
+import { PaymentService } from 'src/app/Service/Payment/payment.service';
 import { PurchaseService } from 'src/app/Service/Purchase/purchase.service';
 import { SuppliersService } from 'src/app/Service/Supplier/suppliers.service';
 
@@ -12,13 +13,15 @@ export class PurchaseListComponent implements OnInit {
   constructor(
     private purchaseService: PurchaseService,
     private branchService: BranchService,
-    private supplierService: SuppliersService
+    private supplierService: SuppliersService,
+    private paymentService: PaymentService
   ) { }
 
 
   purchaseList: any[] = [];
-  branches: any[] = [];
-  categories: any[] = [];
+  branchelist: any[] = [];
+  supplierList: any[] = [];
+  paymentList: any[] = [];
 
 
   ngOnInit(): void {
@@ -27,11 +30,15 @@ export class PurchaseListComponent implements OnInit {
     })
 
     this.branchService.getBranchData().subscribe((val: any) => {
-      this.branches = val
+      this.branchelist = val
     })
     this.supplierService.getAllData().subscribe((val: any) => {
-      this.branches = val
+      this.supplierList = val
     })
+    this.paymentService.getAllData().subscribe((val: any) => {
+      this.paymentList = val
+    })
+    
 
   }
 

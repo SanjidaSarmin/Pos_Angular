@@ -32,26 +32,32 @@
           <thead>
             <tr>
               <th>Id</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Salary</th>
-              <th>Hire Date</th>
+              <th>Supplier Name</th>
+              <th>Invoice</th>
+              <th>Date</th>
+              <th>Total Amount</th>
+              <th>Due</th>
+              <th>Paid</th>
               <th>Status</th>
+              <th>Payment Method</th>
+              <th>Received By</th>
+              <th>Branch Name</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let purchase of purchaseList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
               <td>{{purchase.id}}</td>
-              <td>{{ purchase.firstName }}</td>
-              <td>{{ purchase.lastName }}</td>
-              <td>{{ purchase.email }}</td>
-              <td>{{ purchase.phoneNumber}}</td>
-              <td>{{ purchase.salary}}</td>
-              <td>{{ purchase.hireDate}}</td>
+              <td>{{ purchase.suppliername }}</td>
+              <td>{{ purchase.invoiceNumber}}</td>
+              <td>{{ purchase.purchaseDate }}</td>
+              <td>{{ purchase.totalAmount }}</td>
+              <td>{{ purchase.due}}</td>
+              <td>{{ purchase.paid}}</td>
               <td>{{ purchase.status}}</td>
+              <td>{{ purchase.paymentMethod}}</td>
+              <td>{{ purchase.receivedBy}}</td>
+              <td>{{ purchase.branchName}}</td>
               <td style="text-align: center;">
                 <a [routerLink]="['/manager/purchaseEdit/', purchase.id]">
                   <button class="btn1">

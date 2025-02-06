@@ -1,1 +1,93 @@
-<p>purchase-add works!</p>
+<div class="d-flex">
+    <app-sidebar></app-sidebar>
+    <div class="main-content w-100">
+        <div class="add-purchase-form">
+            <div class="header">
+                <h2>Add New Purchase</h2>
+            </div>
+
+            <form [formGroup]="purchaseForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Supplier</label>
+                        <select formControlName="supplierId" class="form-control" id="supplier">
+                            <option value="" disabled selected>Select Supplier</option>
+                            <option *ngFor="let supplier of supplierList" [value]="supplier.id">{{ supplier.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Purchase Date</label>
+                        <input type="date" formControlName="purchaseDate" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Total Amount</label>
+                        <input type="number" formControlName="totalAmount" placeholder="Enter total amount" min="0"
+                            step="0.01" />
+                    </div>
+                    <div class="form-group">
+                        <label>Due Amount</label>
+                        <input type="number" formControlName="due" placeholder="Enter due amount" min="0" step="0.01" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Paid Amount</label>
+                        <input type="number" formControlName="paid" placeholder="Enter paid amount" min="0"
+                            step="0.01" />
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Status</label>
+                        <select formControlName="status" class="form-control">
+                            <option value="Paid">Paid</option>
+                            <option value="Partially Paid">Partially Paid</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method</label>
+                        <select formControlName="paymentId" class="form-control" id="paymentMethod">
+                            <option value="" disabled selected>Select Payment Method</option>
+                            <option *ngFor="let payment of paymentMethods" [value]="payment.id">{{ payment.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Received By</label>
+                        <select formControlName="receivedBy" class="form-control">
+                            <option value="" disabled selected>Select Received By</option>
+                            <option value="Super admin">Super admin</option>
+                            <option value="Branch manager">Branch manager</option>
+                            <option value="Employee">Employee</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Invoice Number</label>
+                        <input type="text" formControlName="invoiceNumber" placeholder="Enter invoice number" />
+                    </div>
+                    <div class="form-group">
+                        <label>Branch</label>
+                        <select formControlName="branchId" class="form-control" id="branch">
+                            <option value="" disabled selected>Select Branch</option>
+                            <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.branchName }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
