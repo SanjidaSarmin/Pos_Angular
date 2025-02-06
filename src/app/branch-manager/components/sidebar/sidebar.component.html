@@ -44,8 +44,6 @@
         </ul>
       </li>
 
-      <li><a href="#"><i class="fa fa-chart-bar menu-icon"></i>Reports</a></li>
-
       <li class="nav-item">
         <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
           <i class="fa fa-user menu-icon"></i>People
@@ -62,19 +60,10 @@
               <i class="fa fa-users menu-icon"></i> Customer List
             </a>
           </li>
-          <li>
-            <a routerLink="/manager/Addsupplier">
-              <i class="fa fa-truck menu-icon"></i> Supplier List
-            </a>
-          </li>
-          <li>
-            <a routerLink="/manager/Addsupplier">
-              <i class="fa fa-star menu-icon"></i> Loyality points
-            </a>
-          </li>
         </ul>
       </li>
 
+      <li><a href="#"><i class="fa fa-chart-bar menu-icon"></i>Reports</a></li>
 
       <li class="nav-item">
         <div class="dropdown-header" (click)="toggleDropdown('submenu4')">
@@ -83,9 +72,7 @@
         </div>
         <ul [class.show]="activeDropdown === 'submenu4'" class="submenu" id="submenu4">
           <li><a routerLink="/suppliarList"><i class="fa fa-list menu-icon"></i> All Suppliers</a></li>
-          <li><a routerLink="/Addsupplier"><i class="fa fa-plus menu-icon"></i> Add New Supplier</a></li>
-          <li><a href="#"><i class="fa fa-tags menu-icon"></i> Purchases List</a></li>
-          <li><a href="#"><i class="fa fa-th menu-icon"></i> Add New Purchase</a></li>
+          <li><a href="/manager/purchaselist"><i class="fa fa-tags menu-icon"></i> Purchases List</a></li>
         </ul>
       </li>
 

@@ -30,6 +30,9 @@ import { StockAlertComponent } from './components/stock-alert/stock-alert.compon
 import { EmployeeAddComponent } from './components/Employee/employee-add/employee-add.component';
 import { EmployeeEditComponent } from './components/Employee/employee-edit/employee-edit.component';
 import { EmployeeListComponent } from './components/Employee/employee-list/employee-list.component';
+import { PurchaseListComponent } from './components/Purchase/purchase-list/purchase-list.component';
+import { PurchaseAddComponent } from './components/Purchase/purchase-add/purchase-add.component';
+import { PurchaseEditComponent } from './components/Purchase/purchase-edit/purchase-edit.component';
 
 
 
@@ -60,6 +63,9 @@ import { EmployeeListComponent } from './components/Employee/employee-list/emplo
     EmployeeAddComponent,
     EmployeeEditComponent,
     EmployeeListComponent,
+    PurchaseListComponent,
+    PurchaseAddComponent,
+    PurchaseEditComponent,
   ],
   imports: [
     CommonModule,

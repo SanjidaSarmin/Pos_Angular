@@ -26,6 +26,9 @@ import { DashboardManagerComponent } from './components/dashboard-manager/dashbo
 import { EmployeeListComponent } from './components/Employee/employee-list/employee-list.component';
 import { EmployeeAddComponent } from './components/Employee/employee-add/employee-add.component';
 import { EmployeeEditComponent } from './components/Employee/employee-edit/employee-edit.component';
+import { PurchaseListComponent } from './components/Purchase/purchase-list/purchase-list.component';
+import { PurchaseAddComponent } from './components/Purchase/purchase-add/purchase-add.component';
+import { PurchaseEditComponent } from './components/Purchase/purchase-edit/purchase-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -60,6 +63,10 @@ const routes: Routes = [
   { path: 'return', component: ReturnListComponent },
   { path: 'returnAdd', component: ReturnAddComponent },
   { path: 'returnEdit/:rId', component: ReturnEditComponent },
+
+  { path: "purchaselist", component: PurchaseListComponent },
+  { path: "purchaseAdd", component: PurchaseAddComponent },
+  { path: 'purchaseEdit/:purId', component: PurchaseEditComponent },
 
   { path: 'branchList', component: BranchListManagerComponent },
   { path: "stockalert", component: StockAlertComponent },
