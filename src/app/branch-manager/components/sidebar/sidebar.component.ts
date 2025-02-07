@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from 'src/app/Notification/notification.service';
+import { NotificationService } from 'src/app/Service/Notification/notification.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -28,16 +28,6 @@ export class SidebarComponent implements OnInit {
     this.isDropdownVisible = !this.isDropdownVisible;
   }
 
-  onNotificationClick(): void {
-    if (this.notificationsCount > 0) {
-      console.log('Redirecting to notifications page...');
-    } else {
-      console.log('No new notifications.');
-    }
-  }
-
-  
-
   ngOnInit(): void {
     this.notificationService.notifications$.subscribe(notifications => {
       this.notifications = notifications;
@@ -46,11 +36,9 @@ export class SidebarComponent implements OnInit {
     this.notificationService.notificationsCount$.subscribe(count => {
       this.notificationsCount = count;
     });
-    this.clearNotifications();
   }
   clearNotifications() {
-    this.notifications = [];
-    this.notificationsCount = 0;
+    this.notificationService.clearNotifications();
   }
 
   logout() {

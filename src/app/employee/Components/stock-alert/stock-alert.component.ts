@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from 'src/app/Notification/notification.service';
+import { NotificationService } from 'src/app/Service/Notification/notification.service';
 import { ProductService } from 'src/app/Service/Product/product.service';
 
 @Component({
@@ -25,8 +25,8 @@ export class StockAlertComponent  implements OnInit {
     notifyLowStock(products: any[]) {
       products.forEach(product => {
         if (product.quantity < this.selectedThreshold) {
-          this.notificationService.showNotification(`${product.name} is low on stock!`);
+          this.notificationService.addNotification(`${product.name} is low on stock!`);
         }
       });
     }
-}
+  }

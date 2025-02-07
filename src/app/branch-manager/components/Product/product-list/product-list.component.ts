@@ -25,9 +25,18 @@ export class ProductListComponent implements OnInit {
   branches: any[] = [];
   categories: any[] = [];
 
+  // product = {
+  //   name: 'Drink',
+  //   image: '1738864823drinks.jpg'  // Just the filename, not the full URL
+  // };
+
+  // this.productlist.imagePaths = ['http://localhost:8081/uploads/1738864823drinks.jpg'];
+
+
   ngOnInit(): void {
     this.proService.getAllData().subscribe((val: any) => {
       this.productList = val
+      
     })
 
     this.supplierService.getAllData().subscribe((val: any) => {

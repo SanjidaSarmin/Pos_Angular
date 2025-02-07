@@ -57,11 +57,9 @@ export class ProductAddComponent implements OnInit{
         formData.append('files', this.selectedFiles[0]);
       // }
     }
-    // Append the file to the FormData object
-
-    // Append the metadata to the FormData object
     formData.append('product', new Blob([JSON.stringify(this.productForm.value)], { type: 'application/json' }));
 
+    
 
     this.proService.addData(formData).subscribe((val : any) => {
 

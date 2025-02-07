@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/Models/Product';
 import { Category } from 'src/app/Models/Catagory';
-import { CartService } from 'src/app/Service/Cart/cart.service';
 import { CategoryService } from 'src/app/Service/category/category.service';
 import { ProductService } from 'src/app/Service/Product/product.service';
 import { SellService } from 'src/app/Service/Sell/sell.service';
-import { PaymentService } from 'src/app/Service/Payment/payment.service';
-import { NotificationService } from 'src/app/Notification/notification.service';
+import { NotificationService } from 'src/app/Service/Notification/notification.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -38,17 +36,8 @@ export class LandingPageComponent implements OnInit {
     this.isDropdownVisible = !this.isDropdownVisible;
   }
 
-  onNotificationClick(): void {
-    if (this.notificationsCount > 0) {
-      console.log('Redirecting to notifications page...');
-    } else {
-      console.log('No new notifications.');
-    }
-  }
-
   clearNotifications() {
-    this.notifications = [];
-    this.notificationsCount = 0;
+    this.notificationService.clearNotifications();
   }
 
   toggleSidebar() {
@@ -136,6 +125,7 @@ export class LandingPageComponent implements OnInit {
       this.productList = val;
       this.filteredProducts = [...this.productList];
     });
+
     this.notificationService.notifications$.subscribe(notifications => {
       this.notifications = notifications;
     });
@@ -143,7 +133,7 @@ export class LandingPageComponent implements OnInit {
     this.notificationService.notificationsCount$.subscribe(count => {
       this.notificationsCount = count;
     });
-    this.clearNotifications();
+    
     this.getCurrentDate();
 
     // this.paymentService.getAllData().subscribe((val: any) => {
