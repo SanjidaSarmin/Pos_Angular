@@ -44,7 +44,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/employee/Addsupplier">
+          <a routerLink="/employee/supplier">
             <i class="fa fa-truck menu-icon"></i> Supplier List
           </a>
         </li>
@@ -177,13 +177,25 @@
 
         <!-- Search Bar Below Dropdowns -->
         <div class="search-bar-container">
-          <input type="text" [(ngModel)]="searchTest" placeholder="Search Products" class="search-bar" />
-          <button class="search-button" (click)="search()">Search</button>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <input type="text" class="search-bar" id="productName" [formControl]="productNameControl"
+                (input)="filterProducts()" placeholder="Type product name" />
+              <button class="search-button" (click)="searchProduct()">Search</button>
+            </div>
+            <ul *ngIf="filteredProducts.length > 0" class="autocomplete-list">
+              <li *ngFor="let product of filteredProducts" (click)="searchProduct()" class="autocomplete-item">
+                {{ product.name }}
+              </li>
+            </ul>
+          </div>
+          <!-- <input type="text" [(ngModel)]="searchTest" placeholder="Search Products" class="search-bar" />
+          <button class="search-button" (click)="search()">Search</button> -->
         </div>
 
         <!-- Product Grid with Select Button -->
         <div class="product-grid">
-          <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 6, currentPage: currentPage }" 
+          <div *ngFor="let product of productFiltered | paginate: { itemsPerPage: 6, currentPage: currentPage }" 
           class="product-card" (click)="addToCart(product)">
             <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
             <h3 class="product-name">{{product.name}}</h3>

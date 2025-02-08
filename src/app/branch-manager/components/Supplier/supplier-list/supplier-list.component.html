@@ -1,26 +1,26 @@
 
-<div class="d-flex"><app-side-navbar></app-side-navbar>
+<div class="d-flex"><app-sidebar></app-sidebar>
     <div class="main-content w-100">
-      <div class="product-list-container">
+      <div class="supplier-list-container">
         <div class="header">
-          <h2>All Branch</h2>
-          <p>Manage your all Branch</p>
+          <h2>All supplier</h2>
+          <p>Manage your all supplier</p>
         </div>
   
         <div class="toolbar">
           <div class="toolbar-left">
-            <button routerLink="/admin/branchAdd" class="btn add-product">+ Add New Branch</button>
+            <button routerLink="/manager/supplierAdd" class="btn add-supplier">+ Add New supplier</button>
           </div>
           <div class="toolbar-right">
             <div class="form-group">
               <div class="d-flex align-items-center">
-                <input type="text" class="form-control me-2" id="productname" [formControl]="NameControl"
-                (input)="filterBranch()" placeholder="Type branch name" />
+                <input type="text" class="form-control me-2" id="productname" [formControl]="name"
+                (input)="filterSupplier()" placeholder="Type supplier name" />
               <button class="btn" (click)="search()">Search</button>
               </div>
-              <ul *ngIf="filteredBranch.length > 0" class="autocomplete-list">
-                <li *ngFor="let branch of filteredBranch" (click)="search()" class="autocomplete-item">
-                  {{ branch.branchName }}
+              <ul *ngIf="filteredSupplier.length > 0" class="autocomplete-list">
+                <li *ngFor="let supplier of filteredSupplier" (click)="search()" class="autocomplete-item">
+                  {{ supplier.name }}
                 </li>
               </ul>
             </div>
@@ -33,28 +33,24 @@
           <thead>
             <tr>
               <th>Id</th>
-              <th>Branch Name</th>
-              <th>Location</th>
-              <th>Manager Name</th>
+              <th>Supplier Name</th>
               <th>Contact Number</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let branch of branchList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
-              <td>{{ branch.id }}</td>
-              <td>{{ branch.branchName }}</td>
-              <td>{{ branch.location }}</td>
-              <td>{{ branch.managerName }}</td>
-              <td>{{ branch.contactNumber }}</td>
+            <tr *ngFor="let supplier of supplierList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{ supplier.id }}</td>
+              <td>{{ supplier.name }}</td>
+              <td>{{ supplier.contact }}</td>
               <td style="text-align: center;">
-                <a [routerLink]="['/admin/BranchEdit/', branch.id]">
+                <a [routerLink]="['/manager/supplierEdit/', supplier.id]">
                   <button class="btn1">
                     <img src="assets/pen.png" alt="Edit" class="icon">
                   </button>
                 </a>
                 |
-                <button class="btn1" (click)="deletebranch(branch.id)">
+                <button class="btn1" (click)="deletesupplier(supplier.id)">
                   <img src="/assets/bin.png" alt="Delete" class="icon">
                 </button>
               </td>
@@ -69,4 +65,3 @@
   
       </div>
     </div>
-  </div>

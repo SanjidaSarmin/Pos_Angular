@@ -22,6 +22,7 @@ import { SellReportComponent } from './Components/Sell/sell-report/sell-report.c
 import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sale.component';
 import { EmployeeBranchListComponent } from './Components/Branch/employee-branch-list/employee-branch-list.component';
 import { StockAlertComponent } from './Components/stock-alert/stock-alert.component';
+import { SupplierListComponent } from './Components/supplier-list/supplier-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: "catagory", component: ProductCatagoryComponent },
   { path: 'damageList', component: DamageListComponent },
   { path: 'branch', component: EmployeeBranchListComponent },
+  { path: 'supplier', component: SupplierListComponent },
   
 
   { path: "offer", component: OfferListComponent },

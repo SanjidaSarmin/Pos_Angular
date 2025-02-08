@@ -1,34 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ProductService } from 'src/app/Service/Product/product.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BranchService } from 'src/app/Service/Branch/branch.service';
 
 @Component({
   selector: 'app-barcode-create',
   templateUrl: './barcode-create.component.html',
   styleUrls: ['./barcode-create.component.scss']
 })
-export class BarcodeCreateComponent {
-  // Branch dropdown data
-  branches = [
-    { id: '1', name: 'Branch 1' },
-    { id: '2', name: 'Branch 2' },
-    { id: '3', name: 'Branch 3' }
-  ];
-  selectedBranch: string = ''; // Currently selected branch
+export class BarcodeCreateComponent implements OnInit {
 
-  // Form control for product name input
+
+constructor(
+    private proService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private branchService: BranchService
+  ) { }
+
+  branches: any[] = [];
+  products: any[] = [];
+
+  ngOnInit(): void {
+    this.branchService.getBranchData().subscribe((val: any) => {
+      this.branches = val;
+    });
+
+    this.proService.getAllData().subscribe((val: any) => {
+      this.products = val;
+    });
+  }
+
+
+  selectedBranch: string = '';
+
+  
   productNameControl = new FormControl('');
   selectedProduct: string = ''; // Currently selected product name
   selectedProducts: any[] = []; // List of products added to the table
 
-  // Example list of products to search from
-  products = [
-    { name: 'Laptop', code: 'lap-41759-20000' },
-    { name: 'Mouse', code: 'mou-12345-67890' },
-    { name: 'Keyboard', code: 'key-78654-12457' },
-    { name: 'Monitor', code: 'mon-56432-78451' },
-    { name: 'Printer', code: 'pri-98765-43210' }
-  ];
-
+  
   filteredProducts: any[] = []; // Filtered list for autocomplete suggestions
 
   // Options for print customization

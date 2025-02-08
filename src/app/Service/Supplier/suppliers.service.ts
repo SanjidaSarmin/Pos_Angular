@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SuppliersService {
+ 
 constructor(private httpClient: HttpClient) { }
  
    private apiUrl = "http://localhost:8081/api/supplier";
@@ -28,4 +29,14 @@ constructor(private httpClient: HttpClient) { }
    updateData(supplier: any){
      return this.httpClient.put(this.apiUrl+"/"+supplier.id, supplier)
    }
+
+   searchsupplier(name: string, page: number, size: number) {
+    const params = {
+      suppliername: name || '', 
+      page: page.toString(),
+      size: size.toString(),
+    };
+    return this.httpClient.get<any>(`${this.apiUrl}/search`, { params });
+  }
+
 }

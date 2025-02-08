@@ -10,7 +10,7 @@
           Select Branch <span class="required">*</span>
         </label>
         <select class="form-control" id="branchSelect" [(ngModel)]="selectedBranch">
-          <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.name }}</option>
+          <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.branchName }}</option>
         </select>
       </div>
       <!-- </div> -->

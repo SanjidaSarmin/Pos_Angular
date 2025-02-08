@@ -6,6 +6,7 @@ import { CategoryService } from 'src/app/Service/category/category.service';
 import { ProductService } from 'src/app/Service/Product/product.service';
 import { SellService } from 'src/app/Service/Sell/sell.service';
 import { NotificationService } from 'src/app/Service/Notification/notification.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-landing-page',
@@ -54,8 +55,58 @@ export class LandingPageComponent implements OnInit {
     this.currentDate = today.toLocaleDateString('en-US', options);
   }
 
+  productNameControl = new FormControl('');
+    selectedProduct: string = ''; 
+    selectedProducts: any[] = [];
+    filteredProducts: any[] = [];
+    paginatedProducts: any[] = [];
+    currentPage = 1;
+    itemsPerPage: number = 10;
 
-  searchTest: string = '';
+
+    searchProduct(): void {
+      const searchTerm = this.productNameControl.value?.trim();
+      if (!searchTerm) {
+        alert('Please enter a product name to search.');
+        return;
+      }
+      this.proService.searchProduct(searchTerm).subscribe((val: any) => {
+        this.productFiltered = val;
+        this.currentPage = 1; // Reset to the first page
+        this.updatePaginatedProducts(); // Update the displayed products
+      });
+    }
+    updatePaginatedProducts(): void {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      this.paginatedProducts = this.productList.slice(start, start + this.itemsPerPage);
+    }
+
+    filterProducts() {
+      const input = this.productNameControl.value?.toLowerCase() || '';
+      if (input.trim() === '') {
+        this.filteredProducts = [];
+      } else {
+        this.filteredProducts = this.productList.filter((product) =>
+          product.name.toLowerCase().includes(input)
+        );
+      }
+    }
+  
+    
+    selectProduct(product: any) {
+      const existingProduct = this.selectedProducts.find(
+        (p) => p.code === product.code
+      );
+      if (!existingProduct) {
+        this.selectedProducts.push({ ...product, quantity: 1 });
+      } else {
+        alert('Product is already in the list.');
+      }
+      this.productNameControl.setValue('');
+      this.filteredProducts = []; 
+    }
+
+
   totalCost: number = 0;
   discount: number = 0;
   coupon: number = 0;
@@ -65,7 +116,7 @@ export class LandingPageComponent implements OnInit {
   productList: Product[] = [];
   categoryList: Category[] = [];
   selectedCategory: string = '';
-  filteredProducts: any[] = [...this.productList];
+  productFiltered: any[] = [...this.productList];
   cartItems: any[] = [];
   customerPhone: string = '';
   paymentStatus: string = '';
@@ -108,11 +159,11 @@ export class LandingPageComponent implements OnInit {
     // Reset cart or perform necessary actions
   }
 
-  search() {
-    this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
-      this.filteredProducts = val;
-    });
-  }
+  // search() {
+  //   this.proService.searchProduct(this.searchTest).subscribe((val: any) => {
+  //     this.productFiltered = val;
+  //   });
+  // }
 
 
 
@@ -123,7 +174,7 @@ export class LandingPageComponent implements OnInit {
 
     this.proService.getAllData().subscribe((val: any) => {
       this.productList = val;
-      this.filteredProducts = [...this.productList];
+      this.productFiltered = [...this.productList];
     });
 
     this.notificationService.notifications$.subscribe(notifications => {
@@ -133,8 +184,9 @@ export class LandingPageComponent implements OnInit {
     this.notificationService.notificationsCount$.subscribe(count => {
       this.notificationsCount = count;
     });
-    
+
     this.getCurrentDate();
+    this.updatePaginatedProducts();
 
     // this.paymentService.getAllData().subscribe((val: any) => {
     //     this.paymentMethod = val;
@@ -178,8 +230,7 @@ export class LandingPageComponent implements OnInit {
       // this.router.navigate(['/employee/confirmPayment/', { method: this.paymentMethod }]);
     })
   }
-  currentPage = 1;
-  itemsPerPage = 6;
+  
   logout() {
     localStorage.clear();
     sessionStorage.clear();

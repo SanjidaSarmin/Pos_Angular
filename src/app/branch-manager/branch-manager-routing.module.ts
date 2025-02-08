@@ -29,6 +29,9 @@ import { EmployeeEditComponent } from './components/Employee/employee-edit/emplo
 import { PurchaseListComponent } from './components/Purchase/purchase-list/purchase-list.component';
 import { PurchaseAddComponent } from './components/Purchase/purchase-add/purchase-add.component';
 import { PurchaseEditComponent } from './components/Purchase/purchase-edit/purchase-edit.component';
+import { SupplierListComponent } from './components/Supplier/supplier-list/supplier-list.component';
+import { SupplierAddComponent } from './components/Supplier/supplier-add/supplier-add.component';
+import { SupplierEditComponent } from './components/Supplier/supplier-edit/supplier-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -63,6 +66,10 @@ const routes: Routes = [
   { path: 'return', component: ReturnListComponent },
   { path: 'returnAdd', component: ReturnAddComponent },
   { path: 'returnEdit/:rId', component: ReturnEditComponent },
+
+  { path: "supplierlist", component: SupplierListComponent },
+  { path: "supplierAdd", component: SupplierAddComponent },
+  { path: 'supplierEdit/:sId', component: SupplierEditComponent },
 
   { path: "purchaselist", component: PurchaseListComponent },
   { path: "purchaseAdd", component: PurchaseAddComponent },
