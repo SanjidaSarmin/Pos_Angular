@@ -52,7 +52,6 @@ export class ProductEditComponent implements OnInit {
     barcode: new FormControl(),
     name: new FormControl(),
     categoryId: new FormControl(),
-    vat: new FormControl(),
     branchId: new FormControl(),
     quantity: new FormControl(),
     costPrice: new FormControl(),
