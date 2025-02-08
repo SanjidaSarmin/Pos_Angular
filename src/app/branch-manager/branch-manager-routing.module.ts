@@ -32,6 +32,9 @@ import { PurchaseEditComponent } from './components/Purchase/purchase-edit/purch
 import { SupplierListComponent } from './components/Supplier/supplier-list/supplier-list.component';
 import { SupplierAddComponent } from './components/Supplier/supplier-add/supplier-add.component';
 import { SupplierEditComponent } from './components/Supplier/supplier-edit/supplier-edit.component';
+import { MemberListComponent } from './components/Customer/member-list/member-list.component';
+import { MemberAddComponent } from './components/Customer/member-add/member-add.component';
+import { MemberEditComponent } from './components/Customer/member-edit/member-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -66,6 +69,10 @@ const routes: Routes = [
   { path: 'return', component: ReturnListComponent },
   { path: 'returnAdd', component: ReturnAddComponent },
   { path: 'returnEdit/:rId', component: ReturnEditComponent },
+
+  { path: 'membership', component: MemberListComponent},
+    { path: 'membershipAdd', component: MemberAddComponent},
+    { path: 'membershipEdit/:memberId', component: MemberEditComponent},
 
   { path: "supplierlist", component: SupplierListComponent },
   { path: "supplierAdd", component: SupplierAddComponent },

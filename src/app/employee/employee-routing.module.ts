@@ -23,6 +23,9 @@ import { ConfirmSaleComponent } from './Components/Sell/confirm-sale/confirm-sal
 import { EmployeeBranchListComponent } from './Components/Branch/employee-branch-list/employee-branch-list.component';
 import { StockAlertComponent } from './Components/stock-alert/stock-alert.component';
 import { SupplierListComponent } from './Components/supplier-list/supplier-list.component';
+import { MembershipListComponent } from './Components/Customer/membership-list/membership-list.component';
+import { MembershipAddComponent } from './Components/Customer/membership-add/membership-add.component';
+import { MembershipEditComponent } from './Components/Customer/membership-edit/membership-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -48,6 +51,10 @@ const routes: Routes = [
   { path: 'return', component: ReturnListComponent},
   { path: 'returnAdd', component: ReturnAddComponent},
   { path: 'returnEdit/:rId', component: ReturnEditComponent},
+
+  { path: 'membership', component: MembershipListComponent},
+  { path: 'membershipAdd', component: MembershipAddComponent},
+  { path: 'membershipEdit/:memberId', component: MembershipEditComponent},
 
   { path: 'barcode', component: BarcodeCreateComponent},
   { path: 'Print', component: PrintComponent},

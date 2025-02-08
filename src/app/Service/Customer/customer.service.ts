@@ -10,21 +10,41 @@ export class CustomerService {
 
   constructor(private httpClient: HttpClient) {}
 
+  addData(customerData: any) {
+    return this.httpClient.post(this.apiUrl, customerData)
+  }
+
+  getAllData() {
+    return this.httpClient.get(this.apiUrl)
+  }
+
   getCustomerByPhone(phoneNumber: string){
     return this.httpClient.get(this.apiUrl + "/" + phoneNumber);
   }
 
-  // Update loyalty points of a customer after a sale
-  // updateLoyaltyPoints(phoneNumber: string, loyaltyPoints: number) {
-  //   return this.httpClient.post<any>(`${this.apiUrl}/${phoneNumber}/${loyaltyPoints}`, {});
-  // }
+  deleteById(phoneNumber: any) {
+    return this.httpClient.delete(this.apiUrl + "/" + phoneNumber)
+  }
+
+  updateData(customerData: any) {
+    return this.httpClient.put(this.apiUrl + "/" + customerData.phoneNumber, customerData)
+  }
+
+  search(phonenumber: string, page: number, size: number) {
+    const params = {
+      phoneNumber: phonenumber || '', 
+      page: page.toString(),
+      size: size.toString(),
+    };
+  
+    return this.httpClient.get(`${this.apiUrl}/search`, { params });
+  }
+
 
   updateLoyaltyPoints(phoneNumber: string, loyaltyPoints: number){
     return this.httpClient.post(`${this.apiUrl}/${phoneNumber}/${loyaltyPoints}`, {});
   }
   
-
-  // Check if customer has membership status
   checkMembershipStatus(phoneNumber: string){
     return this.httpClient.get(`${this.apiUrl}/${phoneNumber}/`);
   }

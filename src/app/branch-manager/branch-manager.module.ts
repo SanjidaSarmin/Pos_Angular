@@ -36,6 +36,9 @@ import { PurchaseEditComponent } from './components/Purchase/purchase-edit/purch
 import { SupplierListComponent } from './components/Supplier/supplier-list/supplier-list.component';
 import { SupplierAddComponent } from './components/Supplier/supplier-add/supplier-add.component';
 import { SupplierEditComponent } from './components/Supplier/supplier-edit/supplier-edit.component';
+import { MemberAddComponent } from './components/Customer/member-add/member-add.component';
+import { MemberEditComponent } from './components/Customer/member-edit/member-edit.component';
+import { MemberListComponent } from './components/Customer/member-list/member-list.component';
 
 
 
@@ -72,6 +75,9 @@ import { SupplierEditComponent } from './components/Supplier/supplier-edit/suppl
     SupplierListComponent,
     SupplierAddComponent,
     SupplierEditComponent,
+    MemberAddComponent,
+    MemberEditComponent,
+    MemberListComponent,
   ],
   imports: [
     CommonModule,

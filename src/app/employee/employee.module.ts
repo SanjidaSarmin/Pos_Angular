@@ -26,6 +26,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EmployeeBranchListComponent } from './Components/Branch/employee-branch-list/employee-branch-list.component';
 import { StockAlertComponent } from './Components/stock-alert/stock-alert.component';
 import { SupplierListComponent } from './Components/supplier-list/supplier-list.component';
+import { MembershipAddComponent } from './Components/Customer/membership-add/membership-add.component';
+import { MembershipEditComponent } from './Components/Customer/membership-edit/membership-edit.component';
+import { MembershipListComponent } from './Components/Customer/membership-list/membership-list.component';
 
 
 
@@ -53,7 +56,10 @@ import { SupplierListComponent } from './Components/supplier-list/supplier-list.
     ConfirmSaleComponent,
     EmployeeBranchListComponent,
     StockAlertComponent,
-    SupplierListComponent
+    SupplierListComponent,
+    MembershipAddComponent,
+    MembershipEditComponent,
+    MembershipListComponent
   ],
   imports: [
     CommonModule,
