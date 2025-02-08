@@ -1,0 +1,116 @@
+.main-content {
+    padding: 20px;
+    background-color: #f9f9f9; 
+    min-height: calc(100vh - 70px); 
+    box-sizing: border-box; 
+  }
+  .add-product-form {
+      // width: 100%;
+      // max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      margin-top: 80px;
+      
+    }
+    
+    .header {
+      margin-bottom: 20px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    
+    .header h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+    
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      flex: 1 1 calc(25% - 15px); 
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group label {
+      font-size: 16px;
+      margin-bottom: 5px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      // font-weight: bold;
+    }
+    
+    .form-group input {
+      padding: 10px 16px;
+      border: 1px solid #72b2c5;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .form-group select {
+      padding: 10px 16px;
+      border: 1px solid #72b2c5;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 100%;
+    }
+    select:focus {
+      border-color: #4299f7;
+      outline: none;
+    }
+    
+    
+    .barcode-input {
+      display: flex;
+      align-items: center;
+    }
+    
+    .barcode-input input {
+      flex-grow: 1;
+    }
+    
+    .barcode-refresh {
+      margin-left: 5px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .barcode-refresh:hover {
+      background: #e0e0e0;
+    }
+    .btn-submit {
+      width: 50%;
+      background-color: transparent;
+      color:  #365e8a;
+      border: 1px solid #28578a;
+      padding: 8px 25px;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 20%;
+      margin-top: 30px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    
+    .btn-submit:hover {
+      background: #365e8a;
+      color: #f7f7f7;
+    }
+   

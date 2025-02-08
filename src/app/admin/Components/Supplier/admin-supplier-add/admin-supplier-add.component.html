@@ -1,0 +1,23 @@
+<div class="d-flex"><app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+        <div class="add-supplier-form">
+    <h2>Add New supplier</h2>
+    <form [formGroup]="supplierForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Supplier Name</label>
+          <input type="text" formControlName="name" placeholder="Enter supplier name" />
+        </div>
+          <div class="form-group">
+            <label>Contact Number</label>
+            <input type="text" formControlName="contact" placeholder="Enter supplier Contact Number">
+          </div>
+
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Submit</button>
+      </div>
+    </form>
+  </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="d-flex">
+    <app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+        <div class="product-list-container">
+            <div class="header">
+              <h2>Return Lists</h2>
+              <p>Manage Your Return Data</p>
+            </div>
+            <div class="table-controls">
+                <div class="add-supplier">
+                    <button class="btn-add" routerLink="/admin/returnAdd">+ Add Return Product</button>
+                </div>
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" class="search-box" />
+                    <button class="btn-search">Search</button>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Invoice</th>
+                        <th>Product Name</th>
+                        <th>Customer Phone No</th>
+                        <th>Order Date</th>
+                        <th>Return Date</th>
+                        <th>Return Quantity</th>
+                        <th>Return Amount</th>
+                        <th>Received By</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let returnItem of returnList">
+                        <td>{{ returnItem.id }}</td>
+                        <td>{{ returnItem.saleId }}</td>
+                        <td>{{ returnItem.productName }}</td>
+                        <td>{{ returnItem.customerPhone }}</td>
+                        <td>{{ returnItem.orderDate }}</td>
+                        <td>{{ returnItem.returnDate }}</td>
+                        <td>{{ returnItem.returnQuantity }}</td>
+                        <td>{{ returnItem.returnAmount }}</td>
+                        <td>{{ returnItem.receivedBy }}</td>
+                        <td style="text-align: center;">
+                            <a [routerLink]="['/admin/returnEdit/', returnItem.id]">
+                                <button class="btn1">
+                                    <img src="assets/pen.png" alt="Edit" class="icon">
+                                </button>
+                            </a>
+                            |
+                            <button class="btn1" (click)="deletereturn(returnItem.id)">
+                                <img src="/assets/bin.png" alt="Delete" class="icon">
+                            </button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>

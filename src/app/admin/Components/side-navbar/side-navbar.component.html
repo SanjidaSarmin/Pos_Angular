@@ -6,31 +6,47 @@
       <h2>Menu</h2>
       <ul class="sidebar-menu">
         <li>
-          <a routerLink="/dashboard">
+          <a routerLink="/admin/mainpage">
             <img src="assets/dashboard.png" alt="Dashboard Icon" class="menu-icon1">
             Main Dashboard
           </a>
         </li>
-        <li>
-          <a routerLink="/sell">
-            <i class="fa fa-shopping-cart"></i> Sell
-          </a>
-        </li>
+        
   
         <li class="nav-item">
           <div class="dropdown-header" (click)="toggleDropdown('submenu3')">
-            <a href="/product">
               <i class="fa fa-box menu-icon"></i>Product
-            </a>
             <i class="fa fa-caret-down dropdown-toggle-btn"></i>
           </div>
           <ul [class.show]="activeDropdown === 'submenu3'" class="submenu" id="submenu3">
-            <li><a routerLink="/productlist"><i class="fa fa-list menu-icon"></i> All Products</a></li>
-            <li><a routerLink="/Addproduct"><i class="fa fa-plus menu-icon"></i> Add New Product</a></li>
-            <li><a routerLink="/catagory"><i class="fa fa-th menu-icon"></i> Product Categories</a></li>
-            <li><a routerLink="/damageList"><i class="fa fa-trash menu-icon"></i> Damage Products</a></li>
-            <li><a href="#"><i class="fa fa-balance-scale"></i> Product Unit Types</a></li>
-            <li><a href="#"><i class="fa fa-barcode"></i> Barcode</a></li>
+            <li><a routerLink="/admin/productlist"><i class="fa fa-list menu-icon"></i> All Products</a></li>
+            <li><a routerLink="/admin/productAdd"><i class="fa fa-plus menu-icon"></i> Add New Product</a></li>
+            <li><a routerLink="/admin/categoryList"><i class="fa fa-th menu-icon"></i> Product Categories</a></li>
+            <li><a routerLink="/admin/damageList"><i class="fa fa-trash menu-icon"></i> Damage Products</a></li>
+          <li><a href="/admin/return"><i class="fa fa-credit-card menu-icon"></i> Return Product</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/admin/branchlist"><i class="fa fa-sitemap menu-icon"></i> Branch List</a></li>
+        <li><a href="/admin/stockalert"><i class="fa fa-exclamation-triangle menu-icon"></i> Stock Alert</a></li>
+        <li><a href="#"><i class="fa fa-chart-bar menu-icon"></i>Sales Reports</a></li>
+
+        <li class="nav-item">
+          <div class="dropdown-header" (click)="toggleDropdown('submenu6')">
+            <i class="fa fa-user menu-icon"></i>People
+            <i class="fa fa-caret-down dropdown-toggle-btn"></i>
+          </div>
+          <ul [class.show]="activeDropdown === 'submenu6'" class="submenu" id="submenu6">
+            <li>
+              <a href="/manager/employeelist">
+                <i class="fa fa-user menu-icon"></i> Employee List
+              </a>
+            </li>
+            <li>
+              <a routerLink="/manager/membership">
+                <i class="fa fa-users menu-icon"></i> Customer List
+              </a>
+            </li>
           </ul>
         </li>
   
@@ -42,21 +58,13 @@
             <i class="fa fa-caret-down dropdown-toggle-btn"></i>
           </div>
           <ul [class.show]="activeDropdown === 'submenu4'" class="submenu" id="submenu4">
-            <li><a routerLink="/suppliarList"><i class="fa fa-list menu-icon"></i> All Suppliers</a></li>
-            <li><a routerLink="/Addsupplier"><i class="fa fa-plus menu-icon"></i> Add New Supplier</a></li>
-            <li><a href="#"><i class="fa fa-tags menu-icon"></i> Purchases List</a></li>
-            <li><a href="#"><i class="fa fa-th menu-icon"></i> Add New Purchase</a></li>
+            <li><a routerLink="/admin/supplierlist"><i class="fa fa-list menu-icon"></i> All Suppliers</a></li>
+            <li><a routerLink="/admin/supplierAdd"><i class="fa fa-plus menu-icon"></i> Add New Supplier</a></li>
+            <li><a href="/admin/purchaselist"><i class="fa fa-tags menu-icon"></i> Purchases List</a></li>
           </ul>
         </li>
-  
-        <li><a routerLink="/offerProduct"><i class="fa fa-tags menu-icon"></i>Offers Product</a></li>
-        <li><a routerLink="/bundleProduct"> <i class="fa fa-tags menu-icon"></i>Bundle Product</a> </li>
-        <li><a href="/return"><i class="fa fa-credit-card menu-icon"></i> Return Product</a></li>
-        <li><a href="/barcode"><i class="fa fa-print"></i> Barcode Level Printers</a></li>
-  
-
             
-        <li><a href="/admin/branchlist"><i class="fa fa-sitemap menu-icon"></i> Branch List</a></li>
+       
   
         
         <li><a href="#"><i class="fa fa-database menu-icon"></i> Product Stocks</a></li>
@@ -102,9 +110,25 @@
           </select>
         </div>
   
-        <!-- Notification Icon -->
-        <div class="notification-icon">
+        <div class="notification-icon" (click)="showDropdown()" aria-label="Notifications" role="button">
           <i class="fa fa-bell"></i>
+          <span class="notification-badge" *ngIf="notificationsCount > 0"
+            [ngClass]="{'high-count': notificationsCount > 10}">
+            {{ notificationsCount }}
+          </span>
+        </div>
+      
+        <div class="notification-box" *ngIf="isDropdownVisible">
+          <div class="notification-header">
+            <h4>Notifications</h4>
+            <button (click)="clearNotifications()">Clear All</button>
+          </div>
+          <ul>
+            <li *ngFor="let notification of notifications">
+              <span class="message">{{ notification.message }}</span>
+              <span class="time">{{ notification.time | date:'shortTime' }}</span>
+            </li>
+          </ul>
         </div>
   
         <!-- Admin Dropdown with Icon -->

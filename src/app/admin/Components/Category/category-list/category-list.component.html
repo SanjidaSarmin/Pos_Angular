@@ -1,0 +1,66 @@
+<div class="d-flex">
+    <app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+      <div class="product-list-container">
+        <div class="header">
+          <h2>Product Category Lists</h2>
+          <p>Manage Your Category</p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/admin/categoryAdd" class="btn add-product">+ Add Product Category</button>
+          </div>
+            <div class="toolbar-right">
+              <div class="form-group">
+                <div class="d-flex align-items-center">
+                  <input type="text" class="form-control me-2" id="categoryName" [formControl]="categoryNameControl"
+                    (input)="filtercategory()" placeholder="Type category name" />
+                  <button class="btn" (click)="search()">Search</button>
+                </div>
+                <ul *ngIf="filteredcategory.length > 0" class="autocomplete-list">
+                  <li *ngFor="let category of filteredcategory" (click)="selectProduct(category)" class="autocomplete-item">
+                    {{ category.name }}
+                  </li>
+                </ul>
+              </div>
+            
+          </div>
+        </div>
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Category Name</th>
+              <th>Details</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of catagoryList| paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{ category.id }}</td>
+              <td>{{ category.name }}</td>
+              <td>{{ category.description || '-' }}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/admin/categoryEdit/', category.id]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon">
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deletecategory(category.id)">
+                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <!-- Pagination Controls -->
+        <div class="pagination-container">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>

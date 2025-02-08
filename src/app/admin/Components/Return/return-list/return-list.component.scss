@@ -1,0 +1,197 @@
+.main-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+  }
+  
+  .product-list-container {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #289fa7; 
+    padding-bottom: 10px;
+  }
+  
+  .header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #375f8a;
+    margin: 0;
+  }
+  
+  .header p {
+    font-size: 14px;
+    color: #555555; 
+    margin: 5px 0 0; 
+  }
+  
+  .add-supplier {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .btn-add {
+    padding: 8px 25px;
+    font-size: 14px;
+    color: #175177;
+    background-color: #ffffff;
+    border: 1px solid #175177;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-add:hover {
+    background-color: #175177;
+    color: white;
+  }
+  
+  
+  .table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .date-input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    width: 200px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .date-input:focus {
+    border-color: #234e8f;
+  }
+  
+  .date-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    color: #234e8f;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 50px;
+  }
+  
+  .search-box {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .search-box:focus {
+    border-color: #234e8f;
+  }
+  
+  .btn-search {
+    padding: 8px 14px;
+    background-color: #234e8f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn-search:hover {
+    background-color: #103163;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  .data-table th,
+  .data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .data-table th {
+    background-color: #289fa7;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .data-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+  button:hover {
+    color: #0056b3;
+  }
+  
+  .btn1 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  
+  .btn1:hover .icon {
+    filter: brightness(1.2);
+    background-color: #289fa7;
+  }
+  
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    table {
+      font-size: 12px;
+    }
+  
+    .filters input[type='text'],
+    .filters input[type='date'] {
+      width: 150px;
+    }
+  
+    .filters {
+      flex-direction: column;
+      gap: 15px;
+      align-items: flex-start;
+    }
+  }

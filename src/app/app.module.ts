@@ -6,12 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductComponent } from './Product/product.component';
-import { OfferAddComponent } from './Product/Offer/offer-add/offer-add.component';
-import { OfferEditComponent } from './Product/Offer/offer-edit/offer-edit.component';
-import { OfferListComponent } from './Product/Offer/offer-list/offer-list.component';
-import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -30,13 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   declarations: [
     AppComponent,
     HomeComponent,
-    DashboardComponent,
-    ProductComponent,
-    OfferAddComponent,
-    OfferEditComponent,
-    OfferListComponent,
     WebSocketMessagingComponent,
-    SideNavbarComponent,
     LoginComponent,
     SignupComponent,
  

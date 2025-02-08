@@ -8,7 +8,7 @@
             </div>
             <div class="table-controls">
                 <div class="add-supplier">
-                    <button class="btn-add" routerLink="/employee/returnAdd">+ Add Return Product</button>
+                    <button class="btn-add" routerLink="/manager/returnAdd">+ Add Return Product</button>
                 </div>
                 <div class="search-container">
                     <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" class="search-box" />
@@ -42,7 +42,7 @@
                         <td>{{ returnItem.returnAmount }}</td>
                         <td>{{ returnItem.receivedBy }}</td>
                         <td style="text-align: center;">
-                            <a [routerLink]="['/employee/returnEdit/', returnItem.id]">
+                            <a [routerLink]="['/manager/returnEdit/', returnItem.id]">
                                 <button class="btn1">
                                     <img src="assets/pen.png" alt="Edit" class="icon">
                                 </button>

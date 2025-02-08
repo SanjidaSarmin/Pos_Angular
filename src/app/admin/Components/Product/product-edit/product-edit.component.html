@@ -1,0 +1,91 @@
+<div class="d-flex"><app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+      <div class="add-product-form">
+      <div class="header">
+        <h2>Update Your Product</h2>
+      </div>
+    
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" *ngIf="productData">
+        <div class="form-row">
+          <div class="form-group">
+              <label>Product Id    </label>
+              <input type="number" formControlName="id" placeholder="Enter product id" />
+            </div>
+          <div class="form-group">
+            <label>Product Name    </label>
+            <input type="text" formControlName="name" placeholder="Enter product name" />
+          </div>
+          <div class="form-group">
+            <label>Upload Image    </label>
+            <!-- <input type="file" formControlName="image" accept="image/*" /> -->
+            <input type="text" formControlName="image" placeholder="Enter product Image" />
+  
+          </div>
+          <div class="form-group">
+            <label>Barcode</label>
+            <div class="barcode-input">
+              <input type="text" formControlName="barcode" placeholder="Enter barcode" />
+              <button type="button" class="barcode-refresh">&#x21bb;</button>
+            </div>
+          </div>
+        </div>
+      
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select formControlName="categoryId" class="form-control" id="category">
+              <option value="" disabled selected>Select Category</option>
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+            </select>
+          </div>
+      
+          
+      
+          <div class="form-group">
+            <label for="branch">Branch</label>
+            <select formControlName="branchId" class="form-control" id="branch">
+              <option value="" disabled selected>Select Branch</option>
+              <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.branchName }}</option>
+            </select>
+          </div>
+        </div>
+      
+        <div class="form-row">
+          <div class="form-group">
+            <label>Cost Price</label>
+            <input type="text" formControlName="costPrice" placeholder="Enter cost price" />
+          </div>
+          <div class="form-group">
+            <label>Sale Price</label>
+            <input type="text" formControlName="sellPrice" placeholder="Enter sale price" />
+          </div>
+          <div class="form-group">
+            <label>Stock    </label>
+            <input type="number" formControlName="quantity" placeholder="Enter stock quantity" min="0" />
+          </div>
+        </div>
+      
+        <div class="form-row">
+          <div class="form-group">
+            <label for="supplier">Supplier</label>
+            <select formControlName="supplierId" class="form-control" id="supplier">
+              <option value="" disabled selected>Select Supplier</option>
+              <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{ supplier.name }}</option>
+            </select>
+          </div>
+          
+      
+          <div class="form-group">
+            <label>Expire Date</label>
+            <input type="date" formControlName="expiredDate" class="form-control" placeholder="Enter Expire Date" />
+          </div>
+        </div>
+      
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Update</button>
+        </div>
+      </form>
+  </div>  
+  </div>
+  </div>
+  

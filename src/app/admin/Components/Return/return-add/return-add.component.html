@@ -1,0 +1,73 @@
+<div class="d-flex">
+    <app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+  
+      <div class="return-form">
+  
+  
+        <h2>Return Form</h2>
+  
+        <form [formGroup]="returnForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="Invoiceno">Invoice No</label>
+            <select id="Invoiceno" formControlName="saleId" required>
+              <option *ngFor="let sale of sellList" [value]="sale.id">{{ sale.id }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <select id="productName" formControlName="productId" required>
+              <option *ngFor="let product of productList" [value]="product.id">{{ product.name }}</option>
+            </select>
+          </div>
+  
+          <!-- Customer Name Field -->
+          <div class="form-group">
+            <label for="customerName">Customer Phone Number</label>
+            <input type="text" id="customerName" formControlName="customerPhone" placeholder="Enter Customer Name"
+              required />
+          </div>
+  
+          <!-- Order Date Field -->
+          <div class="form-group">
+            <label for="orderDate">Order Date</label>
+            <input type="date" id="orderDate" formControlName="orderDate" required />
+          </div>
+  
+          <!-- Return Date Field -->
+          <div class="form-group">
+            <label for="returnDate">Return Date</label>
+            <input type="date" id="returnDate" formControlName="returnDate" required />
+          </div>
+  
+  
+          <!-- Return Quantity Field -->
+          <div class="form-group">
+            <label for="returnQuantity">Return Quantity</label>
+            <input type="number" id="returnQuantity" formControlName="returnQuantity" placeholder="Enter Quantity"
+              required min="1" />
+          </div>
+  
+          <!-- Return Amount Field -->
+          <div class="form-group">
+            <label for="returnAmount">Return Amount</label>
+            <input type="number" id="returnAmount" formControlName="returnAmount" placeholder="Enter Amount" required
+              step="0.01" min="0" />
+          </div>
+  
+          <!-- Received By Field -->
+          <div class="form-group">
+            <label for="receivedBy">Received By</label>
+            <input type="text" id="receivedBy" formControlName="receivedBy" placeholder="Enter Receiver's Name"
+              required />
+          </div>
+  
+            <button type="submit" class="submit-button">Submit Return</button>
+          
+        </form>
+  
+      </div>
+  
+    </div>
+  </div>
+  <router-outlet></router-outlet>

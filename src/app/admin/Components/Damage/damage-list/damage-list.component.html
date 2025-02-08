@@ -1,0 +1,73 @@
+
+<div class="d-flex"><app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+      <div class="product-list-container">
+        <div class="header">
+          <h2>All Damaged Products</h2>
+          <p>Manage Your Damage Product </p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/admin/damageAdd" class="btn add-product">+ Add Damage Product</button>
+          </div>
+          <div class="toolbar-right">
+            <div class="form-group">
+              <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" id="productname" [formControl]="damageNameControl"
+                  (input)="filterdamage()" placeholder="Type damage product name" />
+                <button class="btn" (click)="search()">Search</button>
+              </div>
+              <ul *ngIf="filteredproduct.length > 0" class="autocomplete-list">
+                <li *ngFor="let damage of filteredproduct" (click)="selectProduct(damage)" class="autocomplete-item">
+                  {{ damage.productname }}
+                </li>
+              </ul>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Product Name</th>
+              <th>Date</th>
+              <th>Quantity</th>
+              <th>Reason</th>
+              <th>Actionh>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let damagedStock of damageList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{ damagedStock.id }}</td>
+              <td>{{ damagedStock.productname }}</td>
+              <td>{{ damagedStock.dateReported }}</td>
+              <td>{{ damagedStock.quantity }}</td>
+              <td>{{ damagedStock.reason }}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/admin/damageEdit/', damagedStock.id]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon">
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deletedamage(damagedStock.id)">
+                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                </button>
+  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <!-- Pagination Controls -->
+        <div class="pagination-container">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+  
+      </div>
+    </div>
+  </div>

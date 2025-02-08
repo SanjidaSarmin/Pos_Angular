@@ -1,0 +1,85 @@
+<div class="d-flex"><app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+      <div class="purchase-list-container">
+        <div class="header">
+          <h2>Purchase Lists</h2>
+          <p>Manage Your purchase</p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/admin/purchaseAdd" class="btn add-purchase">+ Add new Purchase</button>
+          </div>
+          <div class="toolbar-right">
+            <!-- <div class="form-group">
+              <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" id="purchaseName" [formControl]="purchaseNameControl"
+                  (input)="filterpurchases()" placeholder="Type purchase name" />
+                <button class="btn" (click)="searchpurchase()">Search</button>
+              </div>
+              <ul *ngIf="filteredpurchases.length > 0" class="autocomplete-list">
+                <li *ngFor="let purchase of filteredpurchases" (click)="selectpurchase(purchase)" class="autocomplete-item">
+                  {{ purchase.name }}
+                </li>
+              </ul>
+            </div> -->
+  
+          </div>
+        </div>
+  
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Supplier Name</th>
+              <th>Invoice</th>
+              <th>Date</th>
+              <th>Total Amount</th>
+              <th>Due</th>
+              <th>Paid</th>
+              <th>Status</th>
+              <th>Payment Method</th>
+              <th>Received By</th>
+              <th>Branch Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let purchase of purchaseList | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{purchase.id}}</td>
+              <td>{{ purchase.suppliername }}</td>
+              <td>{{ purchase.invoiceNumber}}</td>
+              <td>{{ purchase.purchaseDate }}</td>
+              <td>{{ purchase.totalAmount }}</td>
+              <td>{{ purchase.due}}</td>
+              <td>{{ purchase.paid}}</td>
+              <td>{{ purchase.status}}</td>
+              <td>{{ purchase.paymentMethod}}</td>
+              <td>{{ purchase.receivedBy}}</td>
+              <td>{{ purchase.branchName}}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/admin/purchaseEdit/', purchase.id]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon">
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deletepurchase(purchase.id)">
+                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                </button>
+  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+         <!-- Pagination Controls -->
+      <!-- Pagination Controls -->
+<div class="pagination-container">
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+
+      </div>
+    </div>
+  </div>
