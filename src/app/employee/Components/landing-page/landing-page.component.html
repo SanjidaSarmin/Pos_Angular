@@ -240,9 +240,15 @@
 <div class="row">
   <div class="section billing-panel">
     <div class="cart-header1">Customer Info</div>
+    <div *ngIf="isMember">
+      <p>Loyalty Points: {{ grandTotal }}</p>
+    </div>
+    <div *ngIf="!isMember">
+      <p>Not a member</p>
+    </div>
     <div class="customer-info">
       <span>Walking Customer | 20221605WALKING | </span>
-      <input type="number" [(ngModel)]="customerPhone" placeholder="Phone Number">
+      <input type="text" [(ngModel)]="customerPhone" placeholder="Phone Number">
     </div>
 
     <div class="summary-panel">

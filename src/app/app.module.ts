@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductComponent } from './Product/product.component';
-import { SupplierListComponent } from './Supplier/supplier-list/supplier-list.component';
 import { OfferAddComponent } from './Product/Offer/offer-add/offer-add.component';
 import { OfferEditComponent } from './Product/Offer/offer-edit/offer-edit.component';
 import { OfferListComponent } from './Product/Offer/offer-list/offer-list.component';
@@ -33,7 +32,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HomeComponent,
     DashboardComponent,
     ProductComponent,
-    SupplierListComponent,
     OfferAddComponent,
     OfferEditComponent,
     OfferListComponent,

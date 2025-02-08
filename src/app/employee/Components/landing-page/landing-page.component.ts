@@ -7,6 +7,7 @@ import { ProductService } from 'src/app/Service/Product/product.service';
 import { SellService } from 'src/app/Service/Sell/sell.service';
 import { NotificationService } from 'src/app/Service/Notification/notification.service';
 import { FormControl } from '@angular/forms';
+import { CustomerService } from 'src/app/Service/Customer/customer.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -21,7 +22,8 @@ export class LandingPageComponent implements OnInit {
     private proService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private customerService: CustomerService
   ) { }
 
   
@@ -121,6 +123,7 @@ export class LandingPageComponent implements OnInit {
   customerPhone: string = '';
   paymentStatus: string = '';
   paymentMethod: string = '';
+  isMember: boolean = false;
 
   addToCart(product: any) {
     const existingItem = this.cartItems.find(item => item.product.name === product.name);
@@ -223,13 +226,48 @@ export class LandingPageComponent implements OnInit {
         price: item.product.sellPrice
       }))
     };
+    this.customerService.getCustomerByPhone(this.customerPhone).subscribe((customer: any) => {
+      if (customer) {
+        if (customer.isMember) {
+          const pointsToAdd = this.grandTotal;
+          this.customerService.updateLoyaltyPoints(this.customerPhone, pointsToAdd).subscribe(
+            (response) => {
+              console.log('Loyalty points updated successfully:', response);
+              this.notificationService.addNotification('Loyalty points updated.');
+            },
+            (error) => {
+              console.error('Error updating loyalty points:', error);
+              this.notificationService.addNotification('Failed to update loyalty points.');
+            }
+          );
+        }
+      }
+    }, (error) => {
+      console.error('Error fetching customer data:', error);
+      this.notificationService.addNotification('Failed to fetch customer data.');
+    }); 
+  
+
     this.sellService.setCartData(saleData2)
+   
     this.sellService.recordSale(saleData).subscribe((val: any) => {
       console.log("Sales created succesfully");
       this.router.navigate(['/employee/confirmPayment/', type]);
       // this.router.navigate(['/employee/confirmPayment/', { method: this.paymentMethod }]);
     })
   }
+
+  checkCustomerMembership(phoneNumber: string) {
+    this.customerService.getCustomerByPhone(phoneNumber).subscribe((customer: any) => {
+      if (customer) {
+        this.isMember = customer.isMember; // Check membership status
+        this.grandTotal = customer.loyaltyPoints; // Display loyalty points
+      }
+    }, (error) => {
+      console.error('Error fetching customer data:', error);
+    });
+  }
+
   
   logout() {
     localStorage.clear();

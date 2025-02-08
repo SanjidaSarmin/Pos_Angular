@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { SupplierListComponent } from './Supplier/supplier-list/supplier-list.component';
 import { WebSocketMessagingComponent } from './web-socket-messaging/web-socket-messaging.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { LoginComponent } from './login/login.component';
@@ -39,7 +38,6 @@ const routes: Routes = [
   { path: "navbar", component: SideNavbarComponent },
   { path: 'dashboard', component: DashboardComponent },
   // { path: 'product', component: ProductComponent},
-  { path: 'suppliarList', component: SupplierListComponent },
   // { path: 'offerProduct', component: OfferListComponent},
   // { path: 'offerAdd', component: OfferAddComponent},
   // { path: 'offerEdit/:oId', component: OfferEditComponent},
