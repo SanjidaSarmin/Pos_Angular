@@ -30,6 +30,7 @@
     </li>
 
     <li><a href="/employee/stockalert"><i class="fa fa-exclamation-triangle menu-icon"></i> Stock Alert</a></li>
+    <li><a href="/employee/SalesDetails"><i class="fa fa-chart-bar menu-icon"></i>Sales Details</a></li>
 
 
     <li class="nav-item">
@@ -190,6 +191,7 @@
             <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
             <h3 class="product-name">{{product.name}}</h3>
             <p class="product-price">Price: {{ product.sellPrice }} Taka</p>
+            <p class="product-price">Quantity: {{ product.quantity }} pc</p>
           </div>
         </div>
         <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
@@ -233,11 +235,8 @@
     <div *ngIf="isMember">
       <p>Loyalty Points: {{ grandTotal }}</p>
     </div>
-    <div *ngIf="!isMember">
-      <p>Not a member</p>
-    </div>
     <div class="customer-info">
-      <span>Walking Customer | 20221605WALKING | </span>
+      <span>Customer Phone No: </span>
       <input type="text" [(ngModel)]="customerPhone" placeholder="Phone Number">
     </div>
 
@@ -247,7 +246,6 @@
       <div>Discount: <span><input type="number" [(ngModel)]="discount" (change)="updateTotals()"> Taka</span></div>
       <div>Coupon: <span><input type="number" [(ngModel)]="coupon" (change)="updateTotals()"> Taka</span></div>
       <div>Tax: <span><input type="number" [(ngModel)]="tax" (change)="updateTotals()"> Taka</span></div>
-      <div>Shipping: <span><input type="number" [(ngModel)]="shipping" (change)="updateTotals()"> Taka</span></div>
       <div>Grand Total: <span>{{ grandTotal }} Taka</span></div>
     </div>
 

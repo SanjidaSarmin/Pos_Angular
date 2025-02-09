@@ -35,6 +35,7 @@ import { SupplierEditComponent } from './components/Supplier/supplier-edit/suppl
 import { MemberListComponent } from './components/Customer/member-list/member-list.component';
 import { MemberAddComponent } from './components/Customer/member-add/member-add.component';
 import { MemberEditComponent } from './components/Customer/member-edit/member-edit.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -84,6 +85,7 @@ const routes: Routes = [
 
   { path: 'branchList', component: BranchListManagerComponent },
   { path: "stockalert", component: StockAlertComponent },
+  { path: 'SalesDetails', component: SalesComponent},
 
 
 ];

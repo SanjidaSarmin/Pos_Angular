@@ -25,6 +25,7 @@ import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit
 import { ReturnListComponent } from './Components/Return/return-list/return-list.component';
 import { ReturnAddComponent } from './Components/Return/return-add/return-add.component';
 import { ReturnEditComponent } from './Components/Return/return-edit/return-edit.component';
+import { SalesComponent } from './Components/sales/sales.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainpage', pathMatch: 'full' },
@@ -63,6 +64,8 @@ const routes: Routes = [
   { path: "purchaselist", component: AdminPurchaseListComponent },
   { path: "purchaseAdd", component: AdminPurchaseAddComponent },
   { path: 'purchaseEdit/:purId', component: AdminPurchaseEditComponent },
+
+  { path: 'SalesDetails', component: SalesComponent},
 ];
 
 @NgModule({

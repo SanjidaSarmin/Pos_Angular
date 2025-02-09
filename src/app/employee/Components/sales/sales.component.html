@@ -1,0 +1,58 @@
+<div class="d-flex">
+    <app-navbar></app-navbar>
+    <div class="main-content w-100">
+        <div class="product-list-container">
+            <div class="header">
+              <h2>Sales Lists</h2>
+            </div>
+            <div class="table-controls">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" class="search-box" />
+                    <button class="btn-search">Search</button>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Customer Phone No</th>
+                        <th>Total Cost</th>
+                        <th>Discount</th>
+                        <th>Coupon</th>
+                        <th>Tax</th>
+                        <th>Payment Method</th>
+                        <th>Grand Total</th>
+                        <th>Select format</th>
+                        <th>Print</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sell of sellItem">
+                        <td>{{ sell.id }}</td>
+                        <td>{{ sell.date }}</td>
+                        <td>{{ sell.customerPhone }}</td>
+                        <td>{{ sell.totalCost }}</td>
+                        <td>{{ sell.discount }}</td>
+                        <td>{{ sell.coupon }}</td>
+                        <td>{{ sell.tax }}</td>
+                        <td>{{ sell.paymentMethod }}</td>
+                        <td>{{ sell.grandTotal }}</td>
+                        <td style="text-align: center;">
+                            <select [(ngModel)]="selectedFormat" class="format-dropdown">
+                                <option *ngFor="let format of formats" [value]="format">{{ format }}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn1" (click)="printInvoice(sell.id)">
+                                <img src="assets/printer.png" alt="Print Invoice" class="icon">
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>

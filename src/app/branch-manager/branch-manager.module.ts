@@ -39,6 +39,7 @@ import { SupplierEditComponent } from './components/Supplier/supplier-edit/suppl
 import { MemberAddComponent } from './components/Customer/member-add/member-add.component';
 import { MemberEditComponent } from './components/Customer/member-edit/member-edit.component';
 import { MemberListComponent } from './components/Customer/member-list/member-list.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 
 
@@ -78,6 +79,7 @@ import { MemberListComponent } from './components/Customer/member-list/member-li
     MemberAddComponent,
     MemberEditComponent,
     MemberListComponent,
+    SalesComponent,
   ],
   imports: [
     CommonModule,

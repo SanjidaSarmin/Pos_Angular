@@ -26,6 +26,7 @@ import { SupplierListComponent } from './Components/supplier-list/supplier-list.
 import { MembershipListComponent } from './Components/Customer/membership-list/membership-list.component';
 import { MembershipAddComponent } from './Components/Customer/membership-add/membership-add.component';
 import { MembershipEditComponent } from './Components/Customer/membership-edit/membership-edit.component';
+import { SalesComponent } from './Components/sales/sales.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -59,13 +60,14 @@ const routes: Routes = [
   { path: 'barcode', component: BarcodeCreateComponent},
   { path: 'Print', component: PrintComponent},
   { path: 'barcodePrint', component: BarcodePrintComponent},
+  { path: 'SalesDetails', component: SalesComponent},
 
  
 
   { path: 'sell', component: SellDetailsComponent },
   { path: 'sellreport', component: SellReportComponent }, 
   { path: 'selldetails', component: SellDetailsComponent },
-  { path: 'confirmPayment/:type', component: ConfirmSaleComponent },
+  { path: 'confirmPayment/:type/:sellId', component: ConfirmSaleComponent },
 ];
 
 @NgModule({

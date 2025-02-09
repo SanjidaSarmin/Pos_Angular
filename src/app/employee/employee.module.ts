@@ -29,6 +29,7 @@ import { SupplierListComponent } from './Components/supplier-list/supplier-list.
 import { MembershipAddComponent } from './Components/Customer/membership-add/membership-add.component';
 import { MembershipEditComponent } from './Components/Customer/membership-edit/membership-edit.component';
 import { MembershipListComponent } from './Components/Customer/membership-list/membership-list.component';
+import { SalesComponent } from './Components/sales/sales.component';
 
 
 
@@ -59,7 +60,8 @@ import { MembershipListComponent } from './Components/Customer/membership-list/m
     SupplierListComponent,
     MembershipAddComponent,
     MembershipEditComponent,
-    MembershipListComponent
+    MembershipListComponent,
+    SalesComponent
   ],
   imports: [
     CommonModule,

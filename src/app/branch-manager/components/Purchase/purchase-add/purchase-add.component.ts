@@ -21,6 +21,9 @@ export class PurchaseAddComponent implements OnInit {
     private router: Router,
   ) { }
 
+  id= 1;
+  format = "PDF"
+
   purchaseForm: FormGroup = new FormGroup({
     supplierId: new FormControl(),
     purchaseDate: new FormControl(),

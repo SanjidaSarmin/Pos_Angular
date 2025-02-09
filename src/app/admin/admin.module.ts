@@ -30,6 +30,10 @@ import { DamageEditComponent } from './Components/Damage/damage-edit/damage-edit
 import { ReturnListComponent } from './Components/Return/return-list/return-list.component';
 import { ReturnAddComponent } from './Components/Return/return-add/return-add.component';
 import { ReturnEditComponent } from './Components/Return/return-edit/return-edit.component';
+import { EmployeeListComponent } from './Components/Employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './Components/Employee/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Components/Employee/employee-edit/employee-edit.component';
+import { SalesComponent } from './Components/sales/sales.component';
 
 
 
@@ -59,6 +63,10 @@ import { ReturnEditComponent } from './Components/Return/return-edit/return-edit
     ReturnListComponent,
     ReturnAddComponent,
     ReturnEditComponent,
+    EmployeeListComponent,
+    EmployeeAddComponent,
+    EmployeeEditComponent,
+    SalesComponent,
   ],
   imports: [
     CommonModule,

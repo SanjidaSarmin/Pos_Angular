@@ -108,12 +108,11 @@ export class LandingPageComponent implements OnInit {
       this.filteredProducts = []; 
     }
 
-
+    id: any;
   totalCost: number = 0;
   discount: number = 0;
   coupon: number = 0;
   tax: number = 0;
-  shipping: number = 0;
   grandTotal: number = 0;
   productList: Product[] = [];
   categoryList: Category[] = [];
@@ -154,7 +153,7 @@ export class LandingPageComponent implements OnInit {
     this.totalCost = this.cartItems.reduce((acc, item) => acc + (item.quantity * item.product.sellPrice), 0);
     const discountAmount = (this.discount / 100) * this.totalCost;
     const taxAmount = (this.tax / 100) * this.totalCost;
-    this.grandTotal = this.totalCost - discountAmount - this.coupon + taxAmount + this.shipping;
+    this.grandTotal = this.totalCost - discountAmount - this.coupon + taxAmount;
   
   }
   cancelPayment() {
@@ -199,11 +198,11 @@ export class LandingPageComponent implements OnInit {
 
   navigateToConfirmSale(type: string) {
     const saleData2 = {
+      id: this.id,
       totalCost: this.totalCost,
       discount: this.discount,
       coupon: this.coupon,
       tax: this.tax,
-      shipping: this.shipping,
       grandTotal: this.grandTotal,
       customerPhone: this.customerPhone,
       paymentMethod: type,
@@ -216,7 +215,6 @@ export class LandingPageComponent implements OnInit {
       discount: this.discount,
       coupon: this.coupon,
       tax: this.tax,
-      shipping: this.shipping,
       grandTotal: this.grandTotal,
       saleItems: this.cartItems.map(item => ({
         product: {
@@ -252,7 +250,9 @@ export class LandingPageComponent implements OnInit {
    
     this.sellService.recordSale(saleData).subscribe((val: any) => {
       console.log("Sales created succesfully");
-      this.router.navigate(['/employee/confirmPayment/', type]);
+      const sellId = val.id;
+     
+      this.router.navigate(['/employee/confirmPayment/', type, sellId]);
       // this.router.navigate(['/employee/confirmPayment/', { method: this.paymentMethod }]);
     })
   }
