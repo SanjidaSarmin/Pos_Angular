@@ -25,8 +25,13 @@ export class StockAlertComponent  implements OnInit {
     notifyLowStock(products: any[]) {
       products.forEach(product => {
         if (product.quantity < this.selectedThreshold) {
-          this.notificationService.addNotification(`${product.name} is low on stock!`);
+          const message = product.quantity === 0 
+            ? `${product.name} is out of stock!` 
+            : `${product.name} is low on stock! Only ${product.quantity} left.`;
+    
+          this.notificationService.addNotification(message);
         }
       });
     }
+    
   }
