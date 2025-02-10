@@ -13,6 +13,8 @@ export class NotificationService {
   notifications$ = this.notificationsSubject.asObservable();
   notificationsCount$ = this.notificationsCountSubject.asObservable();
 
+  
+
   constructor() {
     this.loadNotifications(); // Load stored notifications when service is initialized
   }
@@ -23,19 +25,35 @@ export class NotificationService {
     this.notificationsSubject.next(this.notifications);
     this.notificationsCountSubject.next(this.notifications.length);
   }
+  
 
+  // addNotification(message: string) {
+  //   // Check if this notification already exists (prevent duplicates)
+  //   const exists = this.notifications.some(notification => notification.message === message);
+  //   if (exists) return; // If the notification already exists, don't add it again
+
+  //   const newNotification = { message, time: new Date() };
+  //   this.notifications.unshift(newNotification); // Add new notification at the top
+
+  //   // Save updated notifications to localStorage
+  //   localStorage.setItem('notifications', JSON.stringify(this.notifications));
+
+  //   // Notify all subscribers
+  //   this.notificationsSubject.next(this.notifications);
+  //   this.notificationsCountSubject.next(this.notifications.length);
+  // }
   addNotification(message: string) {
-    // Check if this notification already exists (prevent duplicates)
+    // Prevent duplicate notifications
     const exists = this.notifications.some(notification => notification.message === message);
-    if (exists) return; // If the notification already exists, don't add it again
+    if (exists) return;
 
     const newNotification = { message, time: new Date() };
-    this.notifications.unshift(newNotification); // Add new notification at the top
+    this.notifications.unshift(newNotification);
 
-    // Save updated notifications to localStorage
+    // Save to localStorage
     localStorage.setItem('notifications', JSON.stringify(this.notifications));
 
-    // Notify all subscribers
+    // Notify components
     this.notificationsSubject.next(this.notifications);
     this.notificationsCountSubject.next(this.notifications.length);
   }
@@ -46,6 +64,7 @@ export class NotificationService {
     this.notificationsSubject.next([]);
     this.notificationsCountSubject.next(0);
   }
+  
 
 
   // showNotification(message: string) {

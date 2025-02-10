@@ -37,6 +37,7 @@ import { SalesComponent } from './Components/sales/sales.component';
 import { CustomerListComponent } from './Components/Customer/customer-list/customer-list.component';
 import { CustomerAddComponent } from './Components/Customer/customer-add/customer-add.component';
 import { CustomerEditComponent } from './Components/Customer/customer-edit/customer-edit.component';
+import { RoleManagementComponent } from './Components/Role/role-management/role-management.component';
 
 
 
@@ -73,6 +74,7 @@ import { CustomerEditComponent } from './Components/Customer/customer-edit/custo
     CustomerListComponent,
     CustomerAddComponent,
     CustomerEditComponent,
+    RoleManagementComponent,
   ],
   imports: [
     CommonModule,

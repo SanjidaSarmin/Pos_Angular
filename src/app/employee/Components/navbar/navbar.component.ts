@@ -27,11 +27,12 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.notificationService.notifications$.subscribe(notifications => {
       this.notifications = notifications;
+      this.notificationsCount = notifications.length;
     });
 
-    this.notificationService.notificationsCount$.subscribe(count => {
-      this.notificationsCount = count;
-    });
+    // this.notificationService.notificationsCount$.subscribe(count => {
+    //   this.notificationsCount = count;
+    // });
   }
   clearNotifications() {
     this.notificationService.clearNotifications();
