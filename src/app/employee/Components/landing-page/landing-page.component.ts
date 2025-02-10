@@ -125,6 +125,10 @@ export class LandingPageComponent implements OnInit {
   isMember: boolean = false;
 
   addToCart(product: any) {
+    if (product.quantity === 0) {
+      alert("This product is out of stock and cannot be added to the cart.");
+      return;
+    }
     const existingItem = this.cartItems.find(item => item.product.name === product.name);
 
     if (existingItem) {
@@ -135,7 +139,8 @@ export class LandingPageComponent implements OnInit {
     }
 
     this.updateTotals();
-  }
+}
+
 
 
   updateCartItem(item: any) {
@@ -158,7 +163,6 @@ export class LandingPageComponent implements OnInit {
   }
   cancelPayment() {
     this.paymentStatus = 'Payment cancelled.';
-    // Reset cart or perform necessary actions
   }
 
   // search() {

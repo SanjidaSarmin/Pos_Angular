@@ -191,7 +191,13 @@
             <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
             <h3 class="product-name">{{product.name}}</h3>
             <p class="product-price">Price: {{ product.sellPrice }} Taka</p>
-            <p class="product-price">Quantity: {{ product.quantity }} pc</p>
+            <p *ngIf="product.quantity > 0" class="product-price">
+              Quantity: {{ product.quantity }} pc
+            </p>
+            
+            <p *ngIf="product.quantity === 0" class="out-of-stock">
+              Out of Stock
+            </p>
           </div>
         </div>
         <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>

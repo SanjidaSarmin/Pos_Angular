@@ -52,7 +52,14 @@
             </td>
             <td>{{ product.barcode }}</td>
             <td>{{ product.sellPrice}}</td>
-            <td>{{ product.quantity}}</td>
+            <td>
+              <ng-container *ngIf="product.quantity > 0; else outOfStock">
+                {{ product.quantity }}
+              </ng-container>
+              <ng-template #outOfStock>
+                <span class="out-of-stock">Out of Stock</span>
+              </ng-template>
+            </td>
             <td>{{ product.categoryName}}</td>
             <td>{{ product.expiredDate || '-' }}</td>
             <td>{{ product.branchName}}</td>
