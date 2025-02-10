@@ -26,6 +26,12 @@ import { ReturnListComponent } from './Components/Return/return-list/return-list
 import { ReturnAddComponent } from './Components/Return/return-add/return-add.component';
 import { ReturnEditComponent } from './Components/Return/return-edit/return-edit.component';
 import { SalesComponent } from './Components/sales/sales.component';
+import { EmployeeListComponent } from './Components/Employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './Components/Employee/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Components/Employee/employee-edit/employee-edit.component';
+import { CustomerListComponent } from './Components/Customer/customer-list/customer-list.component';
+import { CustomerAddComponent } from './Components/Customer/customer-add/customer-add.component';
+import { CustomerEditComponent } from './Components/Customer/customer-edit/customer-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainpage', pathMatch: 'full' },
@@ -48,10 +54,6 @@ const routes: Routes = [
     { path: 'returnAdd', component: ReturnAddComponent },
     { path: 'returnEdit/:rId', component: ReturnEditComponent },
 
-  // { path: "employeelist", component: EmployeeListComponent},
-  // { path: "employeeAdd", component: EmployeeAddComponent },
-  // { path: 'employeeEdit/:eId', component: EmployeeEditComponent },
-
 
   { path: "branchlist", component: BranchListComponent },
   { path: "branchAdd", component: BranchAddComponent },
@@ -64,6 +66,15 @@ const routes: Routes = [
   { path: "purchaselist", component: AdminPurchaseListComponent },
   { path: "purchaseAdd", component: AdminPurchaseAddComponent },
   { path: 'purchaseEdit/:purId', component: AdminPurchaseEditComponent },
+
+  
+  { path: "employeelist", component: EmployeeListComponent},
+  { path: "employeeAdd", component: EmployeeAddComponent },
+  { path: 'employeeEdit/:eId', component: EmployeeEditComponent },
+
+  { path: "membership", component: CustomerListComponent},
+  { path: "membershipAdd", component: CustomerAddComponent },
+  { path: 'membershipEdit/:memberId', component: CustomerEditComponent },
 
   { path: 'SalesDetails', component: SalesComponent},
 ];

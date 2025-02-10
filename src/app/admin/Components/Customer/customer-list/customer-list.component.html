@@ -1,0 +1,67 @@
+<div class="d-flex">
+    <app-side-navbar></app-side-navbar>
+    <div class="main-content w-100">
+      <div class="product-list-container">
+        <div class="header">
+          <h2>Product customer Lists</h2>
+          <p>Manage Your customer</p>
+        </div>
+  
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button routerLink="/admin/membershipAdd" class="btn add-product">+ Add Member</button>
+          </div>
+            <div class="toolbar-right">
+              <div class="form-group">
+                <div class="d-flex align-items-center">
+                    <input type="text" class="form-control me-2" id="customerphoneNumber" [formControl]="customerNameControl"
+                      (input)="filtercustomer()" placeholder="Type Customer Phone" />
+                    <button class="btn" (click)="search()">Search</button>
+                  </div>
+                  <ul *ngIf="filteredcustomer.length > 0" class="autocomplete-list">
+                    <li *ngFor="let customer of filteredcustomer" (click)="search()" class="autocomplete-item">
+                      {{ customer.phoneNumber }}
+                    </li>
+                  </ul>
+              </div>
+            
+          </div>
+        </div>
+  
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Phone Number</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Loyalty Points</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customerList| paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td>{{ customer.phoneNumber }}</td>
+              <td>{{ customer.firstName }}</td>
+              <td>{{ customer.lastName }}</td>
+              <td>{{ customer.loyaltyPoints || '-' }}</td>
+              <td style="text-align: center;">
+                <a [routerLink]="['/admin/membershipEdit/', customer.phoneNumber]">
+                  <button class="btn1">
+                    <img src="assets/pen.png" alt="Edit" class="icon">
+                  </button>
+                </a>
+                |
+                <button class="btn1" (click)="deletecustomer(customer.phoneNumber)">
+                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <!-- Pagination Controls -->
+        <div class="pagination-container">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>

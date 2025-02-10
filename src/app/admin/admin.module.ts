@@ -34,6 +34,9 @@ import { EmployeeListComponent } from './Components/Employee/employee-list/emplo
 import { EmployeeAddComponent } from './Components/Employee/employee-add/employee-add.component';
 import { EmployeeEditComponent } from './Components/Employee/employee-edit/employee-edit.component';
 import { SalesComponent } from './Components/sales/sales.component';
+import { CustomerListComponent } from './Components/Customer/customer-list/customer-list.component';
+import { CustomerAddComponent } from './Components/Customer/customer-add/customer-add.component';
+import { CustomerEditComponent } from './Components/Customer/customer-edit/customer-edit.component';
 
 
 
@@ -67,6 +70,9 @@ import { SalesComponent } from './Components/sales/sales.component';
     EmployeeAddComponent,
     EmployeeEditComponent,
     SalesComponent,
+    CustomerListComponent,
+    CustomerAddComponent,
+    CustomerEditComponent,
   ],
   imports: [
     CommonModule,
