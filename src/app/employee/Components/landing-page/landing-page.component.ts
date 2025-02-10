@@ -26,15 +26,15 @@ export class LandingPageComponent implements OnInit {
     private customerService: CustomerService
   ) { }
 
-  
+
   isSidebarClosed = false;
   notificationsCount = 0;
   notifications: { message: string; time: Date }[] = [];
   isDropdownVisible: boolean = false;
-  branchName: string = 'Mirpur Branch'; 
+  branchName: string = 'Mirpur Branch';
   currentDate: string = '';
 
-  
+
   showDropdown() {
     this.isDropdownVisible = !this.isDropdownVisible;
   }
@@ -58,57 +58,57 @@ export class LandingPageComponent implements OnInit {
   }
 
   productNameControl = new FormControl('');
-    selectedProduct: string = ''; 
-    selectedProducts: any[] = [];
-    filteredProducts: any[] = [];
-    paginatedProducts: any[] = [];
-    currentPage = 1;
-    itemsPerPage: number = 10;
+  selectedProduct: string = '';
+  selectedProducts: any[] = [];
+  filteredProducts: any[] = [];
+  paginatedProducts: any[] = [];
+  currentPage = 1;
+  itemsPerPage: number = 10;
 
 
-    searchProduct(): void {
-      const searchTerm = this.productNameControl.value?.trim();
-      if (!searchTerm) {
-        alert('Please enter a product name to search.');
-        return;
-      }
-      this.proService.searchProduct(searchTerm).subscribe((val: any) => {
-        this.productFiltered = val;
-        this.currentPage = 1; // Reset to the first page
-        this.updatePaginatedProducts(); // Update the displayed products
-      });
+  searchProduct(): void {
+    const searchTerm = this.productNameControl.value?.trim();
+    if (!searchTerm) {
+      alert('Please enter a product name to search.');
+      return;
     }
-    updatePaginatedProducts(): void {
-      const start = (this.currentPage - 1) * this.itemsPerPage;
-      this.paginatedProducts = this.productList.slice(start, start + this.itemsPerPage);
-    }
+    this.proService.searchProduct(searchTerm).subscribe((val: any) => {
+      this.productFiltered = val;
+      this.currentPage = 1; // Reset to the first page
+      this.updatePaginatedProducts(); // Update the displayed products
+    });
+  }
+  updatePaginatedProducts(): void {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    this.paginatedProducts = this.productList.slice(start, start + this.itemsPerPage);
+  }
 
-    filterProducts() {
-      const input = this.productNameControl.value?.toLowerCase() || '';
-      if (input.trim() === '') {
-        this.filteredProducts = [];
-      } else {
-        this.filteredProducts = this.productList.filter((product) =>
-          product.name.toLowerCase().includes(input)
-        );
-      }
-    }
-  
-    
-    selectProduct(product: any) {
-      const existingProduct = this.selectedProducts.find(
-        (p) => p.code === product.code
+  filterProducts() {
+    const input = this.productNameControl.value?.toLowerCase() || '';
+    if (input.trim() === '') {
+      this.filteredProducts = [];
+    } else {
+      this.filteredProducts = this.productList.filter((product) =>
+        product.name.toLowerCase().includes(input)
       );
-      if (!existingProduct) {
-        this.selectedProducts.push({ ...product, quantity: 1 });
-      } else {
-        alert('Product is already in the list.');
-      }
-      this.productNameControl.setValue('');
-      this.filteredProducts = []; 
     }
+  }
 
-    id: any;
+
+  selectProduct(product: any) {
+    const existingProduct = this.selectedProducts.find(
+      (p) => p.code === product.code
+    );
+    if (!existingProduct) {
+      this.selectedProducts.push({ ...product, quantity: 1 });
+    } else {
+      alert('Product is already in the list.');
+    }
+    this.productNameControl.setValue('');
+    this.filteredProducts = [];
+  }
+
+  id: any;
   totalCost: number = 0;
   discount: number = 0;
   coupon: number = 0;
@@ -139,7 +139,7 @@ export class LandingPageComponent implements OnInit {
     }
 
     this.updateTotals();
-}
+  }
 
 
 
@@ -147,7 +147,7 @@ export class LandingPageComponent implements OnInit {
     item.total = item.quantity * item.product.sellPrice;
     this.updateTotals();
   }
-  
+
 
   removeFromCart(item: any): void {
     this.cartItems = this.cartItems.filter((cartItem: any) => cartItem !== item);
@@ -159,7 +159,7 @@ export class LandingPageComponent implements OnInit {
     const discountAmount = (this.discount / 100) * this.totalCost;
     const taxAmount = (this.tax / 100) * this.totalCost;
     this.grandTotal = this.totalCost - discountAmount - this.coupon + taxAmount;
-  
+
   }
   cancelPayment() {
     this.paymentStatus = 'Payment cancelled.';
@@ -215,7 +215,7 @@ export class LandingPageComponent implements OnInit {
     const saleData = {
       customerPhone: this.customerPhone,
       totalCost: this.totalCost,
-      paymentMethod:  type,
+      paymentMethod: type,
       discount: this.discount,
       coupon: this.coupon,
       tax: this.tax,
@@ -247,15 +247,15 @@ export class LandingPageComponent implements OnInit {
     }, (error) => {
       console.error('Error fetching customer data:', error);
       this.notificationService.addNotification('Failed to fetch customer data.');
-    }); 
-  
+    });
+
 
     this.sellService.setCartData(saleData2)
-   
+
     this.sellService.recordSale(saleData).subscribe((val: any) => {
       console.log("Sales created succesfully");
       const sellId = val.id;
-     
+
       this.router.navigate(['/employee/confirmPayment/', type, sellId]);
       // this.router.navigate(['/employee/confirmPayment/', { method: this.paymentMethod }]);
     })
@@ -272,7 +272,7 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
-  
+
   logout() {
     localStorage.clear();
     sessionStorage.clear();
