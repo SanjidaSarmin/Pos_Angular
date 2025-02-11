@@ -42,7 +42,8 @@
               <th>Payment Method</th>
               <th>Received By</th>
               <th>Branch Name</th>
-              <th>Action</th>
+              <th>Select format</th>
+              <th>Print</th>
             </tr>
           </thead>
           <tbody>
@@ -59,17 +60,15 @@
               <td>{{ purchase.receivedBy}}</td>
               <td>{{ purchase.branchName}}</td>
               <td style="text-align: center;">
-                <a [routerLink]="['/manager/purchaseEdit/', purchase.id]">
-                  <button class="btn1">
-                    <img src="assets/pen.png" alt="Edit" class="icon">
-                  </button>
-                </a>
-                |
-                <button class="btn1" (click)="deletepurchase(purchase.id)">
-                  <img src="/assets/bin.png" alt="Delete" class="icon">
+                <select [(ngModel)]="selectedFormat" class="format-dropdown">
+                    <option *ngFor="let format of formats" [value]="format">{{ format }}</option>
+                </select>
+            </td>
+            <td>
+                <button class="btn1" (click)="printInvoice(purchase.id)">
+                    <img src="assets/printer.png" alt="Print Invoice" class="icon">
                 </button>
-  
-              </td>
+            </td>
             </tr>
           </tbody>
         </table>

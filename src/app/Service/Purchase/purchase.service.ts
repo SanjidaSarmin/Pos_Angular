@@ -36,4 +36,9 @@ export class PurchaseService {
     getPurchaseForMonth(): Observable<number> {
         return this.httpClient.get<number>(`${this.apiUrl}/month`);
       }
+
+      generateReport(purchaseId: number, format: string) {
+        const url = `${this.apiUrl}?format=${format}&purchaseId=${purchaseId}`;
+        return this.httpClient.get(url, { responseType: 'blob' });
+      }
 }
