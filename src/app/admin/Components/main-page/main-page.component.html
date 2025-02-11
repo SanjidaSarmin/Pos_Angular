@@ -15,36 +15,35 @@
           <h3>Daily Sales & Return Summary</h3>
           <div class="filters">
             <select [(ngModel)]="selectedBranch" class="branch-dropdown">
-              <option>All Branches</option>
-              <option>Branch A</option>
-              <option>Branch B</option>
-              <option>Branch C</option>
-            </select>
+                <option value="">Select Branch</option>
+                <option *ngFor="let branch of branchData" [value]="branch">{{ branch.branchName }}</option>
+              </select>
+           
             <input type="date" [(ngModel)]="selectedDate" />
           </div>
           <div class="summary-cards">
             <div class="card">
-              <a href="#">
-                <h4>{{ totalSales }}</h4>
-                <p>Total Sales</p>
+              <a href="/admin/SalesDetails">
+                <h4>{{ totalSales | number:'1.2-2' }}</h4>
+                <span>Total Sales</span>
               </a>
             </div>
             <div class="card">
-              <a href="#">
-                <h4>{{ instantPaid }}</h4>
-                <p>Instant Paid</p>
+              <a href="/admin/SalesDetails">
+                <h4>{{ totalSalesForMonth | number:'1.2-2' }}</h4>
+                    <span>Sales This Month</span>
               </a>
             </div>
             <div class="card">
-              <a href="#">
-                <h4>{{ duePaid }}</h4>
-                <p>Due Paid</p>
+              <a href="/admin/SalesDetails">
+                <h4>{{ totalSalesForDay | number:'1.2-2' }}</h4>
+                <span>Sales Today</span>
               </a>
             </div>
             <div class="card">
-              <a href="#">
-                <h4>{{ totalReturn }}</h4>
-                <p>Total Return</p>
+              <a href="/admin/return">
+                <h4>{{ totalReturnsForMonth }}</h4>
+                  <span>Total Returns</span>
               </a>
             </div>
           </div>
@@ -54,10 +53,30 @@
         <div class="sell-customers-section">
           <h3>Sell & Customers</h3>
           <div class="sell-customers-cards">
-            <div class="sell-customer-card" *ngFor="let item of sellCustomerData">
-              <a href="#">
-                {{ item.value }} <br />
-                <span>{{ item.label }}</span>
+            <div class="sell-customer-card">
+              <a href="/admin/membership">
+                <h4>{{ totalCustomers }}</h4>
+                <span>Total Customers</span>
+              </a>
+            </div>
+            <div class="sell-customer-card">
+              <a href="/manager/membership">
+                <h4>{{ customersForMonth }}</h4>
+                <span>New Customers</span>
+              </a>
+            </div>
+
+            <div class="sell-customer-card">
+              <a href="/manager/employeelist">
+                <h4>{{ totalEmployees }}</h4>
+                <span>Total Employees</span>
+              </a>
+            </div>
+
+            <div class="sell-customer-card">
+              <a href="/manager/employeelist">
+                <h4>{{ newEmployeesThisMonth }}</h4>
+                <span>New Employees</span>
               </a>
             </div>
           </div>
@@ -80,10 +99,16 @@
         <div class="sell-customers-section">
           <h3>Suppliers</h3>
           <div class="sell-customers-cards">
-            <div class="sell-customer-card" *ngFor="let item of suppliers">
-              <a href="#">
-                {{ item.value }} <br />
-                <span>{{ item.label }}</span>
+            <div class="sell-customer-card">
+              <a href="/manager/supplierlist">
+                <h4>{{ totalSuppliers }}</h4>
+                <span>Total Suppliers</span> 
+              </a>
+            </div>
+            <div class="sell-customer-card">
+              <a href="/manager/purchaselist">
+                <h4>{{ totalPurchase }}</h4>
+                <span>Purchase this month</span> 
               </a>
             </div>
           </div>

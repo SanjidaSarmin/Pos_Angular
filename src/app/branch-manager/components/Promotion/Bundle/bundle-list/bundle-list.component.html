@@ -30,24 +30,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let bundle of bundleList">
-          <td>{{ bundle.id }}</td>
-          <td>{{ bundle.name }}</td>
-          <td>{{ bundle.barcode }}</td>
-          <td>{{ bundle.vat }}</td>
-          <td>{{ bundle.branch }}</td>
-          <td>{{ bundle.stockStatus }}</td>
-          <td>{{ bundle.quantity }}</td>
-          <td>{{ bundle.sellPrice }}</td>
-          <td>{{ bundle.expiredDate}}</td>
+        <tr *ngFor="let product of bundleList">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.barcode }}</td>
+          <td>{{ product.vat }}</td>
+          <td>{{ product.branch }}</td>
+          <td>{{ product.stockStatus }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.sellPrice }}</td>
+          <td>{{ product.expiredDate}}</td>
           <td>
-          <a [routerLink]="['/manager/bundleEdit/', bundle.id]">
+          <a [routerLink]="['/manager/bundleEdit/', product.id]">
             <button class="btn1">
               <img src="assets/pen.png" alt="Edit" class="icon">
             </button>
           </a>
           |
-          <button class="btn1" (click)="deletebundle(bundle.id)">
+          <button class="btn1" (click)="deletebundle(product.id)">
             <img src="/assets/bin.png" alt="Delete" class="icon">
           </button>
         </td>
