@@ -16,27 +16,27 @@
             </div>
             <div class="summary-cards">
               <div class="card">
-                <a href="#">
-                  <h4>{{ branchTotalSales }}</h4>
-                  <p>Total Sales</p>
+                <a href="/manager/SalesDetails">
+                  <h4>{{ totalSales | number:'1.2-2' }}</h4>
+                  <span>Total Sales</span>
                 </a>
               </div>
               <div class="card">
-                <a href="#">
-                  <h4>{{ branchInstantPaid }}</h4>
-                  <p>Instant Paid</p>
+                <a href="/manager/SalesDetails">
+                  <h4>{{ totalSalesForMonth | number:'1.2-2' }}</h4>
+                      <span>Sales This Month</span>
                 </a>
               </div>
               <div class="card">
-                <a href="#">
-                  <h4>{{ branchDuePaid }}</h4>
-                  <p>Due Paid</p>
+                <a href="/manager/SalesDetails">
+                  <h4>{{ totalSalesForDay | number:'1.2-2' }}</h4>
+                  <span>Sales Today</span>
                 </a>
               </div>
               <div class="card">
-                <a href="#">
-                  <h4>{{ branchTotalReturn }}</h4>
-                  <p>Total Return</p>
+                <a href="/manager/return">
+                  <h4>{{ totalReturnsForMonth }}</h4>
+                    <span>Total Returns</span>
                 </a>
               </div>
             </div>
@@ -46,12 +46,34 @@
           <div class="sell-customers-section">
             <h3>Sell & Customers</h3>
             <div class="sell-customers-cards">
-              <div class="sell-customer-card" *ngFor="let item of branchSellCustomerData">
-                <a href="#">
-                  {{ item.value }} <br />
-                  <span>{{ item.label }}</span>
+              <div class="sell-customer-card">
+                <a href="/manager/membership">
+                  <h4>{{ totalCustomers }}</h4>
+                  <span>Total Customers</span>
                 </a>
               </div>
+
+              <div class="sell-customer-card">
+                <a href="/manager/membership">
+                  <h4>{{ customersForMonth }}</h4>
+                  <span>New Customers</span>
+                </a>
+              </div>
+
+              <div class="sell-customer-card">
+                <a href="/manager/employeelist">
+                  <h4>{{ totalEmployees }}</h4>
+                  <span>Total Employees</span>
+                </a>
+              </div>
+
+              <div class="sell-customer-card">
+                <a href="/manager/employeelist">
+                  <h4>{{ newEmployeesThisMonth }}</h4>
+                  <span>New Employees</span>
+                </a>
+              </div>
+              
             </div>
           </div>
   
@@ -59,12 +81,27 @@
           <div class="sell-customers-section">
             <h3>Products & Balance</h3>
             <div class="sell-customers-cards">
-              <div class="sell-customer-card" *ngFor="let item of branchProductsBalance">
-                <a href="#">
-                  {{ item.value }} <br />
-                  <span>{{ item.label }}</span>
+              <div class="sell-customer-card">
+                <a href="/manager/productlist">
+                  <h4>{{ totalProducts }}</h4>
+                    <span>Total Products</span>
                 </a>
               </div>
+
+              <div class="sell-customer-card">
+                <a href="/manager/stockalert">
+                  <h4>{{ lowStockCount }}</h4>
+                  <span>Low Stock Products</span>
+                </a>
+              </div>
+
+              <div class="sell-customer-card">
+                <a href="/manager/stockalert">
+                  <h4>{{ outOfStockCount }}</h4>
+                  <span>Out of Stock</span> 
+                </a>
+              </div>
+
             </div>
           </div>
   
@@ -72,10 +109,17 @@
           <div class="sell-customers-section">
             <h3>Suppliers</h3>
             <div class="sell-customers-cards">
-              <div class="sell-customer-card" *ngFor="let item of branchSuppliers">
-                <a href="#">
-                  {{ item.value }} <br />
-                  <span>{{ item.label }}</span>
+              <div class="sell-customer-card">
+                <a href="/manager/supplierlist">
+                  <h4>{{ totalSuppliers }}</h4>
+                  <span>Total Suppliers</span> 
+                </a>
+              </div>
+
+              <div class="sell-customer-card">
+                <a href="/manager/purchaselist">
+                  <h4>{{ totalPurchase }}</h4>
+                  <span>Purchase this month</span> 
                 </a>
               </div>
             </div>
@@ -88,7 +132,7 @@
         <!-- Title in a Box -->
         <div class="title-box">
           <h2>Branch Sales</h2><br> 
-          <p>Last 7 Days</p>
+          <span>Last 7 Days</span>
         </div>
         <ul>
           <li *ngFor="let sale of branchSalesHistory" class="sales-item">

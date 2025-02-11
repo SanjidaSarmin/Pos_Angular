@@ -23,7 +23,8 @@ export class CustomerEditComponent implements OnInit{
     phoneNumber: new FormControl(),
     firstName: new FormControl(),
     lastName: new FormControl(),
-    loyaltyPoints: new FormControl()
+    loyaltyPoints: new FormControl(),
+    date : new FormControl()
   });
 
   onSubmit(){

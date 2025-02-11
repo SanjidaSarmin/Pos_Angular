@@ -39,6 +39,19 @@ export class SellService {
       return this.httpClient.post(this.apiUrl, saleData);
     }
 
+    getTotalSales(): Observable<number> {
+      return this.httpClient.get<number>(`${this.apiUrl}/total`);
+    }
+
+    getTotalSalesForMonth(): Observable<number> {
+      return this.httpClient.get<number>(`${this.apiUrl}/month`);
+    }
+  
+    // Get total sales for the current day
+    getTotalSalesForDay(): Observable<number> {
+      return this.httpClient.get<number>(`${this.apiUrl}/day`);
+    }
+
     private cartData: any;
     private paymentMethod: string = '';
 

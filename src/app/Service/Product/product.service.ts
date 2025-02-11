@@ -41,4 +41,16 @@ export class ProductService {
   getLowStockProducts(){
     return this.httpClient.get(this.apiUrl + "/lowstock");
   }
+
+  getTotalProducts(): Observable<number> {
+    return this.httpClient.get<number>(`${this.apiUrl}/total`);
+  }
+
+  getLowStock(): Observable<number> {
+    return this.httpClient.get<number>(`${this.apiUrl}/lowstockcount`);
+  }
+
+  getOutOfStockProducts(): Observable<number> {
+    return this.httpClient.get<number>(`${this.apiUrl}/outofstock`);
+  }
 }

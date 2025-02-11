@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +32,8 @@ export class PurchaseService {
     updateData(purchase: any) {
       return this.httpClient.put(this.apiUrl + "/" + purchase.id, purchase)
     }
+
+    getPurchaseForMonth(): Observable<number> {
+        return this.httpClient.get<number>(`${this.apiUrl}/month`);
+      }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,14 @@ export class CustomerService {
   
   checkMembershipStatus(phoneNumber: string){
     return this.httpClient.get(`${this.apiUrl}/${phoneNumber}/`);
+  }
+
+  getTotalCustomers(): Observable<number> {
+    return this.httpClient.get<number>(`${this.apiUrl}/total`);
+  }
+
+  getCustomersForMonth(): Observable<number> {
+    return this.httpClient.get<number>(`${this.apiUrl}/month`);
   }
 }
 

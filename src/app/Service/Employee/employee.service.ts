@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,13 @@ export class EmployeeService {
   
     updateData(employee: any) {
       return this.httpClient.put(this.apiUrl + "/" + employee.id, employee)
+    }
+
+    getTotalEmployees(): Observable<number> {
+      return this.httpClient.get<number>(`${this.apiUrl}/total`);
+    }
+  
+    getNewEmployeesThisMonth(): Observable<number> {
+      return this.httpClient.get<number>(`${this.apiUrl}/month`);
     }
 }
