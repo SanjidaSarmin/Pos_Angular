@@ -19,24 +19,23 @@
           <th>Id</th>
           <th>Bundle Name</th>
           <th>Barcode</th>
-          <th>Vat</th>
           <th>Branch</th>
           <th>Stocks</th>
           <th>Quantity</th>
           <th>Sell Price</th>
           <th>Expired Date</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of bundleList">
           <td>{{ product.id }}</td>
-          <td>{{ product.name }}</td>
+          <td>{{ product.productName }}</td>
           <td>{{ product.barcode }}</td>
-          <td>{{ product.vat }}</td>
           <td>{{ product.branch }}</td>
           <td>{{ product.stockStatus }}</td>
           <td>{{ product.quantity }}</td>
-          <td>{{ product.sellPrice }}</td>
+          <td>{{ product.sellprice }}</td>
           <td>{{ product.expiredDate}}</td>
         
         </tr>
