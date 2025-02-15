@@ -33,6 +33,7 @@ import { CustomerListComponent } from './Components/Customer/customer-list/custo
 import { CustomerAddComponent } from './Components/Customer/customer-add/customer-add.component';
 import { CustomerEditComponent } from './Components/Customer/customer-edit/customer-edit.component';
 import { RoleManagementComponent } from './Components/Role/role-management/role-management.component';
+import { RoleEditComponent } from './Components/Role/role-edit/role-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainpage', pathMatch: 'full' },
@@ -77,8 +78,11 @@ const routes: Routes = [
   { path: "membershipAdd", component: CustomerAddComponent },
   { path: 'membershipEdit/:memberId', component: CustomerEditComponent },
 
-  { path: 'SalesDetails', component: SalesComponent},
   { path: 'role', component: RoleManagementComponent},
+  { path: 'roleEdit/:userName', component: RoleEditComponent},
+
+  { path: 'SalesDetails', component: SalesComponent},
+  
 ];
 
 @NgModule({

@@ -8,40 +8,37 @@
             <button class="add-role-btn">Add New Role</button>
         </div>
 
-        <table>
+        <table class="data-table">
             <thead>
                 <tr>
-                    <th>SI</th>
-                    <th>ROLE NAME</th>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Role</th>
+                    <th>Branch</th>
                     <th>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Branch Manager</td>
-                    <td>
-                        <button class="edit-btn">✏️</button>
-                        <button class="permissions-btn">Permissions</button>
-                    </td>
+                <tr *ngFor="let role of roleList">
+                  <td>{{ role.userName }}</td>
+                  <td>{{ role.userFirstName }}</td>
+                  <td>{{ role.userLastName }}</td>
+                  <td>{{ role.roles }}</td>
+                  <td>{{ role.branches }}</td>
+                  <td style="text-align: center;">
+                    <a [routerLink]="['/admin/roleEdit/', role.userName]">
+                      <button class="btn1">
+                        <img src="assets/pen.png" alt="Edit" class="icon">
+                      </button>
+                    </a>
+                    |
+                    <button class="btn1" (click)="delete(role.userName)">
+                      <img src="/assets/bin.png" alt="Delete" class="icon">
+                    </button>
+                  </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Branch Seller</td>
-                    <td>
-                        <button class="edit-btn">✏️</button>
-                        <button class="permissions-btn">Permissions</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>test branch role</td>
-                    <td>
-                        <button class="edit-btn">✏️</button>
-                        <button class="permissions-btn">Permissions</button>
-                    </td>
-                </tr>
-            </tbody>
+              </tbody>
         </table>
     </div>
     </div>

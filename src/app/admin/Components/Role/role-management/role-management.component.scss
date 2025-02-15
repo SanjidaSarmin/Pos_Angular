@@ -41,40 +41,77 @@ h2 {
     background-color: #6848d5;
 }
 
-table {
+.data-table {
     width: 100%;
     border-collapse: collapse;
-}
-
-thead {
-    background-color: #f1f1f1;
-}
-
-th, td {
-    padding: 12px;
+    font-size: 14px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-.edit-btn {
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    margin-top: 30px;
+  }
+  
+  .data-table th,
+  .data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .data-table th {
+    background-color: #289fa7;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .data-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .btn {
+    // display: inline-block;
+    background-color: transparent;
+    color:  #375f8a;
+    border: 1px solid #28578a;
+    border-radius: 4px;
+    padding: 8px 15px;
     cursor: pointer;
-    margin-right: 5px;
-}
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #375f8a;
+    color: #f7f7f7;
+  }
+  
+  
+  .product-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
 
-.permissions-btn {
-    background-color: #d0c0ff;
-    color: #5a32cc;
+  .btn1 {
+    background: none;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 0;
     cursor: pointer;
-}
-
-.permissions-btn:hover {
-    background-color: #b5a0ff;
-}
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  
+  .btn1:hover .icon {
+    filter: brightness(1.2);
+    background-color: #289fa7;
+  }
