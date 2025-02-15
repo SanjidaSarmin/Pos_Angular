@@ -22,6 +22,9 @@ export class ProductService {
     return this.httpClient.get(this.apiUrl)
   }
 
+  getAllDataByBranch(val: any) {
+    return this.httpClient.get(this.apiUrl+'/byBrunchId?branches='+val)
+  }
   getById(id: any) {
     return this.httpClient.get(this.apiUrl + "/" + id)
   }

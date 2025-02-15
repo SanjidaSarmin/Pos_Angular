@@ -8,6 +8,7 @@ import { SellService } from 'src/app/Service/Sell/sell.service';
 import { NotificationService } from 'src/app/Service/Notification/notification.service';
 import { FormControl } from '@angular/forms';
 import { CustomerService } from 'src/app/Service/Customer/customer.service';
+import { StorageService } from 'src/app/StorageService/storage.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -23,7 +24,9 @@ export class LandingPageComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private notificationService: NotificationService,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private store: StorageService
+
   ) { }
 
 
@@ -178,7 +181,8 @@ export class LandingPageComponent implements OnInit {
       this.categoryList = val;
     });
 
-    this.proService.getAllData().subscribe((val: any) => {
+    let branch2 = this.store.getUserBranches();
+    this.proService.getAllDataByBranch(branch2).subscribe((val: any) => {
       this.productList = val;
       this.productFiltered = [...this.productList];
     });

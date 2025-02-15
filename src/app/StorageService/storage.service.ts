@@ -55,9 +55,23 @@ export class StorageService {
       const userData = JSON.parse(user);
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(userData.jwtToken);
+      console.log(decodedToken);
+      
       return decodedToken.roles ? decodedToken.roles[0] : null;
   }
 
+  //branches
+  getUserBranches(): string | null {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (!user) return null;
+
+      const userData = JSON.parse(user);
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(userData.jwtToken);
+      console.log(decodedToken);
+      
+      return decodedToken.branches ? decodedToken.branches : null;
+  }
   public isLoggedIn(): boolean {
     const user = window.sessionStorage.getItem( USER_KEY);
     if (user) {
