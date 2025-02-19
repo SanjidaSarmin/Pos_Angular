@@ -181,11 +181,16 @@ export class LandingPageComponent implements OnInit {
       this.categoryList = val;
     });
 
-    let branch2 = this.store.getUserBranches();
-    this.proService.getAllDataByBranch(branch2).subscribe((val: any) => {
-      this.productList = val;
+    this.proService.getAllData().subscribe((val: any) => {
+        this.productList = val;
       this.productFiltered = [...this.productList];
     });
+
+    // let branch2 = this.store.getUserBranches();
+    // this.proService.getAllDataByBranch(branch2).subscribe((val: any) => {
+    //   this.productList = val;
+    //   this.productFiltered = [...this.productList];
+    // });
 
     this.notificationService.notifications$.subscribe(notifications => {
       this.notifications = notifications;
@@ -205,14 +210,6 @@ export class LandingPageComponent implements OnInit {
   }
 
   navigateToConfirmSale(type: string) {
-    let branchId = this.store.getUserBranches(); 
-    console.log("Branch ID before sending request:", branchId);
-
-    if (!branchId) {
-        console.error("Invalid Branch ID:", branchId);
-        this.notificationService.addNotification("Error: Invalid Branch ID.");
-        return;
-    }
     const saleData2 = {
       id: this.id,
       totalCost: this.totalCost,
@@ -226,21 +223,21 @@ export class LandingPageComponent implements OnInit {
     };
     const saleData = {
       customerPhone: this.customerPhone,
-      totalCost: this.totalCost,
-      paymentMethod: type,
-      discount: this.discount,
-      coupon: this.coupon,
-      tax: this.tax,
-      grandTotal: this.grandTotal,
-      saleItems: this.cartItems.map(item => ({
-        product: {
-          id: item.product.id
-        },
-        quantity: item.quantity,
-        price: item.product.sellPrice
-      })),
-      branchId: branchId
-    };
+    totalCost: this.totalCost,
+    paymentMethod: type,
+    discount: this.discount,
+    coupon: this.coupon,
+    tax: this.tax,
+    grandTotal: this.grandTotal,
+    saleItems: this.cartItems.map(item => ({
+      product: {
+        id: item.product.id
+      },
+      quantity: item.quantity,
+      price: item.product.sellPrice
+    }))
+  };
+
     this.customerService.getCustomerByPhone(this.customerPhone).subscribe((customer: any) => {
       if (customer) {
         if (customer.isMember) {
@@ -272,6 +269,9 @@ export class LandingPageComponent implements OnInit {
       this.router.navigate(['/employee/confirmPayment/', type, sellId]);
       // this.router.navigate(['/employee/confirmPayment/', { method: this.paymentMethod }]);
     })
+
+   
+    
   }
 
   checkCustomerMembership(phoneNumber: string) {

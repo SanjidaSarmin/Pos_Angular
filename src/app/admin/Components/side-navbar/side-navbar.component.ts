@@ -15,9 +15,13 @@ export class SideNavbarComponent implements OnInit {
   notifications: { message: string; time: Date }[] = [];
   isDropdownVisible: boolean = false;
 
-
   toggleDropdown(menuId: string): void {
     this.activeDropdown = this.activeDropdown === menuId ? null : menuId;
+  }
+  isSidebarClosed = false;
+
+  toggleSidebar() {
+    this.isSidebarClosed = !this.isSidebarClosed;
   }
 
   showDropdown() {
@@ -40,6 +44,6 @@ export class SideNavbarComponent implements OnInit {
   logout() {
     localStorage.clear();
     sessionStorage.clear();
-    window.location.href="/login";
-    }
+    window.location.href = "/login";
+  }
 }

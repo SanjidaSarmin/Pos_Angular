@@ -1,16 +1,18 @@
-<!-- Sidebar and Main Content Layout (to be used across all pages) -->
-
-<!-- Sidebar -->
 <div class="dashboard-container">
-    <div class="sidebar">
-      <h2>Menu</h2>
-      <ul class="sidebar-menu">
-        <li>
-          <a routerLink="/admin/mainpage">
-            <img src="assets/dashboard.png" alt="Dashboard Icon" class="menu-icon1">
-            Main Dashboard
-          </a>
-        </li>
+  <div class="sidenav" [class.closed]="isSidebarClosed">
+    <div class="sidenav-header">
+      <h3>Admin</h3>
+      <span class="menu-icon" (click)="toggleSidebar()">
+        <i class="fas" [class.fa-bars]="isSidebarClosed" [class.fa-times]="!isSidebarClosed"></i>
+      </span>
+    </div>
+    <ul class="sidebar-menu">
+      <li>
+        <a routerLink="/admin/mainpage">
+          <img src="assets/dashboard.png" alt="Dashboard Icon" class="menu-icon1">
+          Main Dashboard
+        </a>
+      </li>
         
   
         <li class="nav-item">
@@ -81,41 +83,33 @@
   
       <hr>
   
-      <!-- Profile Section -->
-      <div class="profile">
-        <img src="/assets/admin.png" alt="Admin Profile">
-        <div class="info">
-          <p>Admin</p>
-          <a (click)="logout()">Logout</a>
-        </div>
+     <!-- Profile Section -->
+    <div class="profile">
+      <img src="/assets/admin.png" alt="Admin Profile">
+      <div class="info">
+        <p>Admin</p>
+        <a (click)="logout()">Logout</a>
       </div>
     </div>
-    <!-- Header Section -->
-    <div class="header-section">
+  </div>
+
+  <!-- Header Section -->
+  <div class="main-content1" [class.full-width]="isSidebarClosed">
+    <div class="main-section">
       <div class="header-buttons">
+        <span class="menu-icon" *ngIf="isSidebarClosed" (click)="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </span>
         <button class="header-btn wings-btn">
           <i class="fa fa-paper-plane"></i> Wings
         </button>
-        <button class="header-btn balance-btn">
-          <i class="fa fa-dollar-sign"></i> Balance
+
+        <button class="header-btn sell-btn" routerLink="/admin/main">
+          <i class="fa fa-database menu-icon"></i> Stock
         </button>
-  
-        <button class="header-btn sell-btn" routerLink="/sell">
-          <i class="fa fa-shopping-cart"></i> SELL
-        </button>
-  
+
       </div>
       <div class="header-support1">
-        <!-- Branch Dropdown -->
-        <div class="branch-dropdown">
-          <select name="branch" id="branch-select">
-            <option value="" disabled selected>Select Branch</option>
-            <option value="branch1">Branch 1</option>
-            <option value="branch2">Branch 2</option>
-            <option value="branch3">Branch 3</option>
-          </select>
-        </div>
-  
         <div class="notification-icon" (click)="showDropdown()" aria-label="Notifications" role="button">
           <i class="fa fa-bell"></i>
           <span class="notification-badge" *ngIf="notificationsCount > 0"
@@ -136,29 +130,33 @@
             </li>
           </ul>
         </div>
-  
+
+
+        <div class="branch-dropdown">
+          <select name="branch" id="branch-select">
+            <option value="" disabled selected>Select Branch</option>
+            <option value="branch1">Branch</option>
+            <option value="branch2">Gowdown</option>
+          </select>
+        </div>
+
+
+
         <!-- Admin Dropdown with Icon -->
         <div class="user-dropdown">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user"></i> Admin
           <div class="dropdown-menu">
             <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
             <a (click)="logout()"><i class="fa fa-sign-out-alt"></i> Logout</a>
           </div>
         </div>
       </div>
-  
-  
-  
-      <!-- Main Content (dynamically loaded content via Angular Router) -->
-      <div class="main-content">
-        <router-outlet></router-outlet>
-      </div>
     </div>
-  
-  
-    <script>
-      function toggleDropdown(menuId) {
-        const submenu = document.getElementById(menuId);
-        submenu.classList.toggle('show');
-      }
-    </script>
+
+
+
+    <!-- Main Content (dynamically loaded content via Angular Router) -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
