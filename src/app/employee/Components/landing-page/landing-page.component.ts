@@ -205,6 +205,14 @@ export class LandingPageComponent implements OnInit {
   }
 
   navigateToConfirmSale(type: string) {
+    let branchId = this.store.getUserBranches(); 
+    console.log("Branch ID before sending request:", branchId);
+
+    if (!branchId) {
+        console.error("Invalid Branch ID:", branchId);
+        this.notificationService.addNotification("Error: Invalid Branch ID.");
+        return;
+    }
     const saleData2 = {
       id: this.id,
       totalCost: this.totalCost,
@@ -230,7 +238,8 @@ export class LandingPageComponent implements OnInit {
         },
         quantity: item.quantity,
         price: item.product.sellPrice
-      }))
+      })),
+      branchId: branchId
     };
     this.customerService.getCustomerByPhone(this.customerPhone).subscribe((customer: any) => {
       if (customer) {
