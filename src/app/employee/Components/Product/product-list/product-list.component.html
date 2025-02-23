@@ -19,7 +19,7 @@
               <button class="btn" (click)="searchProduct()">Search</button>
             </div>
             <ul *ngIf="filteredProducts.length > 0" class="autocomplete-list">
-              <li *ngFor="let product of filteredProducts" (click)="selectProduct(product)" class="autocomplete-item">
+              <li *ngFor="let product of filteredProducts" (click)="searchProduct()" class="autocomplete-item">
                 {{ product.name }}
               </li>
             </ul>

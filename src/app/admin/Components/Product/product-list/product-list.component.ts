@@ -61,24 +61,35 @@ export class ProductListComponent implements OnInit {
  
 
   productNameControl = new FormControl('');
-      selectedProduct: string = ''; 
-      selectedProducts: any[] = [];
-      filteredProducts: any[] = [];
-      paginatedProducts: any[] = [];
-      currentPage = 1;
-      itemsPerPage: number = 10;
+    selectedProduct: string = ''; 
+    selectedProducts: any[] = [];
+    filteredProducts: any[] = [];
+    paginatedProducts: any[] = [];
+    itemsPerPage: number = 10;
+    currentPage: number = 0;
+   totalItems: number = 0;
+   totalPages: number = 1;
+   pageSize: number = 10;
 
-searchProduct(): void {
+
+    searchProduct(): void {
       const searchTerm = this.productNameControl.value?.trim();
       if (!searchTerm) {
         alert('Please enter a product name to search.');
         return;
       }
-      this.proService.searchProduct(searchTerm).subscribe((val: any) => {
-        this.productList = val;
-        this.currentPage = 1; // Reset to the first page
-        this.updatePaginatedProducts(); // Update the displayed products
+      this.proService.searchProduct(this.productNameControl.value || "", this.currentPage, this.pageSize).subscribe((val: any) => {
+        console.log(val); 
+        this.productList = val.content || []; 
+        this.totalItems = val.totalElements || 0; 
+        this.totalPages = val.totalPages || 1;
+        this.updatePaginatedProducts(); 
       });
+      // this.proService.searchProduct(searchTerm).subscribe((val: any) => {
+      //   this.productList = val;
+      //   this.currentPage = 1; // Reset to the first page
+      //   this.updatePaginatedProducts(); // Update the displayed products
+      // });
     }
     updatePaginatedProducts(): void {
       const start = (this.currentPage - 1) * this.itemsPerPage;

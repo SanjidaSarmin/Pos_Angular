@@ -37,9 +37,16 @@ export class ProductService {
     return this.httpClient.put(this.apiUrl + "/" + product.id, product)
   }
 
-  searchProduct(searchText: string) {
-    return this.httpClient.get(this.apiUrl + "/search?keyword=" + searchText);
+  searchProduct(name: string, page: number, size: number) {
+    const params = {
+      name: name || '', 
+      page: page.toString(),
+      size: size.toString(),
+    };
+  
+    return this.httpClient.get<any>(`${this.apiUrl}/search`, { params });
   }
+  
 
   getLowStockProducts(){
     return this.httpClient.get(this.apiUrl + "/lowstock");

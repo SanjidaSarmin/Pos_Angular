@@ -30,37 +30,62 @@ export class ProductListComponent implements OnInit {
     selectedProducts: any[] = [];
     filteredProducts: any[] = [];
     paginatedProducts: any[] = [];
-    currentPage = 1;
     itemsPerPage: number = 10;
+    currentPage: number = 0;
+   totalItems: number = 0;
+   totalPages: number = 1;
+   pageSize: number = 10;
 
 
-    searchProduct(): void {
-      const searchTerm = this.productNameControl.value?.trim();
-      if (!searchTerm) {
-        alert('Please enter a product name to search.');
-        return;
+   searchProduct(): void {
+    const searchTerm = this.productNameControl.value?.trim();
+    if (!searchTerm) {
+      alert('Please enter a product name to search.');
+      return;
+    }
+  
+    this.proService.searchProduct(searchTerm, this.currentPage, this.pageSize).subscribe(
+      (val: any) => {
+        if (val && val.content) {
+          this.productList = val.content;
+          this.totalItems = val.totalElements;
+          this.totalPages = val.totalPages;
+  
+          // Ensure pagination works correctly
+          this.currentPage = 1; // Reset to first page
+          this.updatePaginatedProducts();
+        } else {
+          this.productList = [];
+          this.totalItems = 0;
+          this.totalPages = 1;
+          this.paginatedProducts = [];
+          console.error('Unexpected API response:', val);
+        }
+      },
+      (error) => {
+        console.error('Error fetching products:', error);
+        alert('Failed to fetch products. Please try again.');
       }
-      this.proService.searchProduct(searchTerm).subscribe((val: any) => {
-        this.productList = val;
-        this.currentPage = 1; // Reset to the first page
-        this.updatePaginatedProducts(); // Update the displayed products
-      });
-    }
-    updatePaginatedProducts(): void {
-      const start = (this.currentPage - 1) * this.itemsPerPage;
-      this.paginatedProducts = this.productList.slice(start, start + this.itemsPerPage);
-    }
+    );
+  }
+  updatePaginatedProducts(): void {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    this.paginatedProducts = this.productList.slice(start, start + this.itemsPerPage);
+  }
+  
 
-    filterProducts() {
-      const input = this.productNameControl.value?.toLowerCase() || '';
-      if (input.trim() === '') {
-        this.filteredProducts = [];
-      } else {
-        this.filteredProducts = this.productList.filter((product) =>
-          product.name.toLowerCase().includes(input)
-        );
-      }
+  filterProducts() {
+    const input = this.productNameControl.value?.toLowerCase().trim() || '';
+    
+    if (!input) {
+      this.filteredProducts = [];
+    } else {
+      this.filteredProducts = this.productList?.filter(product => 
+        product.name.toLowerCase().includes(input)
+      ) || [];
     }
+  }
+  
   
     
     selectProduct(product: any) {
