@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
 export class SellItemService {
  constructor(private httpClient: HttpClient) { }
  
-   private apiUrl = "http://localhost:8081/downloadInvoice";
+  //  private apiUrl = "http://localhost:8081/downloadInvoice";
+  private apiUrl = apiurl+"/downloadInvoice";
  
    addData(itemData: any){
      return this.httpClient.post(this.apiUrl, itemData)

@@ -9,8 +9,8 @@ export class EmployeeService {
 
    constructor(private httpClient: HttpClient) { }
   
-    private apiUrl = "http://localhost:8081/api/employee";
-    // private apiUrl = "http://localhost:3000/products";
+    // private apiUrl = "http://localhost:8081/api/employee";
+    private apiUrl = apiurl+"/api/employee";
   
     addData(employee: any) {
       return this.httpClient.post(this.apiUrl, employee)

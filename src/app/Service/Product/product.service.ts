@@ -11,8 +11,8 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private apiUrl = "http://localhost:8081/api/product";
-  // private apiUrl = "http://localhost:3000/products";
+  // private apiUrl = "http://localhost:8081/api/product";
+  private apiUrl = apiurl+"/api/product";
 
   addData(product: any) {
     return this.httpClient.post(this.apiUrl, product)

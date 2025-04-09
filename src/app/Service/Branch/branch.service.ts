@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class BranchService {
   constructor(private httpClient: HttpClient) { }
   
-  private apiUrl = "http://localhost:8081/api/branch";
- 
+  // private apiUrl = "http://localhost:8081/api/branch";
+  private apiUrl = apiurl+"/api/branch";
   addData(branch : any){
     return this.httpClient.post(this.apiUrl, branch)
   }

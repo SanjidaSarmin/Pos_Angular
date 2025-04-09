@@ -9,7 +9,8 @@ export class DamageService {
 
 constructor(private httpClient: HttpClient) { }
 
-  private apiUrl = "http://localhost:8081/api/damage";
+  // private apiUrl = "http://localhost:8081/api/damage";
+  private apiUrl = apiurl+"/api/damage";
 
   addData(damage : any){
     return this.httpClient.post(this.apiUrl, damage)

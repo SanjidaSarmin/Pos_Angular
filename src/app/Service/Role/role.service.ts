@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class RoleService {
 constructor(private httpClient: HttpClient) { }
   
-    private apiUrl = "http://localhost:8081/api/users";
-    // private apiUrl = "http://localhost:3000/products";
+    // private apiUrl = "http://localhost:8081/api/users";
+    private apiUrl = apiurl+"/api/users";
   
     addData(role: any) {
       return this.httpClient.post(this.apiUrl, role)

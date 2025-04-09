@@ -9,8 +9,8 @@ export class SuppliersService {
  
 constructor(private httpClient: HttpClient) { }
  
-   private apiUrl = "http://localhost:8081/api/supplier";
- 
+  //  private apiUrl = "http://localhost:8081/api/supplier";
+  private apiUrl = apiurl+"/api/supplier";
    addData(supplier : any){
      return this.httpClient.post(this.apiUrl, supplier)
    }

@@ -8,7 +8,8 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private apiUrl = "http://localhost:8081/api/auth/signup";
+  // private apiUrl = "http://localhost:8081/api/auth/signup";
+  private apiUrl = apiurl+"/api/auth/signup";
   addData(user: any) {
     return this.httpClient.post(this.apiUrl, user)
   } 

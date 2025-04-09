@@ -9,8 +9,8 @@ export class ReturnService {
 
  constructor(private httpClient: HttpClient) { }
  
-   private apiUrl = "http://localhost:8081/api/returns";
-  //  private apiUrl = "http://localhost:3000/promotions";
+  //  private apiUrl = "http://localhost:8081/api/returns";
+  private apiUrl = apiurl+"/api/returns";
  
    addData(returnData: any){
      return this.httpClient.post(this.apiUrl, returnData)

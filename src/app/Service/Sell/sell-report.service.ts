@@ -9,7 +9,8 @@ export class SellReportService {
 
   constructor(private httpClient: HttpClient) { }
   
-    private apiUrl = "http://localhost:8081/api/salesreports";
+    // private apiUrl = "http://localhost:8081/api/salesreports";
+    private apiUrl = apiurl+"/api/salesreports";
   
     addData(sellsreport: any){
       return this.httpClient.post(this.apiUrl, sellsreport)

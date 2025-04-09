@@ -10,7 +10,8 @@ export class OfferService {
 
  constructor(private httpClient: HttpClient) { }
  
-   private apiUrl = "http://localhost:8081/api/promotions";
+  //  private apiUrl = "http://localhost:8081/api/promotions";
+  private apiUrl = apiurl+"/api/promotions";
  
    addData(offer : any){
      return this.httpClient.post(this.apiUrl, offer)

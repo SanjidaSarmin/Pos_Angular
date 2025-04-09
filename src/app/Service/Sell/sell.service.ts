@@ -9,7 +9,8 @@ export class SellService {
 
   constructor(private httpClient: HttpClient) { }
   
-    private apiUrl = "http://localhost:8081/api/sells";
+    // private apiUrl = "http://localhost:8081/api/sells";
+    private apiUrl = apiurl+"/api/sells";
   
     addData(sellsData: any){
       return this.httpClient.post(this.apiUrl, sellsData)

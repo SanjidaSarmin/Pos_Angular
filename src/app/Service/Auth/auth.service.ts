@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-const AUTH_API = 'https://e9ac-103-4-117-150.ngrok-free.app/api/auth/';
+const AUTH_API = apiurl+'/api/auth/';
 
 
 const httpOptions = {

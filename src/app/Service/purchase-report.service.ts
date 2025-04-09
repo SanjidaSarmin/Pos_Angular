@@ -8,7 +8,9 @@ export class PurchaseReportService {
 
    constructor(private httpClient: HttpClient) { }
    
-   private apiUrl = 'http://localhost:8081/purchase/download';
+  //  private apiUrl = 'http://localhost:8081/purchase/download';
+  private apiUrl = apiurl+"/purchase/download";
+  
    generateReport(purchaseId: number, format: string) {
     const url = `${this.apiUrl}?format=${format}&purchaseId=${purchaseId}`;
     return this.httpClient.get(url, { responseType: 'blob' });

@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class BundleService {
 
-  private apiUrl = "http://localhost:8081/api/bundleProduct";
+  // private apiUrl = "http://localhost:8081/api/bundleProduct";
+  private apiUrl = apiurl+"/api/bundleProduct";
   constructor(private httpClient: HttpClient) { }
 
   addData(bundle : any){

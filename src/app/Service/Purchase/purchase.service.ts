@@ -10,9 +10,8 @@ export class PurchaseService {
 
    constructor(private httpClient: HttpClient) { }
   
-    private apiUrl = "http://localhost:8081/api/purchase";
-    // private apiUrl = "http://localhost:3000/products";
-  
+    // private apiUrl = "http://localhost:8081/api/purchase";
+    private apiUrl = apiurl+"/api/purchase";
     addData(purchase: any) {
       return this.httpClient.post(this.apiUrl, purchase)
     }
