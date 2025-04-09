@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class SellService {
   constructor(private httpClient: HttpClient) { }
   
     // private apiUrl = "http://localhost:8081/api/sells";
-    private apiUrl = apiurl+"/api/sells";
+    private apiUrl = environment.apiUrl+"/api/sells";
   
     addData(sellsData: any){
       return this.httpClient.post(this.apiUrl, sellsData)

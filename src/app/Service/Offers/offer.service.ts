@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class OfferService {
  constructor(private httpClient: HttpClient) { }
  
   //  private apiUrl = "http://localhost:8081/api/promotions";
-  private apiUrl = apiurl+"/api/promotions";
+  private apiUrl = environment.apiUrl+"/api/promotions";
  
    addData(offer : any){
      return this.httpClient.post(this.apiUrl, offer)

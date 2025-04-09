@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class DamageService {
 constructor(private httpClient: HttpClient) { }
 
   // private apiUrl = "http://localhost:8081/api/damage";
-  private apiUrl = apiurl+"/api/damage";
+
+  private apiUrl = environment.apiUrl+"/api/damage";
 
   addData(damage : any){
     return this.httpClient.post(this.apiUrl, damage)

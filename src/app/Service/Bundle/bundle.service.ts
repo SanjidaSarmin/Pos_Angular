@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,9 @@ import { Injectable } from '@angular/core';
 export class BundleService {
 
   // private apiUrl = "http://localhost:8081/api/bundleProduct";
-  private apiUrl = apiurl+"/api/bundleProduct";
+
+  private apiUrl = environment.apiUrl+"/api/bundleProduct";
+
   constructor(private httpClient: HttpClient) { }
 
   addData(bundle : any){

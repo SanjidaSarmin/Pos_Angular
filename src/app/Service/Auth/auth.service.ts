@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-const AUTH_API = apiurl+'/api/auth/';
-
+// const AUTH_API = 'https://47fa-103-4-117-150.ngrok-free.app/api/auth/';
+const AUTH_API = environment.apiUrl+'/api/auth/';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' , 'ngrok-skip-browser-warning': 'true' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
 
 @Injectable({

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class SellItemService {
  constructor(private httpClient: HttpClient) { }
  
   //  private apiUrl = "http://localhost:8081/downloadInvoice";
-  private apiUrl = apiurl+"/downloadInvoice";
+  private apiUrl = environment.apiUrl+"/downloadInvoice";
  
    addData(itemData: any){
      return this.httpClient.post(this.apiUrl, itemData)

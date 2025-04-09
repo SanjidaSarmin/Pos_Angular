@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/Models/Product';
 
@@ -12,7 +13,9 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   // private apiUrl = "http://localhost:8081/api/product";
-  private apiUrl = apiurl+"/api/product";
+  private apiUrl = environment.apiUrl+"/api/product";
+  // private apiUrl = "https://47fa-103-4-117-150.ngrok-free.app/api/product";
+
 
   addData(product: any) {
     return this.httpClient.post(this.apiUrl, product)
