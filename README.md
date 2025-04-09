@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+(Get-Content src/index.html) -replace '<base href="/"', '<base href="/Pos_Angular/"' | Set-Content src/index.html
+
+ng build --base-href /Pos_Angular/
+
+npx angular-cli-ghpages --dir=dist
+
+(Get-Content src/index.html) -replace '<base href="/Pos_Angular/"', '<base href="/"' | Set-Content src/index.html
