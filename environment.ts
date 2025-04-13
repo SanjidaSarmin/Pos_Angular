@@ -5,8 +5,8 @@ var apiurl1="http://localhost:8081"
 
 export const environment = {
     production: false,
-    apiUrl: "https://loosely-amazed-cockatoo.ngrok-free.app"
-    // apiurl="http://localhost:8081"
+    // apiUrl: "https://loosely-amazed-cockatoo.ngrok-free.app"
+    apiUrl: "http://localhost:8081"
   };
   
   
